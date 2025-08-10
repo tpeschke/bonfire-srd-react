@@ -14,6 +14,7 @@ import cors from 'cors'
 import path from 'path'
 
 import { server } from './server-config'
+import rulesGuideRoutes from './controllers/rulesGuide/rulesGuideRoutes'
 
 // import { Response, Request } from './interfaces/apiInterfaces'
 
@@ -22,6 +23,8 @@ app.use(bodyParser.json({ limit: '10mb' }))
 app.use(cors())
 
 // ================================== \\
+
+app.use('/rulesGuide', rulesGuideRoutes)
 
 app.use(express.static(__dirname + `/../../app/dist`));
 // app.get('/*', (request: Request, response: Response) => {

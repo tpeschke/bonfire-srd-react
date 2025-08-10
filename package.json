@@ -10,9 +10,11 @@
     "replace": "npm run replace-server",
     "replace-server": "replace-in-file --configFile=replaceScripts/replace-server.json --verbose",
     "lint": "eslint .",
-    "server": "npx tsx backend/server/srd.ts"
+    "server": "npx tsx backend/srd.ts"
   },
   "dependencies": {
+    "@mdx-js/react": "^3.1.0",
+    "axios": "^1.11.0",
     "body-parser": "^2.2.0",
     "cors": "^2.8.5",
     "express": "^5.1.0",
