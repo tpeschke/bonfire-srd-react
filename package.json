@@ -10,10 +10,14 @@
     "replace": "npm run replace-server",
     "replace-server": "replace-in-file --configFile=replaceScripts/replace-server.json --verbose",
     "lint": "eslint .",
-    "server": "npx tsx backend/srd.ts"
+    "server": "npx tsx backend/server/srd.ts"
   },
+  "workspaces": [
+    "app",
+    "backend/**/*"
+  ],
   "dependencies": {
-    "@mdx-js/react": "^3.1.0",
+    "@reduxjs/toolkit": "^2.8.2",
     "axios": "^1.11.0",
     "body-parser": "^2.2.0",
     "cors": "^2.8.5",
@@ -26,6 +30,9 @@
     "pg": "^8.16.3",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
+    "react-markdown": "^10.1.0",
+    "react-redux": "^9.2.0",
+    "react-router-dom": "^7.8.0",
     "replace-in-file": "^8.3.0"
   },
   "devDependencies": {
