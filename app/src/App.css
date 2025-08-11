@@ -1,0 +1,6 @@
+.content-body-shell {
+    width: 1440px;
+    margin: 15px auto 0;
+    display: flex;
+    justify-content: space-between;
+}

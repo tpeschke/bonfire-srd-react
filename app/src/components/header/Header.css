@@ -1,0 +1,19 @@
+.header-shell {
+    max-width: 1390px;
+    margin: 0 auto;
+    background: black;
+    display: flex;
+    padding: 25px
+}
+
+.header-shell h1, .header-shell p, .header-shell i {
+    color: white;
+}
+
+.header-shell i:hover {
+    color: #b45f06
+}
+
+.header-shell h1 {
+    margin-right: auto;
+}

@@ -1,3 +1,4 @@
+import './ContentDisplay.css'
 import { MarkdownContent, ComponentContent } from "@srd/common/interfaces/ChapterInterfaces";
 import Markdown from "react-markdown";
 import InlineDisplay from "./InlineDisplay";
@@ -7,13 +8,17 @@ interface Props {
 }
 
 export default function ContentDisplay({ contents }: Props) {
-    return contents.reduce((displayedContent: any[], content: MarkdownContent | ComponentContent) => {
-        if (content.type === 'markdown') {
-            displayedContent.push(<Markdown>{content.body}</Markdown>)
-        } else if (content.type === 'component') {
-            displayedContent.push(<InlineDisplay componentInfo={content} />)
-        }
-        
-        return displayedContent
-    }, [])
+    return (
+        <div className="content-display-shell">
+            {contents.reduce((displayedContent: any[], content: MarkdownContent | ComponentContent) => {
+                if (content.type === 'markdown') {
+                    displayedContent.push(<Markdown key={displayedContent.length}>{content.body}</Markdown>)
+                } else if (content.type === 'component') {
+                    displayedContent.push(<InlineDisplay key={displayedContent.length} componentInfo={content} />)
+                }
+
+                return displayedContent
+            }, [])}
+        </div>
+    )
 }

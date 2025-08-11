@@ -1,0 +1,8 @@
+.chapter-navigate-shell {
+    width: 306px;
+    margin-right: 15px;
+    display: flex;
+    flex-direction: column;
+    background: #00000025;
+    padding: 15px;
+}
