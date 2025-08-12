@@ -30,7 +30,7 @@ export default function ChapterNavigate() {
                 const routePath = `/rules/${index + 1}`
                 return <Link key={index} to={routePath} className={routePath === currentRoute ? 'active-route' : ''}><h2>{index + 1} {route}</h2></Link>
             })}
-            <h1>Players Guide</h1>
+            <h1 className='player-heading'>Players Guide</h1>
             {playerRoutes.map((route, index) => {
                 const routePath = `/player/${index + 1}`
                 return <Link key={index} to={routePath} className={routePath === currentRoute ? 'active-route' : ''}><h2>{index + 1} {route}</h2></Link>

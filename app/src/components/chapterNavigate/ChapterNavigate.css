@@ -3,8 +3,7 @@
     margin-right: 15px;
     display: flex;
     flex-direction: column;
-    background: #00000025;
-    padding: 15px;
+    padding: 0 15px;
 }
 
 .chapter-navigate-shell h1, .chapter-navigate-shell h2 {
@@ -12,10 +11,13 @@
 }
 
 .chapter-navigate-shell h1 {
-    font-size: 18px;
     padding: 5px 0 5px;
     margin-bottom: 5px;
     border-bottom: 2px solid gray;;
+}
+
+.player-heading  {
+    margin-top: 5px;
 }
 
 .chapter-navigate-shell h2 {
