@@ -6,14 +6,14 @@
     padding: 25px
 }
 
-.header-shell h1, .header-shell p, .header-shell i {
+.header-shell a {
     color: white;
 }
 
-.header-shell i:hover {
+.header-shell a:hover {
     color: #b45f06
 }
 
-.header-shell h1 {
+.header-shell a:first-child {
     margin-right: auto;
 }
