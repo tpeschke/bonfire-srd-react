@@ -13,7 +13,7 @@ export interface ComponentContent extends ChapterContent {
 }
 
 export interface ChapterContentsReturn {
-    book: 'rules' | 'players',
+    book: 'rules' | 'player',
     chapter: number,
     chapterContents: (MarkdownContent | ComponentContent)[]
 }
