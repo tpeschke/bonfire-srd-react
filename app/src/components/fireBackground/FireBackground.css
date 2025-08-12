@@ -1,0 +1,53 @@
+.fire-background-shell {
+    position: absolute;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.fire-container {
+    position: absolute;
+    bottom: -30px;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: space-around;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.flame {
+    width: 15px;
+    height: 15px;
+    background: var(--accent);
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    position: absolute;
+    bottom: -10px;
+    filter: blur(3px);
+    opacity: 0;
+    transform: translateY(0) scale(0.5);
+    animation: flameAnimation 2s infinite ease-out;
+}
+
+@keyframes flameAnimation {
+    0% {
+        transform: translateY(0) scale(0.5);
+        opacity: 0;
+    }
+
+    30% {
+        opacity: 0.8;
+    }
+
+    60% {
+        opacity: 0.4;
+    }
+
+    100% {
+        transform: translateY(-100vh) scale(0);
+        opacity: 0;
+    }
+}

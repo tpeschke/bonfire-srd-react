@@ -1,5 +1,6 @@
 import './App.css'
 import ChapterNavigate from './components/chapterNavigate/ChapterNavigate'
+import FireBackground from './components/fireBackground/FireBackground'
 import Header from './components/header/Header'
 
 import AllRoutes from './routes/AllRoutes'
@@ -12,6 +13,7 @@ function App() {
         <ChapterNavigate />
         <AllRoutes />
       </div>
+      <FireBackground />
     </div>
   )
 }
