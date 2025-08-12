@@ -1,5 +1,5 @@
 .chapter-navigate-shell {
-    width: 306px;
+    min-width: 306px;
     margin-right: 15px;
     display: flex;
     flex-direction: column;
