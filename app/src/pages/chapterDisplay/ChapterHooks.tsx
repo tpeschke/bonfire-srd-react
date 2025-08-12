@@ -2,7 +2,7 @@ import { ChapterContentsReturn } from "@srd/common/interfaces/ChapterInterfaces"
 import axios from "axios"
 import { useState, useEffect } from "react"
 import { chapterURL } from '../../frontend-config.ts'
-import { useParams } from "react-router-dom"
+import { useParams, useLocation } from "react-router-dom"
 
 interface ChapterHookReturn {
     chapter: ChapterContentsReturn | null
@@ -10,16 +10,19 @@ interface ChapterHookReturn {
 
 export default function ChapterHook(): ChapterHookReturn { 
     const [chapter, setChapter] = useState<ChapterContentsReturn | null>(null)
+    const [currentRoute, setCurrentRoute] = useState<string | null>(null)
 
-    const { chapterNumber } = useParams()
+    const location = useLocation();
 
     useEffect(() => {
-        if (chapter?.chapter !== chapterNumber) {
-            axios.get(chapterURL + chapterNumber).then(({data}) => {
+        if (location.pathname !== currentRoute) {
+            const [_, book, chapterNumber] = location.pathname.split('/')
+            axios.get(chapterURL + `${book}.${chapterNumber}`).then(({data}) => {
+                setCurrentRoute(location.pathname)
                 setChapter(data)
             })
         }
-    }, [chapterNumber])
+    }, [location])
 
     return {
         chapter

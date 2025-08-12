@@ -4,17 +4,17 @@ import { checkForContentTypeBeforeSending } from '../common/utilities/sendingFun
 
 interface ChapterRequest extends Request {
     params: {
-        chapterNumber: string
+        code: string
     }
 }
 
 export async function getChapter(request: ChapterRequest, response: Response) {
-    const chapterNumber = request.params.chapterNumber
+    const [book, chapter] = request.params.code.split('.')
 
     const chapterContents: (MarkdownContent | ComponentContent)[] = [
         {
             type: 'markdown',
-            body: `# Chapter ${chapterNumber} 
+            body: `# Chapter ${chapter} in the ${book}
             The beginning`
         },
         {
@@ -27,5 +27,5 @@ export async function getChapter(request: ChapterRequest, response: Response) {
         }
     ]
 
-    checkForContentTypeBeforeSending(response, { book: 'rules', chapter: 1, chapterContents })
+    checkForContentTypeBeforeSending(response, { book, chapter, chapterContents })
 }

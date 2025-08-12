@@ -5,6 +5,6 @@ import { getChapter } from './rulesGuideController'
 
 const rulesGuideRoutes = express.Router()
 
-rulesGuideRoutes.get('/:chapterNumber', getChapter)
+rulesGuideRoutes.get('/:code', getChapter)
 
 export default rulesGuideRoutes

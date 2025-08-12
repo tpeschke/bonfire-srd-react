@@ -16,6 +16,11 @@ export default function AllRoutes() {
                     <ChapterDisplay />
                 </Loading>
             } />
+            <Route path='rules/:chapterNumber' element={
+                <Loading>
+                    <ChapterDisplay />
+                </Loading>
+            } />
         </Routes>
     )
 }
