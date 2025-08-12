@@ -1,5 +1,5 @@
 import { ComponentContent } from "@srd/common/interfaces/ChapterInterfaces";
-import CharacteristicGenerator from "../inlineComponents/CharacteristicGenerator";
+import CharacteristicGenerator from "./inlineComponents/CharacteristicGenerator";
 
 interface Props {
     componentInfo: ComponentContent

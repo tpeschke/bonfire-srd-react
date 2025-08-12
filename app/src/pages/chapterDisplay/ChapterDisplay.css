@@ -6,7 +6,13 @@
 
 .inner-nav-shell {
     min-width: 240px;
-    background: #00000025;
     margin-left: 15px;
     padding: 15px;
+}
+
+.inner-nav-shell h1 {
+    color: white;
+    padding: 5px 0 5px;
+    margin-bottom: 5px;
+    border-bottom: 2px solid gray;;
 }

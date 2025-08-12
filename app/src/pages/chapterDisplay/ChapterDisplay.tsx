@@ -22,7 +22,7 @@ export default function ChapterDisplay({ setLoading, pathname }: Props) {
         <div className='chapter-display-shell'>
             {chapter && <ContentDisplay contents={chapter.chapterContents} />}
             <div className='inner-nav-shell'>
-                Inner Chapter Nav
+                <h1>In This Chapter</h1>
             </div>
         </div>
     )
