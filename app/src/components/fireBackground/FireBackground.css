@@ -7,6 +7,13 @@
     z-index: -1;
 }
 
+.texturing {
+    background-image: url(/src/assets/images/background.png);
+    background-repeat: repeat;
+    opacity: .25;
+    height: 100vh;
+}
+
 .fire-container {
     position: absolute;
     bottom: -30px;

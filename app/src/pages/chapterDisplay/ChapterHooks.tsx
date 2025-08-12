@@ -19,7 +19,7 @@ export default function ChapterHook(pathname: string): ChapterHookReturn {
                 setChapter(data)
             })
         }
-    }, [location])
+    }, [pathname])
 
     return {
         chapter

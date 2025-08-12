@@ -23,6 +23,7 @@ export default function FireBackground() {
 
     return (
         <div className="fire-background-shell">
+            <div className='texturing'></div>
             <div className="fire-container" id="headerFire">
                 {[...Array(200).keys()].map((_, index) => {
                     return <div key={index} className='flame' style={createFlameStylings()}></div>
