@@ -6,3 +6,27 @@
     background: #00000025;
     padding: 15px;
 }
+
+.chapter-navigate-shell h1, .chapter-navigate-shell h2 {
+    color: white;
+}
+
+.chapter-navigate-shell h1 {
+    font-size: 18px;
+    padding: 5px 0 5px;
+    margin-bottom: 5px;
+    border-bottom: 2px solid gray;;
+}
+
+.chapter-navigate-shell h2 {
+    text-indent: 20px;
+    padding: 5px;
+}
+
+.chapter-navigate-shell h2:hover {
+    color: #b45f06
+}
+
+.active-route h2 {
+    border-left: 2px solid #b45f06;
+}

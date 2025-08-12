@@ -92,15 +92,14 @@ table {
 	border-spacing: 0;
 }
 
-h1, h2 {
+h1 {
 	font-family: 'HamletOrNot';
+	letter-spacing: 2px;
 }
 
 h2 {
-	color: #795548;
-	font-size: 16px;
-	font-weight: 600;
 	letter-spacing: 2px;
+    font-family: 'oldClaude';
 }
 
 h2.border {
@@ -153,11 +152,11 @@ strong {
 a, .fake-link {
 	text-decoration: none;
 	cursor: pointer;
-	color: #41555f;
+	color: white;
 }
 
 a:hover, .fake-link:hover {
-	color: #607d8b;
+	color: #b45f06;
 }
 
 .italic {
