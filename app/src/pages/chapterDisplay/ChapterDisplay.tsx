@@ -5,11 +5,12 @@ import ChapterHook from './ChapterHooks'
 import ContentDisplay from './contentDisplay/ContentDisplay'
 
 interface Props {
-    setLoading?: SetLoadingFunction
+    setLoading?: SetLoadingFunction,
+    pathname: string
 }
 
-export default function ChapterDisplay({ setLoading }: Props) {
-    const { chapter } = ChapterHook()
+export default function ChapterDisplay({ setLoading, pathname }: Props) {
+    const { chapter } = ChapterHook(pathname)
 
     useEffect(() => {
         if (setLoading) {
