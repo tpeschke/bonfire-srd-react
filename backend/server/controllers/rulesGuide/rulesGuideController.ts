@@ -105,8 +105,38 @@ A component by [Espen Hovlandsdal](https://espen.codes/)
             type: 'h1'
         },
         {
-            section: `H2 Heading`,
-            id: `chapter-${chapter}-in-the-${book}`,
+            section: `Overview`,
+            id: `overview`,
+            type: 'h2'
+        },
+        {
+            section: `Table of contents`,
+            id: `table-of-contents`,
+            type: 'h2'
+        },
+        {
+            section: `Syntax highlighting`,
+            id: `syntax-highlighting`,
+            type: 'h2'
+        },
+        {
+            section: `GitHub flavored markdown (GFM)`,
+            id: `gitHub-flavored-markdown-gfm`,
+            type: 'h2'
+        },
+        {
+            section: `HTML in markdown`,
+            id: `html-in-markdown`,
+            type: 'h2'
+        },
+        {
+            section: `Components`,
+            id: `components`,
+            type: 'h2'
+        },
+        {
+            section: `More info?`,
+            id: `more-info`,
             type: 'h2'
         }
     ]

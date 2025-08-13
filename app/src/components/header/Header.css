@@ -1,4 +1,6 @@
 .header-shell {
+    position: sticky;
+    top: 0px;
     max-width: 1390px;
     margin: 0 auto;
     background: #222;
