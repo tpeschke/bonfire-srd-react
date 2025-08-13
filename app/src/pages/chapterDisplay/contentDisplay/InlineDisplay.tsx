@@ -1,3 +1,4 @@
+import './ContentDisplay.css'
 import { ComponentContent } from "@srd/common/interfaces/ChapterInterfaces";
 import CharacteristicGenerator from "./inlineComponents/CharacteristicGenerator";
 
@@ -8,8 +9,8 @@ interface Props {
 export default function InlineDisplay({ componentInfo }: Props) {
     switch (componentInfo.component) {
         case 'characteristicGenerator':
-            return <CharacteristicGenerator />
+            return <div className="component-shell"><CharacteristicGenerator /></div>
         default:
-            return <p>Something Went Wrong</p>
+            return <div className="component-shell"><p>Something Went Wrong</p></div>
     }
 }

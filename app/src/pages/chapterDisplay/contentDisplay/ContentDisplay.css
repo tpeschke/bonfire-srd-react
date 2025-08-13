@@ -8,6 +8,63 @@
     background-size: 100%;
 }
 
+.component-shell {
+    margin: 15px;
+    padding: 15px;
+    text-align: center;
+    background: lightblue;
+}
+
+.content-display-shell h1 {
+    color: #990000;
+    font-weight: 700;
+    font-size: 14pt;
+    font-family: "HamletOrNot";
+    padding: 5px 15px 5px 0px;
+    margin-bottom: 15px;
+    letter-spacing: 2px;
+    border-bottom: 2px solid #222;
+}
+
+.content-display-shell h2 {
+    font-family: "HamletOrNot";
+    padding: 5px 15px 5px 0px;
+    margin-bottom: 15px;
+    letter-spacing: 2px;
+    border-bottom: 1px solid #222;
+}
+
 .content-display-shell p {
-    margin: 50px 0;
+    text-indent: 30px;
+}
+
+.content-display-shell a {
+    color: unset;
+    font-family: 'oldClaude';
+}
+
+.content-display-shell a:hover {
+    color: #b45f06
+}
+
+.content-display-shell strong {
+    font-weight: bold;
+}
+
+table {
+    border-collapse: collapse;
+    margin-bottom: 5px;
+}
+
+thead {
+    background: #990000;
+    color: white;
+}
+
+tr th, tr td {
+    padding: 3px 5px
+}
+
+tbody tr:nth-child(even) {
+    background-color: lightgray;
 }
