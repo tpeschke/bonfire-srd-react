@@ -27,3 +27,7 @@
 .inner-nav-shell h3 {
     padding: 5px 5px 5px 30px;
 }
+
+.active h2, .active h3 {
+    border-left: 2px solid #b45f06;
+}

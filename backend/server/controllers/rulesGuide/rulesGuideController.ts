@@ -121,7 +121,7 @@ A component by [Espen Hovlandsdal](https://espen.codes/)
         },
         {
             section: `GitHub flavored markdown (GFM)`,
-            id: `gitHub-flavored-markdown-gfm`,
+            id: `github-flavored-markdown-gfm`,
             type: 'h2'
         },
         {

@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { use, useEffect, useState } from 'react'
 import { SetLoadingFunction } from '../../components/loading/Loading'
 import './ChapterDisplay.css'
 import ChapterHook from './ChapterHooks'
@@ -15,14 +15,15 @@ export default function ChapterDisplay({ setLoading, pathname }: Props) {
 
     useEffect(() => {
         if (setLoading) {
+            window.scrollTo(0, 0)
             setLoading(!!chapter)
         }
     }, [chapter])
 
     return (
-        <div className='chapter-display-shell'>
+        <div className='chapter-display-shell' id='chapter-display-shell'>
             {chapter && <ContentDisplay contents={chapter.chapterContents} />}
-            {chapter && <ContentNavigation navigation={chapter.navigation}  pathname={pathname} />}
+            {chapter && <ContentNavigation navigation={chapter.navigation} pathname={pathname} />}
         </div>
     )
 }
