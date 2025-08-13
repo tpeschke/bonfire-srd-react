@@ -7,14 +7,14 @@ import LocationHook from './hooks/LocationHook'
 import AllRoutes from './routes/AllRoutes'
 
 function App() {
-  const { pathname } = LocationHook()
+  const { pathname, hash } = LocationHook()
 
   return (
     <div className='body'>
       <Header pathname={pathname}/>
       <div className='content-body-shell'>
         <ChapterNavigate />
-        <AllRoutes pathname={pathname} />
+        <AllRoutes pathname={pathname} hash={hash} />
       </div>
       <FireBackground />
     </div>

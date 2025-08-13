@@ -12,7 +12,7 @@ interface Props {
 export default function Loading({ children, secondary = false }: Props) {
     const [isLoading, setIsLoading] = useState(true)
 
-    const setLoading = (showPageCondition: boolean) => {
+    const setLoading = async (showPageCondition: boolean) => {
         setIsLoading(!showPageCondition)
     }
 

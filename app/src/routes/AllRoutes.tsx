@@ -4,10 +4,11 @@ import ChapterDisplay from "../pages/chapterDisplay/ChapterDisplay";
 import Loading from "../components/loading/Loading";
 
 interface Props {
-    pathname: string
+    pathname: string,
+    hash: string
 }
 
-export default function AllRoutes({ pathname }: Props) {
+export default function AllRoutes({ pathname, hash }: Props) {
     return (
         <Routes>
             <Route index element={
@@ -17,12 +18,12 @@ export default function AllRoutes({ pathname }: Props) {
             } />
             <Route path='player/:chapterNumber' element={
                 <Loading>
-                    <ChapterDisplay pathname={pathname} />
+                    <ChapterDisplay pathname={pathname} hash={hash} />
                 </Loading>
             } />
             <Route path='rules/:chapterNumber' element={
                 <Loading>
-                    <ChapterDisplay pathname={pathname} />
+                    <ChapterDisplay pathname={pathname} hash={hash} />
                 </Loading>
             } />
         </Routes>

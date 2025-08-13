@@ -9,22 +9,21 @@ interface Props {
 }
 
 export default function ContentNavigation({ navigation, pathname }: Props) {
-    const [currentPathName, setCurrentPathname] = useState<string | null>(null)
+    const [currentNavigation, setCurrentNavigation] = useState<ChapterNavigation[] | null>(null)
     const [currentHeaderID, setCurrentHeaderID] = useState<string | null>(null)
 
     useEffect(() => {
-        if (currentPathName !== pathname) {
+        if (currentNavigation !== navigation) {
             const headers = document.querySelectorAll(".content-display-shell h1, .content-display-shell h2");
 
             setCurrentHeaderID(headers[0].getAttribute("id"))
             window.addEventListener('scroll', updateCurrentHeadingID(headers));
 
-            setCurrentPathname(pathname)
+            setCurrentNavigation(navigation)
         }
-    }, [pathname, navigation])
+    }, [navigation])
 
     const updateCurrentHeadingID = (headers: NodeListOf<Element>) => {
-
         return () => {
             headers.forEach((header: any) => {
                 const headerTop = header.offsetTop - 67 - 32;
@@ -34,7 +33,6 @@ export default function ContentNavigation({ navigation, pathname }: Props) {
             });
         }
     }
-
 
     return (
         <div className='inner-nav-shell'>

@@ -1,13 +1,15 @@
 import { useLocation } from "react-router-dom"
 
 interface HookReturn {
-    pathname: string
+    pathname: string,
+    hash: string
 }
 
 export default function LocationHook(): HookReturn {
-    const location = useLocation();
+    const { pathname, hash } = useLocation();
 
     return {
-        pathname: location.pathname
+        pathname,
+        hash
     }
 }
