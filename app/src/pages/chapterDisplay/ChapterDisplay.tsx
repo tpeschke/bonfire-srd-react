@@ -3,6 +3,7 @@ import { SetLoadingFunction } from '../../components/loading/Loading'
 import './ChapterDisplay.css'
 import ChapterHook from './ChapterHooks'
 import ContentDisplay from './contentDisplay/ContentDisplay'
+import ContentNavigation from './contentNavigation/ContentNavigation'
 
 interface Props {
     setLoading?: SetLoadingFunction,
@@ -21,9 +22,7 @@ export default function ChapterDisplay({ setLoading, pathname }: Props) {
     return (
         <div className='chapter-display-shell'>
             {chapter && <ContentDisplay contents={chapter.chapterContents} />}
-            <div className='inner-nav-shell'>
-                <h1>In This Chapter</h1>
-            </div>
+            {chapter && <ContentNavigation navigation={chapter.navigation}  pathname={pathname} />}
         </div>
     )
 }

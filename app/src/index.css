@@ -107,12 +107,10 @@ h2.border {
 }
 
 h3 {
-	font-size: 15px;
-	color: #434343;
-	font-weight: 600;
+	font-size: 14px;
+	color: white;
 	font-family: 'oldClaude';
-	background: #e1e7ea;
-	padding: 5px 3px;
+	letter-spacing: 2px;
 }
 
 h4 {

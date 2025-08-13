@@ -1,0 +1,30 @@
+.inner-nav-shell {
+    min-width: 240px;
+    padding: 0 15px;
+}
+
+.inner-nav-shell h1, .inner-nav-shell h2 {
+    color: white;
+}
+
+.inner-nav-shell h1 {
+    padding: 5px 0 5px;
+    margin-bottom: 5px;
+    border-bottom: 2px solid gray;
+}
+
+.inner-nav-shell h2, .inner-nav-shell h3 {
+    padding: 5px;
+}
+
+.inner-nav-shell h2:hover, .inner-nav-shell h3:hover {
+    color: #b45f06
+}
+
+.inner-nav-shell h2 {
+    text-indent: 15px;
+}
+
+.inner-nav-shell h3 {
+    text-indent: 30px;
+}

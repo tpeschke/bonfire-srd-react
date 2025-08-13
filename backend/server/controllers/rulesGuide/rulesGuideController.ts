@@ -27,5 +27,18 @@ export async function getChapter(request: ChapterRequest, response: Response) {
         }
     ]
 
-    checkForContentTypeBeforeSending(response, { book, chapter, chapterContents })
+    const navigation: {section: string, id: string, type: 'h1' | 'h2'}[] = [
+        {
+            section: `Chapter ${chapter} in the ${book}`,
+            id: `chapter-${chapter}-in-the-${book}`,
+            type: 'h1'
+        },
+        {
+            section: `H2 Heading`,
+            id: `chapter-${chapter}-in-the-${book}`,
+            type: 'h2'
+        }
+    ]
+
+    checkForContentTypeBeforeSending(response, { book, chapter, chapterContents, navigation })
 }
