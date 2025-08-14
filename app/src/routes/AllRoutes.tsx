@@ -3,6 +3,7 @@ import Home from "../pages/home/Home";
 import ChapterDisplay from "../pages/chapterDisplay/ChapterDisplay";
 import Loading from "../components/loading/Loading";
 import ChapterEdit from "../pages/chapterEdit/ChapterEdit";
+import OwnerAuth from "./OwnerAuth";
 
 interface Props {
     pathname: string,
@@ -24,9 +25,9 @@ export default function AllRoutes({ pathname, hash }: Props) {
                     </Loading>
                 } />
                 <Route path=':chapterNumber/edit' element={
-                    <Loading>
+                    <OwnerAuth>
                         <ChapterEdit pathname={pathname} />
-                    </Loading>
+                    </OwnerAuth>
                 } />
             </Route>
             <Route path="rules">
@@ -36,9 +37,9 @@ export default function AllRoutes({ pathname, hash }: Props) {
                     </Loading>
                 } />
                 <Route path=':chapterNumber/edit' element={
-                    <Loading>
+                    <OwnerAuth>
                         <ChapterEdit pathname={pathname} />
-                    </Loading>
+                    </OwnerAuth>
                 } />
             </Route>
         </Routes>

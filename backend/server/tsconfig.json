@@ -5,5 +5,5 @@
     "extends": "../../tsconfig.json",
     "include": [
         "./"
-    ]
+, "controllers/user/ownerFunctions.ts"    ]
 }
