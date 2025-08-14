@@ -1,7 +1,7 @@
 import { use, useEffect, useState } from 'react'
 import { SetLoadingFunction } from '../../components/loading/Loading'
 import './ChapterDisplay.css'
-import ChapterHook from './ChapterHooks'
+import ChapterHook from '../../hooks/ChapterHooks'
 import ContentDisplay from './contentDisplay/ContentDisplay'
 import ContentNavigation from './contentNavigation/ContentNavigation'
 

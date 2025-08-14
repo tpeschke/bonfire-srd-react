@@ -31,3 +31,8 @@
 .active h2, .active h3 {
     border-left: 2px solid #b45f06;
 }
+
+.inner-nav-shell h2 i {
+    font-size: 100px;
+    cursor: pointer;
+}
