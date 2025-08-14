@@ -16,7 +16,7 @@ import path from 'path'
 import { callbackURL, clientID, clientSecret, domain, fakeAuth, secret, server } from './server-config'
 
 import authRoutesWithoutPassword from './routes/authentication'
-import rulesGuideRoutes from './controllers/rulesGuide/rulesGuideRoutes'
+import guidesRoutes from './controllers/guides/guidesRoutes'
 import userRoutes from './controllers/user/userRoutes'
 
 import query from './db/database'
@@ -63,7 +63,7 @@ passport.deserializeUser(async (id: any, done: any) => {
 app.use(fakeAuth)
 
 app.use('/auth', authRoutesWithoutPassword(passport))
-app.use('/rulesGuide', rulesGuideRoutes)
+app.use('/rulesGuide', guidesRoutes)
 app.use('/user', userRoutes)
 
 app.use(express.static(__dirname + `/../../app/dist`));

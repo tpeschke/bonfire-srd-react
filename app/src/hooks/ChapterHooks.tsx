@@ -6,17 +6,32 @@ import { useDispatch, useSelector } from "react-redux"
 import { saveChapter } from "../redux/slices/chapterSlice.tsx"
 
 interface ChapterHookReturn {
-    chapter: ChapterContentsReturn | null
+    chapter: ChapterContentsReturn | null,
+    preloadChapter: (pathname: string) => void
 }
 
-export default function ChapterHook(pathname: string): ChapterHookReturn {
+export default function ChapterHook(pathname?: string): ChapterHookReturn {
     const [chapter, setChapter] = useState<ChapterContentsReturn | null>(null)
-    const [currentRoute, setCurrentRoute] = useState<string | null>(null)
+    const [currentRoute, setCurrentRoute] = useState<string | null | undefined>(null)
 
     const dispatch = useDispatch()
 
     const cachedRulesChapters = useSelector((state: any) => state.chapter.rulesGuideChapters)
     const cachedPlayerChapters = useSelector((state: any) => state.chapter.playersGuideChapters)
+
+    useEffect(() => {
+        if (pathname && pathname !== currentRoute) {
+            const [_, book, chapterNumber] = pathname.split('/')
+
+            let chapterInfo: ChapterContentsReturn | undefined = getChapterFromCache(book, chapterNumber)
+
+            if (chapterInfo) {
+                setInfo(chapterInfo)
+            } else {
+                getChapterFromServer(book, chapterNumber).then(({ data }) => setInfo(data))
+            }
+        }
+    }, [pathname])
 
     function getChapterFromCache(book: string, chapterNumber: string): ChapterContentsReturn | undefined {
         if (book === 'rules') {
@@ -26,8 +41,8 @@ export default function ChapterHook(pathname: string): ChapterHookReturn {
         }
     }
 
-    function getChapterFromServer(book: string, chapterNumber: string): void {
-        axios.get(chapterURL + `${book}.${chapterNumber}`).then(({ data }) => setInfo(data))
+    async function getChapterFromServer(book: string, chapterNumber: string) {
+        return axios.get(chapterURL + `${book}.${chapterNumber}`)
     }
 
     function setInfo(chapterInfo: ChapterContentsReturn) {
@@ -36,21 +51,19 @@ export default function ChapterHook(pathname: string): ChapterHookReturn {
         setChapter(chapterInfo)
     }
 
-    useEffect(() => {
-        if (pathname !== currentRoute) {
-            const [_, book, chapterNumber] = pathname.split('/')
+    async function preloadChapter(pathname: string) {
+        const [_, book, chapterNumber] = pathname.split('/')
 
-            let chapterInfo: ChapterContentsReturn | undefined = getChapterFromCache(book, chapterNumber)
+        let chapterInfo: ChapterContentsReturn | undefined = getChapterFromCache(book, chapterNumber)
 
-            if (chapterInfo) {
-                setInfo(chapterInfo)
-            } else {
-                getChapterFromServer(book, chapterNumber)
-            }
+        if (!chapterInfo) {
+            const { data } = await getChapterFromServer(book, chapterNumber)
+            dispatch(saveChapter(data))
         }
-    }, [pathname])
+    }
 
     return {
-        chapter
+        chapter,
+        preloadChapter
     }
 }

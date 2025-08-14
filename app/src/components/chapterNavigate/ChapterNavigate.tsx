@@ -2,9 +2,11 @@ import { useEffect, useState } from 'react';
 import './ChapterNavigate.css'
 import { Link } from "react-router-dom";
 import { useLocation } from 'react-router-dom'
+import ChapterHook from '../../hooks/ChapterHooks';
 
 export default function ChapterNavigate() {
     const [currentRoute, setCurrentRoute] = useState<string | null>(null)
+    const { preloadChapter } = ChapterHook()
     const location = useLocation();
 
     const rulesRoutes = [
@@ -41,12 +43,12 @@ export default function ChapterNavigate() {
             <h1>Rules Guide</h1>
             {rulesRoutes.map((route, index) => {
                 const routePath = `/rules/${index + 1}`
-                return <Link key={index} to={routePath} className={routePath === currentRoute ? 'active-route' : ''}><h2>{index + 1} {route}</h2></Link>
+                return <Link onMouseEnter={_ => preloadChapter(routePath)} key={index} to={routePath} className={routePath === currentRoute ? 'active-route' : ''}><h2>{index + 1} {route}</h2></Link>
             })}
             <h1 className='player-heading'>Players Guide</h1>
             {playerRoutes.map((route, index) => {
                 const routePath = `/player/${index + 1}`
-                return <Link key={index} to={routePath} className={routePath === currentRoute ? 'active-route' : ''}><h2>{index + 1} {route}</h2></Link>
+                return <Link onMouseEnter={_ => preloadChapter(routePath)} key={index} to={routePath} className={routePath === currentRoute ? 'active-route' : ''}><h2>{index + 1} {route}</h2></Link>
             })}
         </div>
     )
