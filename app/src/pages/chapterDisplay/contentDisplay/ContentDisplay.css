@@ -24,6 +24,8 @@
     margin-bottom: 15px;
     letter-spacing: 2px;
     border-bottom: 2px solid #222;
+    position: relative;
+    cursor: pointer;
 }
 
 .content-display-shell h2 {
@@ -32,6 +34,14 @@
     margin-bottom: 15px;
     letter-spacing: 2px;
     border-bottom: 1px solid #222;
+    position: relative;
+    cursor: pointer;
+}
+
+.content-display-shell h1:hover::before, .content-display-shell h2:hover::before {
+    content: "🔗";
+    position: absolute;
+    left: -25px;
 }
 
 .content-display-shell p {

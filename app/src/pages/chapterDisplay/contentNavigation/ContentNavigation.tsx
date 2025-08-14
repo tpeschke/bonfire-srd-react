@@ -25,6 +25,7 @@ export default function ContentNavigation({ navigation, pathname }: Props) {
 
     const updateCurrentHeadingID = (headers: NodeListOf<Element>) => {
         return () => {
+            // BRODY
             headers.forEach((header: any) => {
                 const headerTop = header.offsetTop - 67 - 32;
                 if (pageYOffset >= headerTop) {
