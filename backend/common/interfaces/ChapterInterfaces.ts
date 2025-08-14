@@ -7,9 +7,11 @@ export interface MarkdownContent extends ChapterContent {
     body: string
 }
 
+export type validComponents = 'characteristicGenerator'
+
 export interface ComponentContent extends ChapterContent {
     type: 'component',
-    component: 'characteristicGenerator'
+    component: validComponents
 }
 
 export interface ChapterContentsReturn {

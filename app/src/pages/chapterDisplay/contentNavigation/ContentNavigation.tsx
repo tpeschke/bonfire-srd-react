@@ -13,7 +13,7 @@ export default function ContentNavigation({ navigation, pathname }: Props) {
     const [currentHeaderID, setCurrentHeaderID] = useState<string | null>(null)
 
     useEffect(() => {
-        if (currentNavigation !== navigation) {
+        if (navigation.length > 0 && currentNavigation !== navigation) {
             const headers = document.querySelectorAll(".content-display-shell h1, .content-display-shell h2");
 
             setCurrentHeaderID(headers[0].getAttribute("id"))
