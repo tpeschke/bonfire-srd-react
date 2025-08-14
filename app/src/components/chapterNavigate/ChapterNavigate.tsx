@@ -9,12 +9,25 @@ export default function ChapterNavigate() {
 
     const rulesRoutes = [
         'Basic Mechanics',
-        'Confrontations'
+        'Confrontations',
+        'Combat',
+        'Challenges',
+        'The Divine',
+        'The Weird',
+        'Misc. Rules'
     ]
 
     const playerRoutes = [
         'Making a Good Character',
-        'Step-by-Step Overview'
+        'Step-by-Step Overview',
+        'Ancestries',
+        'Classes',
+        'Burdens & Injuries',
+        'Skills',
+        'Characteristics',
+        'Equipment',
+        'Safehouses',
+        'Character Progression'
     ]
 
     useEffect(() => {

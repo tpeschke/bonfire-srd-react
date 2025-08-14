@@ -46,6 +46,8 @@ textarea.content-display-shell {
     content: "🔗";
     position: absolute;
     left: -25px;
+    color: transparent;
+    text-shadow: 0 0 0 #222;
 }
 
 .content-display-shell p {

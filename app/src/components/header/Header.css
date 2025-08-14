@@ -18,3 +18,7 @@
     margin-left: 15px;
     font-size: 18px;
 }
+
+i.active {
+    color: #b45f0650
+}

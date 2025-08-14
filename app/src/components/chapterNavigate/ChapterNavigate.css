@@ -32,4 +32,5 @@
 
 .active-route h2 {
     border-left: 2px solid #b45f06;
+    background: #b45f0650
 }
