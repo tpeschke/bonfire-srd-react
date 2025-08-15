@@ -3,7 +3,7 @@ import './Header.css'
 import HomeIcon from './icons/HomeIcon'
 import LoginLogoutIcons from './icons/LoginLogoutIcons'
 import EditIcon from './icons/EditIcon'
-import SearchIcon from './icons/SearchIcon'
+import SearchIcon from './icons/searchIcon/SearchIcon'
 
 interface Props {
     pathname: string

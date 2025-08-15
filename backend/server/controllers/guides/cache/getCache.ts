@@ -1,4 +1,4 @@
-import { ChapterContentsReturn } from "@srd/common/interfaces/ChapterInterfaces"
+import { Books, ChapterContentsReturn } from "@srd/common/interfaces/ChapterInterfaces"
 import { rulesChapters, playerChapters } from "@srd/common/utilities/chapters"
 import createNavigationArray from "../utilities/createNavigationArray"
 import parseChapterContents from "../utilities/parseChapterContents"
@@ -22,7 +22,7 @@ export function populateChapterCacheWorkhorse() {
     console.log("Players Guide Collected")
 }
 
-function getChapterForCache(book: 'rules' | 'players') {
+function getChapterForCache(book: Books) {
     return async (_: string, index: number) => {
         const [{ chaptercontents }] = await getChapterFromDB(book, index + 1)
         chapterCache[book][index] = {

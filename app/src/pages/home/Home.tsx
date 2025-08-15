@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { SetLoadingFunction } from '../../components/loading/Loading'
 import './Home.css'
 
@@ -7,9 +8,11 @@ interface Props {
 
 export default function Home({ setLoading }: Props) {
 
-    if (setLoading) {
-        setLoading(true)
-    }
+    useEffect(() => {
+        if (setLoading) {
+            setLoading(true)
+        }
+    }, [])
 
     return (
         <div className="home-shell">

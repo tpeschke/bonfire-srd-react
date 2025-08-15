@@ -1,0 +1,32 @@
+.search-icon-shell {
+    display: flex;
+    align-items: center;
+    width: 35px;
+    transition: 0s;
+}
+
+.search-icon-shell.unset-width {
+    width: unset;
+}
+
+.search-icon-shell i {
+    color: white
+}
+
+.search-icon-shell input {
+    width: 0%;
+    padding: 0;
+    transition: 0s;
+    background: transparent;
+    border-bottom: 1px solid gray;
+    caret-color: gray;
+    color: white;
+	letter-spacing: 1px;
+	font-family: "Source Sans 3", sans-serif;
+}
+
+.search-icon-shell input.open-search {
+    width: 750px;
+    max-width: 100%;
+    padding: 0 5px
+}

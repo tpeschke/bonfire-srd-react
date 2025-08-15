@@ -18,6 +18,7 @@ import { callbackURL, clientID, clientSecret, domain, fakeAuth, secret, server }
 import authRoutesWithoutPassword from './routes/authentication'
 import guidesRoutes from './controllers/guides/guidesRoutes'
 import userRoutes from './controllers/user/userRoutes'
+import searchRoutes from './controllers/search/searchRoutes'
 
 import query from './db/database'
 import userSQL from './db/queries/user'
@@ -66,6 +67,7 @@ app.use(fakeAuth)
 app.use('/auth', authRoutesWithoutPassword(passport))
 app.use('/guides', guidesRoutes)
 app.use('/user', userRoutes)
+app.use('/search', searchRoutes)
 
 app.use(express.static(__dirname + `/../../app/dist`));
 // app.get('/*', (request: Request, response: Response) => {

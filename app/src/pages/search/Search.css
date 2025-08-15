@@ -1,5 +1,39 @@
-.search-shell {
+.search-shell h1 {
+    color: white;
+    margin-bottom: 15px;
+    text-align: right;
+}
+
+.search-result {
+    margin-bottom: 15px;
     background: whitesmoke;
     padding: 15px;
     box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+    cursor: pointer;
+}
+
+.search-result a {
+    color: unset;
+}
+
+.search-result a>h2:first-child {
+    color: #990000;
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.search-quote {
+    background: lightgray;
+    padding: 15px;
+}
+
+.search-quote h1 {
+    color: black;
+    text-align: left;
+}
+
+.search-quote strong.highlight {
+    background: yellow;
+    font-family: unset;
+    font-size: unset;
 }

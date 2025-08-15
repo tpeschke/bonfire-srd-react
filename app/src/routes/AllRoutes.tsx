@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import Home from "../pages/home/Home";
 import ChapterDisplay from "../pages/chapterDisplay/ChapterDisplay";
 import Loading from "../components/loading/Loading";
@@ -19,9 +19,9 @@ export default function AllRoutes({ pathname, hash }: Props) {
                     <Home />
                 </Loading>
             } />
-            <Route path="search" element={
+            <Route path="search/:searchTerm" element={
                 <Loading>
-                    <Search />
+                    <Search pathname={pathname} />
                 </Loading>
             } />
             <Route path="players">
@@ -48,6 +48,7 @@ export default function AllRoutes({ pathname, hash }: Props) {
                     </OwnerAuth>
                 } />
             </Route>
+            <Route path="*" element={<Navigate to='/' replace />} />
         </Routes>
     )
 }

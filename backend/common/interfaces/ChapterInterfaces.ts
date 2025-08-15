@@ -14,8 +14,10 @@ export interface ComponentContent extends ChapterContent {
     component: validComponents
 }
 
+export type Books = 'rules' | 'players'
+
 export interface ChapterContentsReturn {
-    book: 'rules' | 'players',
+    book: Books,
     chapter: number,
     chapterContents: (MarkdownContent | ComponentContent)[]
     navigation: ChapterNavigation[]

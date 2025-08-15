@@ -5,6 +5,7 @@ import { checkForContentTypeBeforeSending } from "../../common/utilities/sending
 import { chapterCache } from "../cache/getCache"
 import createNavigationArray from "../utilities/createNavigationArray"
 import parseChapterContents from "../utilities/parseChapterContents"
+import { Books } from '@srd/common/interfaces/ChapterInterfaces'
 
 interface ChapterRequest extends Request {
     params: {
@@ -35,6 +36,6 @@ export async function getChapterWorkhorse(request: ChapterRequest, response: Res
     }
 }
 
-export async function getChapterFromDB(book: 'rules' | 'players', chapter: string | number) {
+export async function getChapterFromDB(book: Books, chapter: string | number) {
     return await query(chapterSQL.getByBookAndChapter, [book, chapter])
 }
