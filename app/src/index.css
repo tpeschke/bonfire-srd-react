@@ -52,7 +52,7 @@ ol, ul {
 	font-family: "Source Sans 3", sans-serif;
 	font-size: 15px;
 	line-height: 1.5;
-	margin-bottom: 5px;
+	margin: 15px 5px;
 }
 
 li {
@@ -72,7 +72,7 @@ ol.horizontal-list li, ul.horizontal-list li {
 }
 
 ul ul, ol ol, ul ol, ol ul {
-	margin-left: 5px;
+	margin: 5px 0 0 5px;
 }
 
 blockquote, q {
@@ -96,30 +96,30 @@ h2 {
     font-family: 'oldClaude';
 }
 
-h2.border {
-	border-bottom: 1px solid lightgray;
-	padding-bottom: 7px;
-	margin: 15px 0 5px;
-}
-
 h3 {
-	font-size: 14px;
-	color: white;
+	font-size: 15px;
 	font-family: 'oldClaude';
-	letter-spacing: 2px;
+	letter-spacing: 1px;
 }
 
 h4 {
 	font-family: 'oldClaude';
-	font-weight: bold;
-	font-size: 13px;
-    color: #434343;
+    font-weight: bold;
+    font-size: 14px;
+    color: #222;
+	margin: 15px 0;
+	letter-spacing: 1px;
+	padding-left: 15px;
 }
 
 h5 {
-	font-family: 'oldClaude';
-	background: #e1e7ea;
-	padding: 3px;
+    font-family: 'oldClaude';
+    font-size: 13px;
+    color: #222;
+    margin: 15px 0;
+	font-style: italic;
+    letter-spacing: 1px;
+	padding-left: 15px;
 }
 
 h6 {

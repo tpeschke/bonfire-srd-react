@@ -12,11 +12,11 @@ export default function LoginLogoutIcons({ }: Props) {
     return (
         <>
             {userIsLoggedIn ?
-                <a href={signOutURL}>
+                <a className='log-anchor' href={signOutURL}>
                     <i className="fa-solid fa-arrow-right-from-bracket"></i>
                 </a>
                 :
-                <a href={signInURL}>
+                <a className='log-anchor' href={signInURL}>
                     <i className="fa-solid fa-right-from-bracket"></i>
                 </a>
             }

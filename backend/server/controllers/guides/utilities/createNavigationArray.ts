@@ -4,7 +4,7 @@ export default function createNavigationArray(rawChapterContents: string): Chapt
     let navigationArray: ChapterNavigation[] = []
 
     rawChapterContents.split('\n').forEach((element: string) => {
-        if (element.substring(0, 2) === '##') {
+        if (element.substring(0, 3) === '## ') {
             const section = element.substring(3)
             navigationArray.push({
                 section,
@@ -12,7 +12,7 @@ export default function createNavigationArray(rawChapterContents: string): Chapt
                 type: 'h2'
             })
 
-        } else if (element.substring(0, 1) === '#') {
+        } else if (element.substring(0, 2) === '# ') {
             const section = element.substring(2)
             navigationArray.push({
                 section,

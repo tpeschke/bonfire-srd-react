@@ -5,6 +5,7 @@ import InlineDisplay from "./InlineDisplay";
 import remarkGfm from 'remark-gfm';
 import rehypeSlug from 'rehype-slug';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
+import rehypeRaw from 'rehype-raw'
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -37,7 +38,7 @@ export default function ContentDisplay({ contents, pathname }: Props) {
             {contents.reduce((displayedContent: any[], content: MarkdownContent | ComponentContent) => {
 
                 if (content.type === 'markdown') {
-                    displayedContent.push(<Markdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeSlug, rehypeAutolinkHeadings]} key={displayedContent.length}>{content.body}</Markdown>)
+                    displayedContent.push(<Markdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeSlug, rehypeAutolinkHeadings, rehypeRaw]} key={displayedContent.length}>{content.body}</Markdown>)
                 } else if (content.type === 'component') {
                     displayedContent.push(<InlineDisplay key={displayedContent.length} componentInfo={content} />)
                 }

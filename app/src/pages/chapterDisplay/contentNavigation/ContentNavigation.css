@@ -6,7 +6,7 @@
     height: 100%;
 }
 
-.inner-nav-shell h1, .inner-nav-shell h2 {
+.inner-nav-shell h1, .inner-nav-shell h2, .inner-nav-shell p {
     color: white;
 }
 

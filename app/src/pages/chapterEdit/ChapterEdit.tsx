@@ -57,6 +57,8 @@ export default function ChapterEdit({ setLoading, pathname }: Props) {
         navigate(`/${chapter?.book}/${chapter?.chapter}`)
     }
 
+    const componentReminder = "<<componentName<<"
+
     return (
         <div className='chapter-display-shell' id='chapter-display-shell'>
             {chapter &&
@@ -66,6 +68,8 @@ export default function ChapterEdit({ setLoading, pathname }: Props) {
                 <h2 onClick={saveChapter}>
                     <i className="fa-solid fa-floppy-disk"></i>
                 </h2>
+
+                <p>{componentReminder}</p>
             </div>
         </div>
     )

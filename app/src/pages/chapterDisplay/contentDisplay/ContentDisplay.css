@@ -20,26 +20,37 @@ textarea.content-display-shell {
 }
 
 .content-display-shell h1 {
-    color: #990000;
+    color: whitesmoke;
+    background: #990000;
     font-weight: 700;
-    font-size: 14pt;
+    font-size: 15pt;
+    font-family: "HamletOrNot";
+    padding: 5px 0 5px 5px;
+    margin: 15px 0;
+    letter-spacing: 2px;
+    position: relative;
+    cursor: pointer;
+}
+
+.content-display-shell h1:first-child {
+    margin: 0 0 15px;
+}
+
+.content-display-shell h2 {
+    color: #990000;
+    font-weight: bold;
     font-family: "HamletOrNot";
     padding: 5px 15px 5px 0px;
-    margin-bottom: 15px;
+    margin: 15px 0;
     letter-spacing: 2px;
     border-bottom: 2px solid #222;
     position: relative;
     cursor: pointer;
 }
 
-.content-display-shell h2 {
-    font-family: "HamletOrNot";
-    padding: 5px 15px 5px 0px;
-    margin-bottom: 15px;
-    letter-spacing: 2px;
-    border-bottom: 1px solid #222;
-    position: relative;
-    cursor: pointer;
+.content-display-shell h3 {
+    margin: 15px 0;
+    font-weight: bold;
 }
 
 .content-display-shell h1:hover::before, .content-display-shell h2:hover::before {
@@ -69,7 +80,14 @@ textarea.content-display-shell {
 
 table {
     border-collapse: collapse;
-    margin-bottom: 5px;
+    margin: 5px 0;
+	font-family: "Source Sans 3", sans-serif;
+    font-size: 15px;
+}
+
+.table-float {
+    float: right;
+    margin-left: 15px;
 }
 
 thead {
