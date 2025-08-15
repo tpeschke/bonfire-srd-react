@@ -14,6 +14,7 @@ interface ChapterHookReturn {
 export default function ChapterHook(pathname?: string): ChapterHookReturn {
     const [chapter, setChapter] = useState<ChapterContentsReturn | null>(null)
     const [currentRoute, setCurrentRoute] = useState<string | null | undefined>(null)
+    const [timeoutID, setTimeoutID] = useState<any | null>(null)
 
     const dispatch = useDispatch()
 
@@ -53,14 +54,20 @@ export default function ChapterHook(pathname?: string): ChapterHookReturn {
     }
 
     async function preloadChapter(pathname: string) {
-        const [_, book, chapterNumber] = pathname.split('/')
+        if (timeoutID) { clearTimeout(timeoutID) }
 
-        let chapterInfo: ChapterContentsReturn | undefined = getChapterFromCache(book, chapterNumber)
+        const newTimeoutID = setTimeout(async () => {
+            const [_, book, chapterNumber] = pathname.split('/')
 
-        if (!chapterInfo) {
-            const { data } = await getChapterFromServer(book, chapterNumber)
-            dispatch(saveChapter(data))
-        }
+            let chapterInfo: ChapterContentsReturn | undefined = getChapterFromCache(book, chapterNumber)
+
+            if (!chapterInfo) {
+                const { data } = await getChapterFromServer(book, chapterNumber)
+                dispatch(saveChapter(data))
+            }
+        }, 500)
+
+        setTimeoutID(newTimeoutID)
     }
 
     function saveChapterToCache(chapterInfo: ChapterContentsReturn) {
