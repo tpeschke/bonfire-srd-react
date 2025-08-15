@@ -38,17 +38,19 @@ export default function ContentNavigation({ navigation, pathname }: Props) {
     return (
         <div className='inner-nav-shell'>
             <h1>In This Chapter</h1>
-            {navigation.map(({ section, type, id }, index) => {
-                const pathToHeading = `${pathname}#${id}`
+            <div className='quick-link-shell'>
+                {navigation.map(({ section, type, id }, index) => {
+                    const pathToHeading = `${pathname}#${id}`
 
-                if (type === 'h1') {
-                    return <Link key={index} to={pathToHeading} className={currentHeaderID === id ? 'active' : ''}><h2>{section}</h2></Link>
-                } else if (type === 'h2') {
-                    return <Link key={index} to={pathToHeading} className={currentHeaderID === id ? 'active' : ''}><h3>{section}</h3></Link>
-                }
+                    if (type === 'h1') {
+                        return <Link key={index} to={pathToHeading} className={currentHeaderID === id ? 'active' : ''}><h2>{section}</h2></Link>
+                    } else if (type === 'h2') {
+                        return <Link key={index} to={pathToHeading} className={currentHeaderID === id ? 'active' : ''}><h3>{section}</h3></Link>
+                    }
 
-                return <p key={index}>SOMETHING WENT WRONG</p>
-            })}
+                    return <p key={index}>SOMETHING WENT WRONG</p>
+                })}
+            </div>
         </div>
     )
 

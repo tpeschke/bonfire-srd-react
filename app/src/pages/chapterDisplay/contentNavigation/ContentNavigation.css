@@ -6,6 +6,15 @@
     height: 100%;
 }
 
+.inner-nav-shell .quick-link-shell {
+    overflow: auto;
+    height: calc(100vh - 125px);
+}
+
+.inner-nav-shell ::-webkit-scrollbar {
+	width: 1px;
+}
+
 .inner-nav-shell h1, .inner-nav-shell h2, .inner-nav-shell p {
     color: white;
 }

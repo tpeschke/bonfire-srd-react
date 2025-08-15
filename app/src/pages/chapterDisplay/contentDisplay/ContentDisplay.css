@@ -90,8 +90,13 @@ table {
     margin-left: 15px;
 }
 
+table .center-row {
+    text-align: center;
+    vertical-align: middle;
+}
+
 thead {
-    background: #990000;
+    background: gray;
     color: white;
 }
 

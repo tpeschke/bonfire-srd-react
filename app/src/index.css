@@ -45,7 +45,7 @@ footer, header, hgroup, menu, nav, section {
 body {
 	line-height: 1;
 	background: black;
-    min-height: 100vh;
+	min-height: 100vh;
 }
 
 ol, ul {
@@ -56,7 +56,7 @@ ol, ul {
 }
 
 li {
-    padding: 2px 0px;
+	padding: 2px 0px;
 	margin-left: 45px;
 }
 
@@ -93,7 +93,7 @@ h1 {
 
 h2 {
 	letter-spacing: 2px;
-    font-family: 'oldClaude';
+	font-family: 'oldClaude';
 }
 
 h3 {
@@ -104,21 +104,21 @@ h3 {
 
 h4 {
 	font-family: 'oldClaude';
-    font-weight: bold;
-    font-size: 14px;
-    color: #222;
+	font-weight: bold;
+	font-size: 14px;
+	color: #222;
 	margin: 15px 0;
 	letter-spacing: 1px;
 	padding-left: 15px;
 }
 
 h5 {
-    font-family: 'oldClaude';
-    font-size: 13px;
-    color: #222;
-    margin: 15px 0;
+	font-family: 'oldClaude';
+	font-size: 13px;
+	color: #222;
+	margin: 15px 0;
 	font-style: italic;
-    letter-spacing: 1px;
+	letter-spacing: 1px;
 	padding-left: 15px;
 }
 
@@ -156,6 +156,10 @@ a:hover, .fake-link:hover {
 	font-style: italic;
 }
 
+.light-gray {
+	background: rgb(190, 190, 190);
+}
+
 select {
 	border: none;
 	background: #f3f3f3;
@@ -183,17 +187,17 @@ select * {
 input {
 	font-family: 'oldClaude';
 	border: unset;
-    border-bottom: 1px solid lightgray;
+	border-bottom: 1px solid lightgray;
 	transition: .6s;
 }
 
 input[type=number] {
-    text-align: right;
+	text-align: right;
 }
 
 input:focus-visible {
 	border-bottom: 1px solid black;
-    outline: none;
+	outline: none;
 }
 
 button {
@@ -225,7 +229,7 @@ button.blue:hover {
 }
 
 button.orange {
-    background: #ff5722;
+	background: #ff5722;
 	color: white;
 }
 
@@ -253,4 +257,22 @@ button.transparent-white:hover {
 
 .displayNone {
 	display: none;
+}
+
+::-webkit-scrollbar {
+	width: 3px;
+}
+
+::-webkit-scrollbar-track {
+	background: transparent
+}
+
+::-webkit-scrollbar-thumb {
+	background: grey;
+	border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: grey;
+	border-radius: 4px;
 }
