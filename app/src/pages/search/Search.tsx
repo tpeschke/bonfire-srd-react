@@ -29,9 +29,11 @@ export default function Search({ setLoading, pathname }: Props) {
 
     useEffect(() => {
         if (setLoading) {
+            setLoading(false)
+
             if (timeoutID) { clearTimeout(timeoutID) }
+
             const newTimeoutID = setTimeout(() => {
-                setLoading(false)
                 setSearchResults([])
 
                 const [_, searchParam] = pathname.split('/search/')
@@ -42,6 +44,7 @@ export default function Search({ setLoading, pathname }: Props) {
                     setLoading(true)
                 })
             }, 1000)
+            
             setTimeoutID(newTimeoutID)
         }
     }, [pathname])
