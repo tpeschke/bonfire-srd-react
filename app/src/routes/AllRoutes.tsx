@@ -4,6 +4,7 @@ import ChapterDisplay from "../pages/chapterDisplay/ChapterDisplay";
 import Loading from "../components/loading/Loading";
 import ChapterEdit from "../pages/chapterEdit/ChapterEdit";
 import OwnerAuth from "./OwnerAuth";
+import Search from "../pages/search/Search";
 
 interface Props {
     pathname: string,
@@ -16,6 +17,11 @@ export default function AllRoutes({ pathname, hash }: Props) {
             <Route index element={
                 <Loading>
                     <Home />
+                </Loading>
+            } />
+            <Route path="search" element={
+                <Loading>
+                    <Search />
                 </Loading>
             } />
             <Route path="players">

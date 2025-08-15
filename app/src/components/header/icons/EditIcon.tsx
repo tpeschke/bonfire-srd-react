@@ -13,7 +13,7 @@ export default function EditIcon({ pathname }: Props) {
     return (
         <>
             {userIsOwner && pathname !== '/' && !pathname.includes('edit') &&
-                <Link to={`${pathname}/edit`}>
+                <Link className='header-spacer' to={`${pathname}/edit`}>
                     <i className="fa-solid fa-pen-to-square"></i>
                 </Link>
             }
