@@ -33,7 +33,7 @@ export default function SearchIcon({ pathname }: Props) {
         const newTimeoutID = setTimeout(() => {
             setFocus(true)
             searchInput?.focus()
-        }, 500)
+        }, 250)
 
         setTimeoutID(newTimeoutID)
     }

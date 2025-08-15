@@ -14,13 +14,17 @@
     color: white
 }
 
+.search-icon-shell:hover i {
+    color: #b45f06
+}
+
 .search-icon-shell input {
     width: 0%;
     padding: 0;
     transition: 0s;
     background: transparent;
-    border-bottom: 1px solid gray;
-    caret-color: gray;
+    border-bottom: 1px solid #b45f06;
+    caret-color: #b45f06;
     color: white;
 	letter-spacing: 1px;
 	font-family: "Source Sans 3", sans-serif;
