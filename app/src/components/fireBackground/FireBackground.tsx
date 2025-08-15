@@ -1,7 +1,7 @@
 import './FireBackground.css'
 
 export default function FireBackground() {
-    const colors = ['#ff6b35', '#ff9a5a', '#ffd166', '#ffbc42'];
+    const colors = ['#b45f06', '#ff9a5a', '#ffd166', '#ffbc42', '#990000'];
 
     function createFlameStylings() {
         const size = 10 + Math.random() * 20;
