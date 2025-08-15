@@ -80,14 +80,18 @@ textarea.content-display-shell {
 
 table {
     border-collapse: collapse;
-    margin: 5px 0;
+    margin: 15px auto;
 	font-family: "Source Sans 3", sans-serif;
     font-size: 15px;
 }
 
 .table-float {
     float: right;
-    margin-left: 15px;
+    margin: 0  0 15px 15px;
+}
+
+.table-float table {
+    margin: 0;
 }
 
 table .center-row {
