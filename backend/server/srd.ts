@@ -64,7 +64,7 @@ passport.deserializeUser(async (id: any, done: any) => {
 app.use(fakeAuth)
 
 app.use('/auth', authRoutesWithoutPassword(passport))
-app.use('/rulesGuide', guidesRoutes)
+app.use('/guides', guidesRoutes)
 app.use('/user', userRoutes)
 
 app.use(express.static(__dirname + `/../../app/dist`));

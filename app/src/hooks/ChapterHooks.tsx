@@ -7,7 +7,8 @@ import { saveChapter } from "../redux/slices/chapterSlice.tsx"
 
 interface ChapterHookReturn {
     chapter: ChapterContentsReturn | null,
-    preloadChapter: (pathname: string) => void
+    preloadChapter: (pathname: string) => void,
+    saveChapterToCache: (chapterInfo: ChapterContentsReturn) => void
 }
 
 export default function ChapterHook(pathname?: string): ChapterHookReturn {
@@ -62,8 +63,13 @@ export default function ChapterHook(pathname?: string): ChapterHookReturn {
         }
     }
 
+    function saveChapterToCache(chapterInfo: ChapterContentsReturn) {
+        dispatch(saveChapter(chapterInfo))
+    }
+
     return {
         chapter,
-        preloadChapter
+        preloadChapter,
+        saveChapterToCache
     }
 }
