@@ -15,7 +15,7 @@ export interface ComponentContent extends ChapterContent {
 }
 
 export interface ChapterContentsReturn {
-    book: 'rules' | 'player',
+    book: 'rules' | 'players',
     chapter: number,
     chapterContents: (MarkdownContent | ComponentContent)[]
     navigation: ChapterNavigation[]

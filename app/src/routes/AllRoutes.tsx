@@ -18,7 +18,7 @@ export default function AllRoutes({ pathname, hash }: Props) {
                     <Home />
                 </Loading>
             } />
-            <Route path="player">
+            <Route path="players">
                 <Route path=':chapterNumber' element={
                     <Loading>
                         <ChapterDisplay pathname={pathname} hash={hash} />

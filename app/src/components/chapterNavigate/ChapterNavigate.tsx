@@ -25,7 +25,7 @@ export default function ChapterNavigate() {
             })}
             <h1 className='player-heading'>Players Guide</h1>
             {playerChapters.map((route, index) => {
-                const routePath = `/player/${index + 1}`
+                const routePath = `/players/${index + 1}`
                 return <Link onMouseEnter={_ => preloadChapter(routePath)} key={index} to={routePath} className={routePath === currentRoute ? 'active-route' : ''}><h2>{index + 1} {route}</h2></Link>
             })}
         </div>

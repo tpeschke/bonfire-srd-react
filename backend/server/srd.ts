@@ -22,6 +22,7 @@ import userRoutes from './controllers/user/userRoutes'
 import query from './db/database'
 import userSQL from './db/queries/user'
 import { Profile } from './interfaces/apiInterfaces'
+import { populateChapterCache } from './controllers/guides/guidesController'
 
 const app = express()
 app.use(bodyParser.json({ limit: '10mb' }))
@@ -74,5 +75,7 @@ app.use(express.static(__dirname + `/../../app/dist`));
 // ================================== \\
 
 app.listen(server, () => {
+    populateChapterCache()
+    
     console.log(`The night lays like a lullaby on the earth ${server}`)
 })
