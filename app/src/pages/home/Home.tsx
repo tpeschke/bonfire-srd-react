@@ -10,6 +10,7 @@ export default function Home({ setLoading }: Props) {
 
     useEffect(() => {
         if (setLoading) {
+            document.title = "Bonfire SRD"
             setLoading(true)
         }
     }, [])

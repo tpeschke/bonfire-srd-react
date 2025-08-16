@@ -22,7 +22,7 @@ textarea.content-display-shell {
     background: lightblue;
 }
 
-.content-display-shell h1 {
+.content-display-body-shell h1 {
     color: whitesmoke;
     background: #990000;
     font-weight: 700;
@@ -35,11 +35,11 @@ textarea.content-display-shell {
     cursor: pointer;
 }
 
-.content-display-shell h1:first-child {
+.content-display-body-shell h1:first-child {
     margin: 0 0 15px;
 }
 
-.content-display-shell h2 {
+.content-display-body-shell h2 {
     color: #990000;
     font-weight: bold;
     font-family: "HamletOrNot";
@@ -56,7 +56,7 @@ textarea.content-display-shell {
     font-weight: bold;
 }
 
-.content-display-shell h1:hover::before, .content-display-shell h2:hover::before {
+.content-display-body-shell h1:hover::before, .content-display-body-shell h2:hover::before {
     content: "🔗";
     position: absolute;
     left: -25px;

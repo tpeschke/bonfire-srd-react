@@ -24,7 +24,7 @@ export default function ContentDisplay({ contents, pathname, chapterName, chapte
     // BRODY
     useEffect(() => {
         if (contents) {
-            const headers = document.querySelectorAll('.content-display-shell h1, .content-display-shell h2')
+            const headers = document.querySelectorAll('.content-display-body-shell h1, .content-display-body-shell h2')
             headers.forEach(header => {
                 header.addEventListener('click', getList(header.getAttribute("id")))
             })

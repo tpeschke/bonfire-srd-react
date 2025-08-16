@@ -19,6 +19,7 @@ export default function ChapterDisplay({ setLoading, pathname, hash }: Props) {
             setLoading(!!chapter)
         }
         if (!!chapter) {
+            updateTab()
             setTimeout(scrollToCorrectPosition, 100)
         }
     }, [chapter])
@@ -28,6 +29,12 @@ export default function ChapterDisplay({ setLoading, pathname, hash }: Props) {
             scrollToCorrectPosition()
         }
     }, [hash])
+
+    function updateTab() {
+        const guide = chapter?.book === 'rules'  ? 'R' : 'P'
+
+        document.title = `${guide}.${chapter?.chapter} ${chapter?.chapterName} - Bonfire`
+    }
 
     function scrollToCorrectPosition() {
         if (hash) {

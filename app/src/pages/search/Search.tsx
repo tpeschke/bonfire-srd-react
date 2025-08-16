@@ -29,6 +29,8 @@ export default function Search({ setLoading, pathname }: Props) {
 
     useEffect(() => {
         if (setLoading) {
+            document.title = "Bonfire SRD"
+            
             setLoading(false)
 
             if (timeoutID) { clearTimeout(timeoutID) }

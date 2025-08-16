@@ -8,6 +8,12 @@
     background: transparent;
     font-size: 25px;
     margin: 0 !important;
+    color: whitesmoke;
+    font-weight: 700;
+    font-family: "HamletOrNot";
+    padding: 5px 0 5px 5px;
+    margin: 15px 0;
+    letter-spacing: 2px;
 }
 
 .chapter-name-header-shell img {
