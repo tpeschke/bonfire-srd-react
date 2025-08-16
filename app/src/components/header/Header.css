@@ -11,8 +11,20 @@
     z-index: 1;
 }
 
-.header-shell a:first-child {
+.header-shell>div>img {
+    position: absolute;
+    height: 50px;
+}
+
+.header-shell>div:first-child {
+    position: relative;
     margin-right: auto;
+    display: flex;
+    align-items: center;
+}
+
+.header-shell>div>a {
+    margin-left: 50px;
 }
 
 .header-shell i {
