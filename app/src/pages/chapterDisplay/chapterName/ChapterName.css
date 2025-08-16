@@ -1,0 +1,18 @@
+.chapter-name-header-shell {
+    padding: 75px 25px;
+    position: relative;
+    overflow: hidden;
+}
+
+.chapter-name-header-shell h1 {
+    background: transparent;
+    font-size: 25px;
+    margin: 0 !important;
+}
+
+.chapter-name-header-shell img {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+}

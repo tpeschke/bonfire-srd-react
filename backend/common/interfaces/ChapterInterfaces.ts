@@ -19,6 +19,7 @@ export type Books = 'rules' | 'players'
 export interface ChapterContentsReturn {
     book: Books,
     chapter: number,
+    chapterName: string,
     chapterContents: (MarkdownContent | ComponentContent)[]
     navigation: ChapterNavigation[]
 }

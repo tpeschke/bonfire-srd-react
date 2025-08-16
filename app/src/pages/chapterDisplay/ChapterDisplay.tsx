@@ -46,7 +46,7 @@ export default function ChapterDisplay({ setLoading, pathname, hash }: Props) {
 
     return (
         <div className='chapter-display-shell' id='chapter-display-shell'>
-            {chapter && <ContentDisplay contents={chapter.chapterContents} pathname={pathname} />}
+            {chapter && <ContentDisplay contents={chapter.chapterContents} chapterName={chapter.chapterName} pathname={pathname} book={chapter.book} chapterNumber={chapter.chapter} />}
             {chapter && <ContentNavigation navigation={chapter.navigation} pathname={pathname} />}
         </div>
     )
