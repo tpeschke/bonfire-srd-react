@@ -10,6 +10,8 @@ import AllRoutes from './routes/AllRoutes'
 import axios from 'axios'
 import { useEffect } from 'react'
 import { accessURL } from './frontend-config'
+import { Tooltip } from 'react-tooltip'
+import Footer from './components/footer/Footer'
 
 function App() {
   const { pathname, hash } = LocationHook()
@@ -33,7 +35,9 @@ function App() {
         <ChapterNavigate />
         <AllRoutes pathname={pathname} hash={hash} />
       </div>
+      <Footer />
       <FireBackground />
+      <Tooltip id="my-tooltip" place="bottom" />
     </div>
   )
 }

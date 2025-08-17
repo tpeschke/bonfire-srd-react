@@ -20,10 +20,12 @@ import rules5 from '../../../assets/images/chapterHeadings/rules5.png'
 import rules6 from '../../../assets/images/chapterHeadings/rules6.png'
 import rules7 from '../../../assets/images/chapterHeadings/rules7.png'
 
+import defaultImage from '../../../assets/images/chapterHeadings/default.png'
+
 interface Props {
     chapterName: string,
-    chapterNumber: number,
-    book: Books
+    chapterNumber?: number,
+    book?: Books
 }
 
 export default function ChapterName({ chapterName, chapterNumber, book }: Props) {
@@ -51,12 +53,13 @@ export default function ChapterName({ chapterName, chapterNumber, book }: Props)
         ]
     }
 
-
+    const noBookOrImage = !book || !chapterNumber
 
     return (
         <div className='chapter-name-header-shell'>
             <h1>{chapterName}</h1>
-            <img src={imageDictionary[book][chapterNumber - 1]} />
+            {book && chapterNumber && <img src={imageDictionary[book][chapterNumber - 1]} />}
+            {noBookOrImage && <img src={defaultImage} /> }
         </div>
     )
 }

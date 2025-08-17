@@ -5,6 +5,7 @@ import Loading from "../components/loading/Loading";
 import ChapterEdit from "../pages/chapterEdit/ChapterEdit";
 import OwnerAuth from "./OwnerAuth";
 import Search from "../pages/search/Search";
+import PrivacyPolicy from "../pages/privacyPolicy/PrivacyPolicy";
 
 interface Props {
     pathname: string,
@@ -17,6 +18,11 @@ export default function AllRoutes({ pathname, hash }: Props) {
             <Route index element={
                 <Loading>
                     <Home />
+                </Loading>
+            } />
+            <Route path="privacypolicy" element={
+                <Loading>
+                    <PrivacyPolicy pathname={pathname} />
                 </Loading>
             } />
             <Route path="search/:searchTerm" element={

@@ -14,8 +14,8 @@ interface Props {
     contents: (MarkdownContent | ComponentContent)[],
     pathname: string,
     chapterName: string,
-    chapterNumber: number,
-    book: Books
+    chapterNumber?: number,
+    book?: Books
 }
 
 export default function ContentDisplay({ contents, pathname, chapterName, chapterNumber, book }: Props) {

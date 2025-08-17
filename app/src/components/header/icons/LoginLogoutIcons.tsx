@@ -12,11 +12,11 @@ export default function LoginLogoutIcons({ }: Props) {
     return (
         <>
             {userIsLoggedIn ?
-                <a className='header-spacer' href={signOutURL}>
+                <a className='header-spacer' href={signOutURL} data-tooltip-id="my-tooltip" data-tooltip-content="Log Out">
                     <i className="fa-solid fa-arrow-right-from-bracket"></i>
                 </a>
                 :
-                <a className='header-spacer' href={signInURL}>
+                <a className='header-spacer' href={signInURL} data-tooltip-id="my-tooltip" data-tooltip-content="Log In">
                     <i className="fa-solid fa-right-from-bracket"></i>
                 </a>
             }
