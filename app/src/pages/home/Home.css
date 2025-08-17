@@ -16,7 +16,6 @@
     padding: 15px;
     box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
     margin-bottom: 15px;
-    min-height: 125px;
 }
 
 .home-shell .card h1 {
@@ -25,7 +24,7 @@
     margin-bottom: 15px;
 }
 
-.home-shell a .card p {
+.home-shell a .card {
     color: black;
 }
 
@@ -34,7 +33,7 @@
     border-bottom: 1px solid #222;
 }
 
-.home-shell a:hover .card p {
+.home-shell a:hover .card {
     color: #b45f06
 }
 
@@ -60,4 +59,65 @@
 .card span i {
     color: black;
     font-size: 18px;
+}
+
+.home-shell .card.discord-card {
+    height: 70px;
+    display: flex;
+    align-items: center;
+    padding: 15px 0px;
+}
+
+.home-shell .card.discord-card {
+    color: #7289DA;
+    background: transparent;
+}
+
+.discord-card>div {
+    margin-left: 15px;
+}
+
+.home-shell .card.discord-card h2 {
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+
+.home-shell .card.discord-card p {
+    color: white;
+}
+
+.fa-discord {
+    font-size: 100px;
+    transform: rotate(-12deg);
+}
+
+.login-logout-shell {
+    height: 216px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.login-logout-shell button {
+    font-size: 25px;
+    padding: 10px 15px;
+    min-width: 250px;
+}
+
+.login-logout-shell button {
+    background: #b45f06;
+    color: #ffffff;
+}
+
+.login-logout-shell button:hover {
+    background: #914d05;
+}
+
+.login-logout-shell .patreon-button {
+    background: #ff424d;
+}
+
+.login-logout-shell .patreon-button:hover {
+    background: #d83840;
 }
