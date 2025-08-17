@@ -1,6 +1,10 @@
 import { useEffect } from 'react'
 import { SetLoadingFunction } from '../../components/loading/Loading'
 import './Home.css'
+import PatreonThankYou from './components/PatreonThankYou/PatreonThankYou'
+import DiscordLink from './components/DiscordLink/DiscordLink'
+import LoginLogout from './components/LoginLogout/LoginLogout'
+import ToolsNResources from './components/ToolsNResources/ToolsNResources'
 
 interface Props {
     setLoading?: SetLoadingFunction
@@ -17,7 +21,18 @@ export default function Home({ setLoading }: Props) {
 
     return (
         <div className="home-shell">
-            <h1>Home</h1>
+            <div className='columns'>
+                <div className='left'>
+                    <PatreonThankYou />
+                </div>
+                <div className='right'>
+                    <DiscordLink />
+                    <LoginLogout />
+                </div>
+            </div>
+            <div className='bottom'>
+                <ToolsNResources />
+            </div>
         </div>
     )
 }

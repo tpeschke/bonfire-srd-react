@@ -24,6 +24,7 @@ import query from './db/database'
 import userSQL from './db/queries/user'
 import { Profile } from './interfaces/apiInterfaces'
 import { populateChapterCache } from './controllers/guides/guidesController'
+import patreonRoutes from './controllers/patreon/patreonRoutes'
 
 const app = express()
 app.use(bodyParser.json({ limit: '10mb' }))
@@ -68,6 +69,7 @@ app.use('/auth', authRoutesWithoutPassword(passport))
 app.use('/guides', guidesRoutes)
 app.use('/user', userRoutes)
 app.use('/search', searchRoutes)
+app.use('/patreon', patreonRoutes)
 
 app.use(express.static(__dirname + `/../../app/dist`));
 // app.get('/*', (request: Request, response: Response) => {

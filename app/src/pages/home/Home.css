@@ -1,5 +1,63 @@
-.home-shell {
+.home-shell .columns {
+    display: flex;
+    justify-content: space-between;
+}
+
+.home-shell .columns>div {
+    width: 100%;
+}
+
+.home-shell .right {
+    margin-left: 15px;
+}
+
+.home-shell .card {
     background: whitesmoke;
     padding: 15px;
     box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+    margin-bottom: 15px;
+    min-height: 125px;
+}
+
+.home-shell .card h1 {
+    color: #990000;
+    font-size: 15pt;
+    margin-bottom: 15px;
+}
+
+.home-shell a .card p {
+    color: black;
+}
+
+.home-shell a .card p.subtitle {
+    margin-top: 5px;
+    border-bottom: 1px solid #222;
+}
+
+.home-shell a:hover .card p {
+    color: #b45f06
+}
+
+.card .patreon-shell {
+    overflow: hidden;
+    height: 240px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.card .patreon-shell p {
+    font-size: 21px;
+    width: 34%;
+    font-family: 'OldClaude';
+    border-bottom: unset;
+}
+
+.card span {
+    display: flex;
+}
+
+.card span i {
+    color: black;
+    font-size: 18px;
 }
