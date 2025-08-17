@@ -121,3 +121,21 @@
 .login-logout-shell .patreon-button:hover {
     background: #d83840;
 }
+
+.tools-and-resources-shell a {
+    color: black;
+    font-family: 'OldClaude';
+}
+
+.tools-and-resources-shell a:hover {
+    color: #b45f06
+}
+
+.tools-and-resources-shell p {
+    text-indent: 15px;
+}
+
+.tools-and-resources-shell>div {
+    display: flex;
+    justify-content: space-between;
+}
