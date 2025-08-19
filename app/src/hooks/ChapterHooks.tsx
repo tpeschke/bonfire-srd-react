@@ -38,7 +38,7 @@ export default function ChapterHook(pathname?: string): ChapterHookReturn {
     function getChapterFromCache(book: string, chapterNumber: string): ChapterContentsReturn | undefined {
         if (book === 'rules') {
             return cachedRulesChapters[chapterNumber]
-        } else if (book === 'player') {
+        } else if (book === 'players') {
             return cachedPlayerChapters[chapterNumber]
         }
     }
@@ -59,13 +59,13 @@ export default function ChapterHook(pathname?: string): ChapterHookReturn {
         const newTimeoutID = setTimeout(async () => {
             const [_, book, chapterNumber] = pathname.split('/')
 
-            let chapterInfo: ChapterContentsReturn | undefined = getChapterFromCache(book, chapterNumber)
+            const chapterInfo: ChapterContentsReturn | undefined = getChapterFromCache(book, chapterNumber)
 
             if (!chapterInfo) {
                 const { data } = await getChapterFromServer(book, chapterNumber)
                 dispatch(saveChapter(data))
             }
-        }, 500)
+        }, 250)
 
         setTimeoutID(newTimeoutID)
     }

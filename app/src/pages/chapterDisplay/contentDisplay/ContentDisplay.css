@@ -11,8 +11,15 @@
     background-size: 100%;
 }
 
+.content-display-body-shell img {
+    margin: 0 0 15px 15px;
+    float: right;
+    width: 50%;
+}
+
 textarea.content-display-shell {
     height: 828px;
+    cursor: pointer;
 }
 
 .component-shell {
@@ -84,16 +91,18 @@ textarea.content-display-shell {
 table {
     border-collapse: collapse;
     margin: 15px auto;
-	font-family: "Source Sans 3", sans-serif;
+    font-family: "Source Sans 3", sans-serif;
     font-size: 15px;
-}
-
-.table-float {
     float: right;
-    margin: 0  0 15px 15px;
+    margin: 0 0 15px 15px;
 }
 
-.table-float table {
+.no-float {
+    float: unset;
+    margin: 0 auto 15px;
+}
+
+.no-float table {
     margin: 0;
 }
 

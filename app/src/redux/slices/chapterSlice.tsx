@@ -17,10 +17,11 @@ export const chapterSlice = createSlice({
   initialState,
   reducers: {
     saveChapter: (state: State, action: PayloadAction<ChapterContentsReturn>) => {
-      if (action.payload.book === 'rules') {
-        state.rulesGuideChapters[action.payload.chapter] = action.payload
-      } else if (action.payload.book === 'players') {
-        state.playersGuideChapters[action.payload.chapter] = action.payload
+      const { payload } = action
+      if (payload.book === 'rules') {
+        state.rulesGuideChapters[payload.chapter] = payload
+      } else if (payload.book === 'players') {
+        state.playersGuideChapters[payload.chapter] = payload
       }
     }
   },

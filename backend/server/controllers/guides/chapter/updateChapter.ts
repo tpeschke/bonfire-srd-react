@@ -7,6 +7,7 @@ import { isJustMainOwner } from '../../user/ownerFunctions'
 import createNavigationArray from '../utilities/createNavigationArray'
 import parseChapterContents from '../utilities/parseChapterContents'
 import updateCache from '../cache/updateCache'
+import { rulesChapters, playerChapters } from '@srd/common/utilities/chapters'
 
 interface ChapterRequest extends Request {
     params: {
@@ -23,12 +24,14 @@ export default async function updateChapter(request: ChapterRequest, response: R
         const [book, chapter] = request.params.code.split('.')
         const chapterNumber = +chapter
         const { chapterContents } = request.body
+        const guideChapterNameArray = book === 'rules' ? rulesChapters : playerChapters
 
         if (book === 'rules' || book === 'players') {
             await query(chapterSQL.updateChapter, [chapterContents, book, chapterNumber])
     
             const newChapter: ChapterContentsReturn = {
                 book, 
+                chapterName: guideChapterNameArray[+chapter - 1], 
                 chapter: chapterNumber,
                 navigation: createNavigationArray(chapterContents),
                 chapterContents: parseChapterContents(chapterContents)

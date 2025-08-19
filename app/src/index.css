@@ -254,6 +254,10 @@ button.transparent-white:hover {
 	cursor: pointer;
 }
 
+em {
+	font-style: italic;
+}
+
 .warning {
 	color: #990000;
 	font-style: italic;
