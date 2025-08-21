@@ -53,7 +53,6 @@ textarea.content-display-shell {
     padding: 5px 15px 5px 0px;
     margin: 15px 0;
     letter-spacing: 2px;
-    border-bottom: 2px solid #222;
     position: relative;
     cursor: pointer;
 }
@@ -95,15 +94,13 @@ table {
     font-size: 15px;
     float: right;
     margin: 0 0 15px 15px;
+    max-width: 50%;
 }
 
 .no-float {
-    float: unset;
-    margin: 0 auto 15px;
-}
-
-.no-float table {
-    margin: 0;
+    float: unset !important;
+    margin: 0 auto 15px !important;
+    max-width: unset;
 }
 
 table .center-row {

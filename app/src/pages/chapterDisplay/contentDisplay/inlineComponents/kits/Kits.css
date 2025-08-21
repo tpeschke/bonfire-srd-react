@@ -1,0 +1,26 @@
+.kits-display-shell {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.kits-display-shell>div {
+    width: 45%;
+}
+
+.kits-display-shell table {
+    float: unset;
+    margin: 0 15px 15px 0;
+    max-width: unset;
+    width: 100%;
+}
+
+.kits-display-shell th {
+    text-align: left;
+    vertical-align: bottom;
+}
+
+.kits-display-shell tbody th {
+    background: gray;
+    color: white
+}

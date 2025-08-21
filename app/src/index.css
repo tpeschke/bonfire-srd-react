@@ -160,6 +160,10 @@ a:hover, .fake-link:hover {
 	background: rgb(190, 190, 190);
 }
 
+.text-left {
+	text-align: left;
+}
+
 .react-tooltip {
 	z-index: 2;
 }

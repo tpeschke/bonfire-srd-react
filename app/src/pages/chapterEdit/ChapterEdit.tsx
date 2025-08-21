@@ -59,6 +59,8 @@ export default function ChapterEdit({ setLoading, pathname }: Props) {
 
     const componentReminder = "<<componentName<<"
 
+    const commentReminder = "[//]: <> (This is a comment.)"
+
     return (
         <div className='chapter-display-shell' id='chapter-display-shell'>
             {chapter &&
@@ -70,6 +72,8 @@ export default function ChapterEdit({ setLoading, pathname }: Props) {
                 </h2>
 
                 <p>{componentReminder}</p>
+
+                <p>{commentReminder}</p>
             </div>
         </div>
     )

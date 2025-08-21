@@ -1,5 +1,5 @@
 .inner-nav-shell {
-    min-width: 240px;
+    width: 300px;
     padding: 0 15px;
     position: sticky;
     top: 82px;
