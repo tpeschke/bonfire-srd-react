@@ -99,8 +99,12 @@ table {
 
 .no-float {
     float: unset !important;
-    margin: 0 auto 15px !important;
+    margin: 0 auto 15px;
     max-width: unset;
+}
+
+.no-float.justify-left {
+    margin: 0 0 15px;
 }
 
 .float-left {
@@ -111,6 +115,10 @@ table {
 table .center-row {
     text-align: center;
     vertical-align: middle;
+}
+
+.float-left tr th, .no-float tr th {
+    text-align: left;
 }
 
 thead {
