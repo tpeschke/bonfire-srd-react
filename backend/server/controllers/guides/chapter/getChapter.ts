@@ -4,8 +4,9 @@ import chapterSQL from '../../../db/queries/chapter'
 import { checkForContentTypeBeforeSending } from "../../common/utilities/sendingFunctions"
 import { chapterCache } from "../cache/getCache"
 import createNavigationArray from "../utilities/createNavigationArray"
+import chapterInfo from "./utilities/chapterInfo"
 import parseChapterContents from "../utilities/parseChapterContents"
-import { Books } from '@srd/common/interfaces/ChapterInterfaces'
+import { Books } from '@srd/common/interfaces/chapterInterfaces/ChapterInterfaces'
 import { rulesChapters, playerChapters } from '@srd/common/utilities/chapters'
 
 interface ChapterRequest extends Request {
@@ -29,6 +30,7 @@ export async function getChapterWorkhorse(request: ChapterRequest, response: Res
             checkForContentTypeBeforeSending(response, {
                 book, chapter,
                 chapterName: guideChapterNameArray[+chapter - 1],
+                info: chapterInfo[book][+chapter - 1],
                 navigation: createNavigationArray(chaptercontents),
                 chapterContents: parseChapterContents(chaptercontents)
             })

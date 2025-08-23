@@ -1,4 +1,4 @@
-import { ChapterContentsReturn } from "@srd/common/interfaces/ChapterInterfaces"
+import { ChapterContentsReturn } from "@srd/common/interfaces/chapterInterfaces/chapterInterfaces"
 import axios from "axios"
 import { useState, useEffect } from "react"
 import { chapterURL } from '../frontend-config.ts'

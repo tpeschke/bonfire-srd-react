@@ -1,19 +1,18 @@
 import './ContentDisplay.css'
-import { ComponentContent } from "@srd/common/interfaces/ChapterInterfaces";
+import { ChapterInfoBaseObject, ComponentContent } from "@srd/common/interfaces/chapterInterfaces/ChapterInterfaces";
 import CharacteristicGenerator from "./inlineComponents/CharacteristicGenerator";
 import Kits from './inlineComponents/kits/Kits';
 import Image from '../../../components/image/Image';
 
 interface Props {
-    componentInfo: ComponentContent
+    componentInfo: ComponentContent,
+    chapterInfo: ChapterInfoBaseObject
 }
 
-export default function InlineDisplay({ componentInfo }: Props) {
+export default function InlineDisplay({ componentInfo, chapterInfo }: Props) {
     switch (componentInfo.component) {
         case 'characteristicGenerator':
             return <div className="component-shell"><CharacteristicGenerator /></div>
-        case 'kits':
-            return <Kits />
         case 'dwarfImage':
             return <Image src='ancestries/dwarf.png' />
         case 'elfImage':
@@ -30,6 +29,8 @@ export default function InlineDisplay({ componentInfo }: Props) {
             return <Image src='ancestries/gaunt.png' />
         case 'starCursedImage':
             return <Image src='ancestries/starCursed.png' />
+        case 'kits':
+            return <Kits info={chapterInfo.info} />
         default:
             return <div className="component-shell"><p>Something Went Wrong</p></div>
     }

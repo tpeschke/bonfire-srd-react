@@ -1,8 +1,9 @@
-import { Books, ChapterContentsReturn } from "@srd/common/interfaces/ChapterInterfaces"
+import { Books, ChapterContentsReturn } from "@srd/common/interfaces/chapterInterfaces/ChapterInterfaces"
 import { rulesChapters, playerChapters } from "@srd/common/utilities/chapters"
 import createNavigationArray from "../utilities/createNavigationArray"
 import parseChapterContents from "../utilities/parseChapterContents"
 import { getChapterFromDB } from "../chapter/getChapter"
+import chapterInfo from "../chapter/utilities/chapterInfo"
 
 interface ChapterCache {
     rules: ChapterContentsReturn[],
@@ -32,6 +33,7 @@ function getChapterForCache(book: Books) {
             book: book,
             chapterName: guideChapterNameArray[index],
             chapter: index + 1,
+            info: chapterInfo[book][index],
             navigation: createNavigationArray(chaptercontents),
             chapterContents: parseChapterContents(chaptercontents)
         }

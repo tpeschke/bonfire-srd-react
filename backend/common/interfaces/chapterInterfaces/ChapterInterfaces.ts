@@ -22,8 +22,16 @@ export interface ChapterContentsReturn {
     book: Books,
     chapter: number,
     chapterName: string,
+    info: ChapterInfo
     chapterContents: (MarkdownContent | ComponentContent)[]
     navigation: ChapterNavigation[]
+}
+
+export type ChapterInfo = null | ChapterInfoBaseObject
+
+export interface ChapterInfoBaseObject {
+    type: 'kits' | 'spells',
+    info: any[]
 }
 
 export interface ChapterNavigation {

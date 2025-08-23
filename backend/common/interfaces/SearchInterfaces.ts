@@ -1,4 +1,4 @@
-import { Books } from "./ChapterInterfaces";
+import { Books } from "./chapterInterfaces/ChapterInterfaces";
 
 export default interface SearchResults {
     book: Books,

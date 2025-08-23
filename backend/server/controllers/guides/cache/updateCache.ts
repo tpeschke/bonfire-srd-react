@@ -1,4 +1,4 @@
-import { ChapterContentsReturn } from "@srd/common/interfaces/ChapterInterfaces";
+import { ChapterContentsReturn } from "@srd/common/interfaces/chapterInterfaces/ChapterInterfaces";
 import { chapterCache } from "./getCache";
 
 export default function updateCache(newChapter: ChapterContentsReturn) {

@@ -1,4 +1,4 @@
-import { ChapterContentsReturn } from '@srd/common/interfaces/ChapterInterfaces'
+import { ChapterContentsReturn } from '@srd/common/interfaces/chapterInterfaces/ChapterInterfaces'
 import query from '../../../db/database'
 import chapterSQL from '../../../db/queries/chapter'
 import { Request, Response, User } from '../../../interfaces/apiInterfaces'
@@ -8,6 +8,7 @@ import createNavigationArray from '../utilities/createNavigationArray'
 import parseChapterContents from '../utilities/parseChapterContents'
 import updateCache from '../cache/updateCache'
 import { rulesChapters, playerChapters } from '@srd/common/utilities/chapters'
+import chapterInfo from './utilities/chapterInfo'
 
 interface ChapterRequest extends Request {
     params: {
@@ -32,6 +33,7 @@ export default async function updateChapter(request: ChapterRequest, response: R
             const newChapter: ChapterContentsReturn = {
                 book, 
                 chapterName: guideChapterNameArray[+chapter - 1], 
+                info: chapterInfo[book][+chapter - 1],
                 chapter: chapterNumber,
                 navigation: createNavigationArray(chapterContents),
                 chapterContents: parseChapterContents(chapterContents)

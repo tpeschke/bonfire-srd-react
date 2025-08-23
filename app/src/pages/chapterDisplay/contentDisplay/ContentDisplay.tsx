@@ -1,5 +1,5 @@
 import './ContentDisplay.css'
-import { MarkdownContent, ComponentContent, Books } from "@srd/common/interfaces/ChapterInterfaces";
+import { MarkdownContent, ComponentContent, Books, ChapterInfo } from "@srd/common/interfaces/chapterInterfaces/ChapterInterfaces";
 import Markdown from "react-markdown";
 import InlineDisplay from "./InlineDisplay";
 import remarkGfm from 'remark-gfm';
@@ -15,10 +15,11 @@ interface Props {
     pathname: string,
     chapterName: string,
     chapterNumber?: number,
-    book?: Books
+    book?: Books,
+    chapterInfo: ChapterInfo
 }
 
-export default function ContentDisplay({ contents, pathname, chapterName, chapterNumber, book }: Props) {
+export default function ContentDisplay({ contents, pathname, chapterName, chapterNumber, book, chapterInfo }: Props) {
     const navigate = useNavigate()
 
     // BRODY
@@ -46,7 +47,7 @@ export default function ContentDisplay({ contents, pathname, chapterName, chapte
                     if (content.type === 'markdown') {
                         displayedContent.push(<Markdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeSlug, rehypeAutolinkHeadings, rehypeRaw]} key={displayedContent.length}>{content.body}</Markdown>)
                     } else if (content.type === 'component') {
-                        displayedContent.push(<InlineDisplay key={displayedContent.length} componentInfo={content} />)
+                        displayedContent.push(<InlineDisplay key={displayedContent.length} componentInfo={content} chapterInfo={chapterInfo} />)
                     }
 
                     return displayedContent

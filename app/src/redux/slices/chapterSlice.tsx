@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
-import { ChapterContentsReturn } from '@srd/common/interfaces/ChapterInterfaces'
+import { ChapterContentsReturn } from '@srd/common/interfaces/chapterInterfaces/chapterInterfaces'
 
 interface State {
     rulesGuideChapters: ChapterContentsReturn[],
