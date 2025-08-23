@@ -103,6 +103,11 @@ table {
     max-width: unset;
 }
 
+.float-left {
+    float: left !important;
+    margin: 0 auto 15px !important;
+}
+
 table .center-row {
     text-align: center;
     vertical-align: middle;

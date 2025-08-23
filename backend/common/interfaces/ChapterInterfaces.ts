@@ -7,11 +7,13 @@ export interface MarkdownContent extends ChapterContent {
     body: string
 }
 
-export type validComponents = 'characteristicGenerator' | 'kits'
+export type ValidComponents = 'characteristicGenerator' | 'kits' | AncestryImages
+
+type AncestryImages = 'dwarfImage' | 'elfImage' | 'humanImage' | 'orcImage' | 'pechImage' | 'ratfolkImage' | 'gauntImage' | 'starCursedImage'
 
 export interface ComponentContent extends ChapterContent {
     type: 'component',
-    component: validComponents
+    component: ValidComponents
 }
 
 export type Books = 'rules' | 'players'

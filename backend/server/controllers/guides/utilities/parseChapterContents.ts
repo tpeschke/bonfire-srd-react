@@ -1,6 +1,6 @@
-import { MarkdownContent, ComponentContent, validComponents } from "@srd/common/interfaces/ChapterInterfaces";
+import { MarkdownContent, ComponentContent, ValidComponents } from "@srd/common/interfaces/ChapterInterfaces";
 
-const validComponentArray: validComponents[] = ['characteristicGenerator', 'kits']
+const validComponentArray: ValidComponents[] = ['characteristicGenerator', 'kits', 'dwarfImage', 'elfImage', 'humanImage', 'orcImage', 'pechImage', 'ratfolkImage', 'gauntImage', 'starCursedImage']
 
 export default function parseChapterContents(rawChapterContents: string): (MarkdownContent | ComponentContent)[] {
     return rawChapterContents.split('<<').map((element: any) => {
