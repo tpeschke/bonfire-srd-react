@@ -3,6 +3,8 @@ import { ChapterInfoBaseObject, ComponentContent } from "@srd/common/interfaces/
 import CharacteristicGenerator from "./inlineComponents/CharacteristicGenerator";
 import Kits from './inlineComponents/kits/Kits';
 import Image from '../../../components/image/Image';
+import OriginsShapesTraditions from './inlineComponents/rudimentTables/OriginsShapesTraditions';
+import RudimentsByTradition from './inlineComponents/rudimentTables/RudimentsByTradition';
 
 interface Props {
     componentInfo: ComponentContent,
@@ -31,6 +33,10 @@ export default function InlineDisplay({ componentInfo, chapterInfo }: Props) {
             return <Image src='ancestries/starCursed.png' />
         case 'kits':
             return <Kits info={chapterInfo.info} />
+        case 'originsShapesTraditions':
+            return <OriginsShapesTraditions info={chapterInfo.info} />
+        case 'rudimentsByTradition':
+            return <RudimentsByTradition info={chapterInfo.info}/>
         default:
             return <div className="component-shell"><p>Something Went Wrong</p></div>
     }

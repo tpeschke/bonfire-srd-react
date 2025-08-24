@@ -7,7 +7,7 @@ export interface MarkdownContent extends ChapterContent {
     body: string
 }
 
-export type ValidComponents = 'characteristicGenerator' | 'kits' | AncestryImages
+export type ValidComponents = 'characteristicGenerator' | 'kits' | 'originsShapesTraditions' | 'rudimentsByTradition' | AncestryImages
 
 type AncestryImages = 'dwarfImage' | 'elfImage' | 'humanImage' | 'orcImage' | 'pechImage' | 'ratfolkImage' | 'gauntImage' | 'starCursedImage'
 
@@ -30,7 +30,7 @@ export interface ChapterContentsReturn {
 export type ChapterInfo = null | ChapterInfoBaseObject
 
 export interface ChapterInfoBaseObject {
-    type: 'kits' | 'spells',
+    type: 'kits' | 'rudiments',
     info: any[]
 }
 

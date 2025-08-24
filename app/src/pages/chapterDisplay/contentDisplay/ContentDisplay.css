@@ -112,6 +112,10 @@ table {
     margin: 0 auto 15px !important;
 }
 
+.title-heading {
+    background: #222;
+}
+
 table .center-row {
     text-align: center;
     vertical-align: middle;
