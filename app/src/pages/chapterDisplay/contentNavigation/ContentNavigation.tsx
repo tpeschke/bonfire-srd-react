@@ -1,4 +1,4 @@
-import { ChapterNavigation } from '@srd/common/interfaces/ChapterInterfaces'
+import { ChapterNavigation } from '@srd/common/interfaces/chapterInterfaces/ChapterInterfaces'
 import './ContentNavigation.css'
 import { Link } from 'react-router-dom'
 import { useState, useEffect } from 'react'

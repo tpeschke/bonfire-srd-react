@@ -35,7 +35,7 @@ const burdens: BurdenNInjuryTable[] = [
     },
     {
         number: 9,
-        burdenNInjury: 'Half - Life'
+        burdenNInjury: 'Half Life'
     },
     {
         number: 8,

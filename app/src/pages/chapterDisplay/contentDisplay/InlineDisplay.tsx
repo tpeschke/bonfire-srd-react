@@ -9,7 +9,7 @@ import BurdensNInjuriesDisplay from './inlineComponents/burdensNInjuries/Burdens
 
 interface Props {
     componentInfo: ComponentContent,
-    chapterInfo: ChapterInfoBaseObject
+    chapterInfo: ChapterInfoBaseObject | null
 }
 
 export default function InlineDisplay({ componentInfo, chapterInfo }: Props) {
@@ -33,13 +33,13 @@ export default function InlineDisplay({ componentInfo, chapterInfo }: Props) {
         case 'starCursedImage':
             return <Image src='ancestries/starCursed.png' />
         case 'kits':
-            return <Kits info={chapterInfo.info} />
+            return <Kits info={chapterInfo ? chapterInfo.info : []} />
         case 'originsShapesTraditions':
-            return <OriginsShapesTraditions info={chapterInfo.info} />
+            return <OriginsShapesTraditions info={chapterInfo ? chapterInfo.info : []} />
         case 'rudimentsByTradition':
-            return <RudimentsByTradition info={chapterInfo.info}/>
+            return <RudimentsByTradition info={chapterInfo ? chapterInfo.info : []}/>
         case 'burdensNInjuries':
-            return <BurdensNInjuriesDisplay info={chapterInfo.info}/>
+            return <BurdensNInjuriesDisplay info={chapterInfo ? chapterInfo.info : []}/>
         default:
             return <div className="component-shell"><p>Something Went Wrong</p></div>
     }
