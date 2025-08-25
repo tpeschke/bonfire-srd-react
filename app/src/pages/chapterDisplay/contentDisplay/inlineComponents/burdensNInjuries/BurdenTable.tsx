@@ -1,12 +1,11 @@
-import './RudimentTable.css'
-import { RudimentTable } from "@srd/common/interfaces/chapterInterfaces/WeirdInterfaces";
+import { BurdenNInjuryTable } from '@srd/common/interfaces/chapterInterfaces/BurdensNInjuriesInterfaces'
 
 interface Prop {
-    table: RudimentTable[],
+    table: BurdenNInjuryTable[],
     title: string
 }
 
-export default function RudimentTableDisplay({ table, title }: Prop) {
+export default function BurdensTableDisplay({ table, title }: Prop) {
     let currentNumber = 0;
 
     return (
@@ -21,14 +20,14 @@ export default function RudimentTableDisplay({ table, title }: Prop) {
                 </tr>
             </thead>
             <tbody>
-                {table.map(({ rudiment, number = 1 }, index) => {
+                {table.map(({ burdenNInjury, number = 1 }, index) => {
                     const oldNumber = number > 1 ? currentNumber + 1 : null
                     currentNumber += number
 
                     return (
                         <tr key={index}>
                             <td>{oldNumber ? `${oldNumber} - ${currentNumber}` : currentNumber}</td>
-                            <td>{rudiment}</td>
+                            <td>{burdenNInjury}</td>
                         </tr>
                     )
                 })}

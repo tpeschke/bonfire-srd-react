@@ -5,6 +5,7 @@ import Kits from './inlineComponents/kits/Kits';
 import Image from '../../../components/image/Image';
 import OriginsShapesTraditions from './inlineComponents/rudimentTables/OriginsShapesTraditions';
 import RudimentsByTradition from './inlineComponents/rudimentTables/RudimentsByTradition';
+import BurdensNInjuriesDisplay from './inlineComponents/burdensNInjuries/BurdensNInjuries';
 
 interface Props {
     componentInfo: ComponentContent,
@@ -37,6 +38,8 @@ export default function InlineDisplay({ componentInfo, chapterInfo }: Props) {
             return <OriginsShapesTraditions info={chapterInfo.info} />
         case 'rudimentsByTradition':
             return <RudimentsByTradition info={chapterInfo.info}/>
+        case 'burdensNInjuries':
+            return <BurdensNInjuriesDisplay info={chapterInfo.info}/>
         default:
             return <div className="component-shell"><p>Something Went Wrong</p></div>
     }
