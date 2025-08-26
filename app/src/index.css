@@ -160,6 +160,11 @@ a:hover, .fake-link:hover {
 	background: rgb(190, 190, 190);
 }
 
+.gray {
+	background: gray !important;
+	color: white
+}
+
 .text-left {
 	text-align: left;
 }

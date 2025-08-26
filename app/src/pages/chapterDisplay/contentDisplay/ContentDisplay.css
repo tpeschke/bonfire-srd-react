@@ -87,6 +87,12 @@ textarea.content-display-shell {
     font-weight: bold;
 }
 
+.content-display-shell div.flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
 table {
     border-collapse: collapse;
     margin: 15px auto;
@@ -128,6 +134,7 @@ table .center-row {
 thead {
     background: gray;
     color: white;
+    text-align: left;
 }
 
 tr th, tr td {
