@@ -1,0 +1,15 @@
+.characteristic-generator-shell {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.characteristic-generator-shell>div {
+    display: flex;
+    flex-direction: column;
+}
+
+.characteristic-generator-shell p {
+    text-indent: unset;
+    text-align: center;
+    margin-top: 5px;
+}

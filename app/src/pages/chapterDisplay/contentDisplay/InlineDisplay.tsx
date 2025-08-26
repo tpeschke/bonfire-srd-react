@@ -1,6 +1,6 @@
 import './ContentDisplay.css'
 import { ChapterInfoBaseObject, ComponentContent } from "@srd/common/interfaces/chapterInterfaces/ChapterInterfaces";
-import CharacteristicGenerator from "./inlineComponents/CharacteristicGenerator";
+import CharacteristicGenerator from "./inlineComponents/characteristicGenerator/CharacteristicGenerator";
 import Kits from './inlineComponents/kits/Kits';
 import Image from '../../../components/image/Image';
 import OriginsShapesTraditions from './inlineComponents/rudimentTables/OriginsShapesTraditions';
@@ -15,7 +15,7 @@ interface Props {
 export default function InlineDisplay({ componentInfo, chapterInfo }: Props) {
     switch (componentInfo.component) {
         case 'characteristicGenerator':
-            return <div className="component-shell"><CharacteristicGenerator /></div>
+            return <CharacteristicGenerator />
         case 'dwarfImage':
             return <Image src='ancestries/dwarf.png' />
         case 'elfImage':

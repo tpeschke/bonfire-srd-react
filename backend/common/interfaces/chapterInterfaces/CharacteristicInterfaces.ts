@@ -1,0 +1,1 @@
+export type CharacteristicTypes = 'description' | 'relationship' | 'conviction' | 'flaw'

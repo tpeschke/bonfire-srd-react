@@ -1,5 +1,5 @@
 import './ChapterName.css'
-import { Books } from '@srd/common/interfaces/ChapterInterfaces'
+import { Books } from '@srd/common/interfaces/chapterInterfaces/ChapterInterfaces'
 
 import player1 from '../../../assets/images/chapterHeadings/player1.png'
 import player2 from '../../../assets/images/chapterHeadings/player2.png'
