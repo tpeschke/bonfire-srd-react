@@ -31,15 +31,25 @@ export default function InlineDisplay({ componentInfo, chapterInfo }: Props) {
         case 'gauntImage':
             return <Image src='ancestries/gaunt.png' />
         case 'starCursedImage':
-            return <Image src='ancestries/starCursed.png' />
+            return <Image src='classes/starCursed.png' />
+        case 'expertImage':
+            return <Image isClass={true} src='classes/expert.png' />
+        case 'fighterImage':
+            return <Image isClass={true} src='classes/fighter.png' />
+        case 'servantImage':
+            return <Image isClass={true} src='classes/servant.png' />
+        case 'socialiteImage':
+            return <Image isClass={true} src='classes/socialite.png' />
+        case 'weirdAdeptImage':
+            return <Image isClass={true} src='classes/weirdAdept.png' />
         case 'kits':
             return <Kits info={chapterInfo ? chapterInfo.info : []} />
         case 'originsShapesTraditions':
             return <OriginsShapesTraditions info={chapterInfo ? chapterInfo.info : []} />
         case 'rudimentsByTradition':
-            return <RudimentsByTradition info={chapterInfo ? chapterInfo.info : []}/>
+            return <RudimentsByTradition info={chapterInfo ? chapterInfo.info : []} />
         case 'burdensNInjuries':
-            return <BurdensNInjuriesDisplay info={chapterInfo ? chapterInfo.info : []}/>
+            return <BurdensNInjuriesDisplay info={chapterInfo ? chapterInfo.info : []} />
         default:
             return <div className="component-shell"><p>Something Went Wrong</p></div>
     }

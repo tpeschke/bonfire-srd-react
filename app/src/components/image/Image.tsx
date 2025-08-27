@@ -1,13 +1,14 @@
 import './Image.css'
 
 interface Props {
-    src: string
+    src: string,
+    isClass?: boolean
 }
 
-export default function Image({ src }: Props) {
+export default function Image({ src, isClass = false }: Props) {
     return (
         <a href='https://www.gorangligovic.com/' target='_blank'>
-            <img src={'/src/assets/images/' + src} />
+            <img className={isClass ? 'class-image' : ''} src={'/src/assets/images/' + src} />
         </a>
     )
 }
