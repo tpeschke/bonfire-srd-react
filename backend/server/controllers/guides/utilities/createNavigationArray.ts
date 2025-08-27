@@ -1,4 +1,4 @@
-import { ChapterNavigation } from "@srd/common/interfaces/ChapterInterfaces";
+import { ChapterNavigation } from "@srd/common/interfaces/chapterInterfaces/ChapterInterfaces";
 
 export default function createNavigationArray(rawChapterContents: string): ChapterNavigation[] {
     let navigationArray: ChapterNavigation[] = []
