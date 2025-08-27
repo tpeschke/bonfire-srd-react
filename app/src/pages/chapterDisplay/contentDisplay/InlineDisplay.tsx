@@ -31,7 +31,7 @@ export default function InlineDisplay({ componentInfo, chapterInfo }: Props) {
         case 'gauntImage':
             return <Image src='ancestries/gaunt.png' />
         case 'starCursedImage':
-            return <Image src='classes/starCursed.png' />
+            return <Image src='ancestries/starCursed.png' />
         case 'expertImage':
             return <Image isClass={true} src='classes/expert.png' />
         case 'fighterImage':
