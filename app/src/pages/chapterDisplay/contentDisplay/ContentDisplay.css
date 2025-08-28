@@ -40,6 +40,7 @@ textarea.content-display-shell {
     letter-spacing: 2px;
     position: relative;
     cursor: pointer;
+    text-shadow: 3px 3px black;
 }
 
 .content-display-body-shell h1::first-letter {
