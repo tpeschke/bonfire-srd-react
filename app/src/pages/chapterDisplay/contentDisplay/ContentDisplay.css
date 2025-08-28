@@ -35,11 +35,18 @@ textarea.content-display-shell {
     font-weight: 700;
     font-size: 15pt;
     font-family: "HamletOrNot";
-    padding: 5px 0 5px 5px;
-    margin: 15px 0;
+    padding: 5px 0 9px;
+    margin: 20px 0 15px;
     letter-spacing: 2px;
     position: relative;
     cursor: pointer;
+}
+
+.content-display-body-shell h1::first-letter {
+    font-size: 25pt;
+    background: #990000;
+    padding: 0 10px;
+    margin-right: -7px;
 }
 
 .content-display-body-shell h1:first-child {
@@ -51,14 +58,18 @@ textarea.content-display-shell {
     font-weight: bold;
     font-family: "HamletOrNot";
     padding: 5px 15px 5px 0px;
-    margin: 15px 0;
+    margin: 15px 0 5px;
     letter-spacing: 2px;
     position: relative;
     cursor: pointer;
 }
 
+.content-display-body-shell h2::first-letter {
+    font-size: 20px;
+}
+
 .content-display-shell h3 {
-    margin: 15px 0;
+    margin: 15px 0 5px;
     font-weight: bold;
 }
 
@@ -111,6 +122,14 @@ table {
 
 .no-float.justify-left {
     margin: 0 0 15px;
+}
+
+table.center-not-first-column tr td {
+    text-align: center;
+}
+
+table.center-not-first-column tr td:first-child {
+    text-align: left;
 }
 
 .float-left {

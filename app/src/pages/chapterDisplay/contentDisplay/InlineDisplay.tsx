@@ -6,6 +6,8 @@ import Image from '../../../components/image/Image';
 import OriginsShapesTraditions from './inlineComponents/rudimentTables/OriginsShapesTraditions';
 import RudimentsByTradition from './inlineComponents/rudimentTables/RudimentsByTradition';
 import BurdensNInjuriesDisplay from './inlineComponents/burdensNInjuries/BurdensNInjuries';
+import EquipmentTable from './inlineComponents/equipmentTables/EquipmentTable';
+import PopulatedItemTable from './inlineComponents/equipmentTables/PopulatedItemTable';
 
 interface Props {
     componentInfo: ComponentContent,
@@ -50,6 +52,12 @@ export default function InlineDisplay({ componentInfo, chapterInfo }: Props) {
             return <RudimentsByTradition info={chapterInfo ? chapterInfo.info : []} />
         case 'burdensNInjuries':
             return <BurdensNInjuriesDisplay info={chapterInfo ? chapterInfo.info : []} />
+        case 'priceByDistance':
+            return <EquipmentTable table='priceByDistance' info={chapterInfo ? chapterInfo.info : []} />
+        case 'animalLivestock':
+            return <EquipmentTable table='animalLivestock' info={chapterInfo ? chapterInfo.info : []} />
+        case 'animalMounts':
+            return <EquipmentTable table='animalMounts' info={chapterInfo ? chapterInfo.info : []} />
         default:
             return <div className="component-shell"><p>Something Went Wrong</p></div>
     }

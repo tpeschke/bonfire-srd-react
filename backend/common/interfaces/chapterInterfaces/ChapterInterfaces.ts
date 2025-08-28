@@ -7,11 +7,13 @@ export interface MarkdownContent extends ChapterContent {
     body: string
 }
 
-export type ValidComponents = 'characteristicGenerator' | 'kits' | 'originsShapesTraditions' | 'rudimentsByTradition' | 'burdensNInjuries' | AncestryImages | ClassImages
+export type ValidComponents = 'characteristicGenerator' | 'kits' | 'originsShapesTraditions' | 'rudimentsByTradition' | 'burdensNInjuries' | AncestryImages | ClassImages | EquipmentTables
 
 type AncestryImages = 'dwarfImage' | 'elfImage' | 'humanImage' | 'orcImage' | 'pechImage' | 'ratfolkImage' | 'gauntImage' | 'starCursedImage'
 
 type ClassImages = 'expertImage' | 'fighterImage' | 'servantImage' | 'socialiteImage' | 'weirdAdeptImage'
+
+export type EquipmentTables = 'priceByDistance' | 'animalLivestock' | 'animalMounts'
 
 export interface ComponentContent extends ChapterContent {
     type: 'component',
@@ -32,7 +34,7 @@ export interface ChapterContentsReturn {
 export type ChapterInfo = null | ChapterInfoBaseObject
 
 export interface ChapterInfoBaseObject {
-    type: 'kits' | 'rudiments' | 'burdensNInjuries',
+    type: 'kits' | 'rudiments' | 'burdensNInjuries' | 'equipment',
     info: any[]
 }
 

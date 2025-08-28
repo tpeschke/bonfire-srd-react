@@ -8,7 +8,7 @@
 
 .inner-nav-shell .quick-link-shell {
     overflow: auto;
-    height: calc(100vh - 125px);
+    height: calc(100vh - 145px);
 }
 
 .inner-nav-shell ::-webkit-scrollbar {
@@ -27,6 +27,10 @@
 
 .inner-nav-shell h2:hover, .inner-nav-shell h3:hover {
     color: #b45f06
+}
+
+.inner-nav-shell h2, .inner-nav-shell h3 {
+    border-left: 2px solid transparent;
 }
 
 .inner-nav-shell h2 {

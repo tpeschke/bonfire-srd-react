@@ -1,4 +1,5 @@
 import burdensNInjuriesInfo from "./chapterInfo/burdensNInjuries";
+import equipmentInfo from "./chapterInfo/equipment/equipment";
 import kitInfo from "./chapterInfo/kits";
 import rudimentInfo from "./chapterInfo/weird";
 
@@ -9,6 +10,9 @@ export default {
         kitInfo,
         null,
         rudimentInfo,
-        burdensNInjuriesInfo
+        burdensNInjuriesInfo,
+        null,
+        null,
+        equipmentInfo
     ]
 }
