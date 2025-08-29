@@ -13,7 +13,11 @@ export interface EquipmentObject {
     animalFeed: EquipmentItem[],
     armorPrices: EquipmentItem[],
     armorStats: ArmorStatObject[],
-    beverages: EquipmentItem[]
+    beverages: EquipmentItem[],
+    clothing: EquipmentItem[],
+    clothingAccessories: EquipmentItem[],
+    containersHeavy: EquipmentItem[],
+    containersPersonal: EquipmentItem[]
 }
 
 export interface PriceObject {
@@ -36,6 +40,7 @@ export interface ArmorStatObject {
 export interface EquipmentItem {
     item: string,
     strength?: number,
+    carryBonus?: string,
     size?: string,
     complexity: number,
     basePrice: number

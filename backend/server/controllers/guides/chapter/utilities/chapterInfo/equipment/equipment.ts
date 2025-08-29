@@ -7,6 +7,10 @@ import animalFeed from './animalFeed'
 import armorPrices from './armorPrices'
 import armorStats from './armorStats'
 import beverages from './beverages'
+import clothing from './clothing'
+import clothingAccessories from './clothingAccessories'
+import containersHeavy from './containersHeavy'
+import containersPersonal from './containersPersonal'
 
 const equipmentInfo: EquipmentInfo = {
     type: 'equipment',
@@ -19,7 +23,11 @@ const equipmentInfo: EquipmentInfo = {
             animalFeed,
             armorPrices,
             armorStats,
-            beverages
+            beverages,
+            clothing,
+            clothingAccessories,
+            containersHeavy,
+            containersPersonal
         }
     ]
 }
