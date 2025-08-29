@@ -8,6 +8,7 @@ import RudimentsByTradition from './inlineComponents/rudimentTables/RudimentsByT
 import BurdensNInjuriesDisplay from './inlineComponents/burdensNInjuries/BurdensNInjuries';
 import EquipmentTable from './inlineComponents/equipmentTables/EquipmentTable';
 import PopulatedItemTable from './inlineComponents/equipmentTables/PopulatedItemTable';
+import ArmorStatsTable from './inlineComponents/equipmentTables/ArmorStatsTable';
 
 interface Props {
     componentInfo: ComponentContent,
@@ -58,6 +59,16 @@ export default function InlineDisplay({ componentInfo, chapterInfo }: Props) {
             return <EquipmentTable table='animalLivestock' info={chapterInfo ? chapterInfo.info : []} />
         case 'animalMounts':
             return <EquipmentTable table='animalMounts' info={chapterInfo ? chapterInfo.info : []} />
+        case 'animalBarding':
+            return <EquipmentTable table='animalBarding' info={chapterInfo ? chapterInfo.info : []} />
+        case 'animalFeed':
+            return <EquipmentTable table='animalFeed' info={chapterInfo ? chapterInfo.info : []} />
+        case 'armorPrices':
+            return <EquipmentTable table='armorPrices' info={chapterInfo ? chapterInfo.info : []} />
+        case 'armorStats':
+            return <ArmorStatsTable armorStats={chapterInfo ? chapterInfo.info[0].armorStats : []} />
+        case 'beverages':
+            return <EquipmentTable table='beverages' info={chapterInfo ? chapterInfo.info : []} />
         default:
             return <div className="component-shell"><p>Something Went Wrong</p></div>
     }

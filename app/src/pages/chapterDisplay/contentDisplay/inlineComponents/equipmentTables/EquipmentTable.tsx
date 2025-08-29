@@ -9,15 +9,23 @@ interface Props {
 }
 
 export default function EquipmentTable({ table, info }: Props) {
-    const { priceByDistance, animalLivestock, animalMounts } = info[0]
+    const { priceByDistance, animalLivestock, animalMounts, animalBarding, animalFeed, armorPrices, beverages } = info[0]
 
     switch (table) {
         case 'priceByDistance':
             return <PriceByDistanceTable priceByDistance={priceByDistance} />
         case 'animalLivestock':
-            return <PopulatedItemTable table={animalLivestock} priceByDistance={priceByDistance} sizeScaling="H"/>
+            return <PopulatedItemTable table={animalLivestock} priceByDistance={priceByDistance} sizeScaling="H" />
         case 'animalMounts':
-            return <PopulatedItemTable table={animalMounts} priceByDistance={priceByDistance} sizeScaling="H"/>
+            return <PopulatedItemTable table={animalMounts} priceByDistance={priceByDistance} sizeScaling="H" />
+        case 'animalBarding':
+            return <PopulatedItemTable table={animalBarding} priceByDistance={priceByDistance} sizeScaling="H" />
+        case 'animalFeed':
+            return <PopulatedItemTable table={animalFeed} priceByDistance={priceByDistance} />
+        case 'armorPrices':
+            return <PopulatedItemTable table={armorPrices} priceByDistance={priceByDistance} />
+        case 'beverages':
+            return <PopulatedItemTable table={beverages} priceByDistance={priceByDistance} />
         default:
             return <p>SOMETHING WENT WRONG</p>
     }

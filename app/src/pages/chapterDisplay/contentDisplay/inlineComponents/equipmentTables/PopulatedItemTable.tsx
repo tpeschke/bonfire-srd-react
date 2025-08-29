@@ -8,6 +8,7 @@ interface Props {
 
 export default function PopulatedItemTable({ table, priceByDistance, sizeScaling = 'M' }: Props) {
     const hasItemSpecificScaling = table[0].size
+    const hasStrength = table[0].strength
 
     return (
         <table className='no-float justify-left'>
@@ -15,6 +16,7 @@ export default function PopulatedItemTable({ table, priceByDistance, sizeScaling
                 <tr>
                     <td>Item</td>
                     <td className='center-row'>Complex</td>
+                    {hasStrength && <td className='center-row'>Strength</td>}
                     {hasItemSpecificScaling && <td className='center-row'>Size</td>}
                     <td className='center-row'>Source</td>
                     <td className='center-row'>Local</td>
@@ -24,7 +26,7 @@ export default function PopulatedItemTable({ table, priceByDistance, sizeScaling
                 </tr>
             </thead>
             <tbody>
-                {table.map(({item, complexity, size, basePrice}, index) => {
+                {table.map(({item, complexity, size, basePrice, strength}, index) => {
                     const sizeToScaleBy = size ? size : sizeScaling
 
                     const localPrice = Math.round(basePrice * priceByDistance[sizeToScaleBy].modifiers[1] * 100) / 100
@@ -36,6 +38,7 @@ export default function PopulatedItemTable({ table, priceByDistance, sizeScaling
                         <tr key={index}>
                             <td>{item}</td>
                             <td className='center-row'>{complexity}</td>
+                            {hasStrength && <td className='center-row'>{strength}</td>}
                             {hasItemSpecificScaling && <td className='center-row'>{size}</td>}
                             <td className='center-row'>{basePrice}</td>
                             <td className='center-row'>{localPrice}</td>
