@@ -7,7 +7,7 @@ import { isJustMainOwner } from '../../user/ownerFunctions'
 import updateCache from '../cache/updateCache'
 import { rulesChapters, playerChapters } from '@srd/common/utilities/chapters'
 import populateChapterContents from '../utilities/parseChapterContents'
-import { getChapterContents } from './getChapter'
+import { getUserAppropriateChapter } from './getChapter'
 
 interface ChapterRequest extends Request {
     params: {
@@ -36,7 +36,7 @@ export default async function updateChapter(request: ChapterRequest, response: R
     
             checkForContentTypeBeforeSending(response, {
                 ...newChapter,
-                chapterContents: getChapterContents(user, newChapter.chapterContents)
+                ...getUserAppropriateChapter(user, newChapter.chapterContents, newChapter.navigation)
             })
         }
 

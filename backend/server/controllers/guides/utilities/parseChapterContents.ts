@@ -19,8 +19,7 @@ export default function populateChapterContents(book: Books, guideChapterNameArr
         chapterName: guideChapterNameArray[chapterNumber - 1],
         info: chapterInfo[book][chapterNumber - 1],
         chapter: chapterNumber,
-        // to do get free / deluxe
-        navigation: createNavigationArray(rawChapterContents),
+        navigation: createNavigationArray(chapterContents),
     }
 }
 

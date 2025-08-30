@@ -3,7 +3,7 @@ import query from "../../../db/database"
 import chapterSQL from '../../../db/queries/chapter'
 import { checkForContentTypeBeforeSending } from "../../common/utilities/sendingFunctions"
 import { chapterCache } from "../cache/getCache"
-import { Books, ChapterContents, LockedChapterContents } from '@srd/common/interfaces/chapterInterfaces/ChapterInterfaces'
+import { Books, ChapterContents, ChapterNavigation, LockedChapterContents, LockedNavigation } from '@srd/common/interfaces/chapterInterfaces/ChapterInterfaces'
 import { rulesChapters, playerChapters } from '@srd/common/utilities/chapters'
 import populateChapterContents from '../utilities/parseChapterContents'
 import { isOwner } from '../../user/ownerFunctions'
@@ -24,7 +24,7 @@ export async function getChapterWorkhorse(request: ChapterRequest, response: Res
         if (cachedChapter) {
             checkForContentTypeBeforeSending(response, {
                 ...cachedChapter,
-                chapterContents: getChapterContents(user, cachedChapter.chapterContents)
+                ...getUserAppropriateChapter(user, cachedChapter.chapterContents, cachedChapter.navigation)
             })
         } else {
             const [{ chaptercontents }] = await getChapterFromDB(book, chapter)
@@ -34,7 +34,7 @@ export async function getChapterWorkhorse(request: ChapterRequest, response: Res
 
             checkForContentTypeBeforeSending(response, {
                 ...populatedChapter,
-                chapterContents: getChapterContents(user, populatedChapter.chapterContents)
+                ...getUserAppropriateChapter(user, populatedChapter.chapterContents, populatedChapter.navigation)
             })
         }
 
@@ -43,7 +43,14 @@ export async function getChapterWorkhorse(request: ChapterRequest, response: Res
     }
 }
 
-export function getChapterContents(user: User | null | undefined, chapterContents: ChapterContents | LockedChapterContents) {
+export function getUserAppropriateChapter(user: User | null | undefined, chapterContents: ChapterContents | LockedChapterContents, navigation: ChapterNavigation[] | LockedNavigation) {
+    return {
+        navigation: getChapterNavigation(user, navigation),
+        chapterContents: getChapterContents(user, chapterContents)
+    }
+}
+
+function getChapterContents(user: User | null | undefined, chapterContents: ChapterContents | LockedChapterContents) {
     const isDeluxeUser = user?.patreon && user?.patreon > 0
 
     if (isDeluxeUser && !Array.isArray(chapterContents)) {
@@ -53,6 +60,17 @@ export function getChapterContents(user: User | null | undefined, chapterContent
     }
 
     return chapterContents
+}
+
+function getChapterNavigation(user: User | null | undefined, navigation: ChapterNavigation[] | LockedNavigation) {
+    const isDeluxeUser = user?.patreon && user?.patreon > 0
+    
+    if (isDeluxeUser && !Array.isArray(navigation)) {
+        return navigation.deluxe
+    } else if (!isDeluxeUser && !Array.isArray(navigation)) {
+        return navigation.free
+    }
+    return navigation
 }
 
 export async function getChapterFromDB(book: Books, chapter: string | number) {

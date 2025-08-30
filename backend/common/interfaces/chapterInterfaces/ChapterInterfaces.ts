@@ -27,22 +27,28 @@ interface ChapterContentsBase {
     chapter: number,
     chapterName: string,
     info: ChapterInfo
-    navigation: ChapterNavigation[]
 }
 
 export interface ChapterContentsReturn extends ChapterContentsBase {
     chapterContents: ChapterContents
+    navigation: ChapterNavigation[]
 }
 
 export type ChapterContents = (MarkdownContent | ComponentContent)[]
 
 export interface ChapterContentsCache extends ChapterContentsBase {
-    chapterContents: ChapterContents | LockedChapterContents
+    chapterContents: ChapterContents | LockedChapterContents,
+    navigation: ChapterNavigation[] | LockedNavigation
 }
 
 export interface LockedChapterContents {
     free: ChapterContents,
     deluxe: ChapterContents
+}
+
+export interface LockedNavigation {
+    free: ChapterNavigation[],
+    deluxe: ChapterNavigation[]
 }
 
 export type ChapterInfo = null | ChapterInfoBaseObject
