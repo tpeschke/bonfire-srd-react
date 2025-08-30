@@ -22,13 +22,27 @@ export interface ComponentContent extends ChapterContent {
 
 export type Books = 'rules' | 'players'
 
-export interface ChapterContentsReturn {
+interface ChapterContentsBase {
     book: Books,
     chapter: number,
     chapterName: string,
     info: ChapterInfo
-    chapterContents: (MarkdownContent | ComponentContent)[]
     navigation: ChapterNavigation[]
+}
+
+export interface ChapterContentsReturn extends ChapterContentsBase {
+    chapterContents: ChapterContents
+}
+
+export type ChapterContents = (MarkdownContent | ComponentContent)[]
+
+export interface ChapterContentsCache extends ChapterContentsBase {
+    chapterContents: ChapterContents | LockedChapterContents
+}
+
+export interface LockedChapterContents {
+    free: ChapterContents,
+    deluxe: ChapterContents
 }
 
 export type ChapterInfo = null | ChapterInfoBaseObject

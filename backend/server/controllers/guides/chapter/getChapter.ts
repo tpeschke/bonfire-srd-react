@@ -19,6 +19,7 @@ export async function getChapterWorkhorse(request: ChapterRequest, response: Res
     const [book, chapter] = request.params.code.split('.')
 
     if (book === 'rules' || book === 'players') {
+        // to do get free / deluxe
         const cachedChapter = chapterCache[book][+chapter - 1]
 
         if (chapterCache) {
@@ -31,7 +32,9 @@ export async function getChapterWorkhorse(request: ChapterRequest, response: Res
                 book, chapter,
                 chapterName: guideChapterNameArray[+chapter - 1],
                 info: chapterInfo[book][+chapter - 1],
+                // to do get free / deluxe
                 navigation: createNavigationArray(chaptercontents),
+                // to do get free / deluxe
                 chapterContents: parseChapterContents(chaptercontents)
             })
         }

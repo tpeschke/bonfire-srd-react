@@ -1,4 +1,4 @@
-import { ChapterContentsReturn } from '@srd/common/interfaces/chapterInterfaces/ChapterInterfaces'
+import { ChapterContentsCache } from '@srd/common/interfaces/chapterInterfaces/ChapterInterfaces'
 import query from '../../../db/database'
 import chapterSQL from '../../../db/queries/chapter'
 import { Request, Response, User } from '../../../interfaces/apiInterfaces'
@@ -30,12 +30,14 @@ export default async function updateChapter(request: ChapterRequest, response: R
         if (book === 'rules' || book === 'players') {
             await query(chapterSQL.updateChapter, [chapterContents, book, chapterNumber])
     
-            const newChapter: ChapterContentsReturn = {
+            const newChapter: ChapterContentsCache = {
                 book, 
                 chapterName: guideChapterNameArray[+chapter - 1], 
                 info: chapterInfo[book][+chapter - 1],
                 chapter: chapterNumber,
+                // to do get free / deluxe
                 navigation: createNavigationArray(chapterContents),
+                // to do get free / deluxe
                 chapterContents: parseChapterContents(chapterContents)
             }
     
