@@ -1,13 +1,11 @@
-import { Request, Response } from '../../../interfaces/apiInterfaces'
+import { Request, Response, User } from '../../../interfaces/apiInterfaces'
 import query from "../../../db/database"
 import chapterSQL from '../../../db/queries/chapter'
 import { checkForContentTypeBeforeSending } from "../../common/utilities/sendingFunctions"
 import { chapterCache } from "../cache/getCache"
-import createNavigationArray from "../utilities/createNavigationArray"
-import chapterInfo from "./utilities/chapterInfo"
-import parseChapterContents from "../utilities/parseChapterContents"
-import { Books } from '@srd/common/interfaces/chapterInterfaces/ChapterInterfaces'
+import { Books, ChapterContents, LockedChapterContents } from '@srd/common/interfaces/chapterInterfaces/ChapterInterfaces'
 import { rulesChapters, playerChapters } from '@srd/common/utilities/chapters'
+import populateChapterContents from '../utilities/parseChapterContents'
 
 interface ChapterRequest extends Request {
     params: {
@@ -17,31 +15,43 @@ interface ChapterRequest extends Request {
 
 export async function getChapterWorkhorse(request: ChapterRequest, response: Response) {
     const [book, chapter] = request.params.code.split('.')
+    const { user } = request
 
     if (book === 'rules' || book === 'players') {
-        // to do get free / deluxe
         const cachedChapter = chapterCache[book][+chapter - 1]
 
-        if (chapterCache) {
-            checkForContentTypeBeforeSending(response, cachedChapter)
+        if (cachedChapter) {
+            checkForContentTypeBeforeSending(response, {
+                ...cachedChapter,
+                chapterContents: getChapterContents(user, cachedChapter.chapterContents)
+            })
         } else {
             const [{ chaptercontents }] = await getChapterFromDB(book, chapter)
             const guideChapterNameArray = book === 'rules' ? rulesChapters : playerChapters
 
+            const populatedChapter = populateChapterContents(book, guideChapterNameArray, +chapter, chaptercontents)
+
             checkForContentTypeBeforeSending(response, {
-                book, chapter,
-                chapterName: guideChapterNameArray[+chapter - 1],
-                info: chapterInfo[book][+chapter - 1],
-                // to do get free / deluxe
-                navigation: createNavigationArray(chaptercontents),
-                // to do get free / deluxe
-                chapterContents: parseChapterContents(chaptercontents)
+                ...populatedChapter,
+                chapterContents: getChapterContents(user, populatedChapter.chapterContents)
             })
         }
 
     } else {
         checkForContentTypeBeforeSending(response, { message: "Book Doesn't Exist" })
     }
+}
+
+function getChapterContents(user: User | null | undefined, chapterContents: ChapterContents | LockedChapterContents) {
+    const isDeluxeUser = user?.patreon && user?.patreon > 0
+
+    if (isDeluxeUser && !Array.isArray(chapterContents)) {
+        return chapterContents.deluxe
+    } else if (!isDeluxeUser && !Array.isArray(chapterContents)) {
+        return chapterContents.free
+    }
+
+    return chapterContents
 }
 
 export async function getChapterFromDB(book: Books, chapter: string | number) {

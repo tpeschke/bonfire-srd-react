@@ -1,6 +1,6 @@
 export interface Request {
     app: App,
-    user?: User | null,
+    user?: User | null | undefined,
     status: Function
 }
 

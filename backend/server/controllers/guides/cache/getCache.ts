@@ -1,9 +1,7 @@
 import { Books, ChapterContentsCache } from "@srd/common/interfaces/chapterInterfaces/ChapterInterfaces"
 import { rulesChapters, playerChapters } from "@srd/common/utilities/chapters"
-import createNavigationArray from "../utilities/createNavigationArray"
-import parseChapterContents from "../utilities/parseChapterContents"
 import { getChapterFromDB } from "../chapter/getChapter"
-import chapterInfo from "../chapter/utilities/chapterInfo"
+import populateChapterContents from "../utilities/parseChapterContents"
 
 interface ChapterCache {
     rules: ChapterContentsCache[],
@@ -29,15 +27,6 @@ function getChapterForCache(book: Books) {
     return async (_: string, index: number) => {
         const [{ chaptercontents }] = await getChapterFromDB(book, index + 1)
 
-        chapterCache[book][index] = {
-            book: book,
-            chapterName: guideChapterNameArray[index],
-            chapter: index + 1,
-            info: chapterInfo[book][index],
-            // to do get free / deluxe
-            navigation: createNavigationArray(chaptercontents),
-            // to do get free / deluxe
-            chapterContents: parseChapterContents(chaptercontents)
-        }
+        chapterCache[book][index] = populateChapterContents(book, guideChapterNameArray, index +1, chaptercontents)
     }
 }

@@ -4,11 +4,9 @@ import chapterSQL from '../../../db/queries/chapter'
 import { Request, Response, User } from '../../../interfaces/apiInterfaces'
 import { checkForContentTypeBeforeSending } from '../../common/utilities/sendingFunctions'
 import { isJustMainOwner } from '../../user/ownerFunctions'
-import createNavigationArray from '../utilities/createNavigationArray'
-import parseChapterContents from '../utilities/parseChapterContents'
 import updateCache from '../cache/updateCache'
 import { rulesChapters, playerChapters } from '@srd/common/utilities/chapters'
-import chapterInfo from './utilities/chapterInfo'
+import populateChapterContents from '../utilities/parseChapterContents'
 
 interface ChapterRequest extends Request {
     params: {
@@ -21,6 +19,7 @@ interface ChapterRequest extends Request {
 
 export default async function updateChapter(request: ChapterRequest, response: Response) {
     const { user } = request
+    
     if (checkIfOwner(user, response)) {
         const [book, chapter] = request.params.code.split('.')
         const chapterNumber = +chapter
@@ -30,16 +29,7 @@ export default async function updateChapter(request: ChapterRequest, response: R
         if (book === 'rules' || book === 'players') {
             await query(chapterSQL.updateChapter, [chapterContents, book, chapterNumber])
     
-            const newChapter: ChapterContentsCache = {
-                book, 
-                chapterName: guideChapterNameArray[+chapter - 1], 
-                info: chapterInfo[book][+chapter - 1],
-                chapter: chapterNumber,
-                // to do get free / deluxe
-                navigation: createNavigationArray(chapterContents),
-                // to do get free / deluxe
-                chapterContents: parseChapterContents(chapterContents)
-            }
+            const newChapter: ChapterContentsCache = populateChapterContents(book, guideChapterNameArray, +chapter, chapterContents)
     
             updateCache(newChapter)
     
