@@ -8,6 +8,7 @@ import updateCache from '../cache/updateCache'
 import { rulesChapters, playerChapters } from '@srd/common/utilities/chapters'
 import populateChapterContents from '../utilities/parseChapterContents'
 import { getUserAppropriateChapter } from './getChapter'
+import { updateSearch } from '../../search/searchController'
 
 interface ChapterRequest extends Request {
     params: {
@@ -31,7 +32,8 @@ export default async function updateChapter(request: ChapterRequest, response: R
             await query(chapterSQL.updateChapter, [chapterContents, book, chapterNumber])
     
             const newChapter: ChapterContentsCache = populateChapterContents(book, guideChapterNameArray, +chapter, chapterContents)
-    
+
+            updateSearch(newChapter)
             updateCache(newChapter)
     
             checkForContentTypeBeforeSending(response, {

@@ -1,3 +1,6 @@
 export default {
-    search: "select book, chapter, substring(chaptercontents, startPosition, endPosition - startPosition) as excerpt from ( select book, chapter, position (UPPER($1) in upper(chaptercontents)) - 25 as startPosition, length(chaptercontents) - position (reverse(UPPER($1)) in reverse(upper(chaptercontents)))  + 25 as endPosition, chaptercontents from srdchapters s where UPPER(chaptercontents) like UPPER(( '%' || $1 || '%' )) ) sr"
+    free: "select book, chapter, substring(freesearch, startPosition, endPosition - startPosition) as excerpt from ( select book, chapter, position (UPPER($1) in upper(freesearch)) - 25 as startPosition, length(freesearch) - position (reverse(UPPER($1)) in reverse(upper(freesearch)))  + 25 as endPosition, freesearch from srdchapters s where UPPER(freesearch) like UPPER(( '%' || $1 || '%' )) ) sr",
+    deluxe: "select book, chapter, substring(deluxesearch, startPosition, endPosition - startPosition) as excerpt from ( select book, chapter, position (UPPER($1) in upper(deluxesearch)) - 25 as startPosition, length(deluxesearch) - position (reverse(UPPER($1)) in reverse(upper(deluxesearch)))  + 25 as endPosition, deluxesearch from srdchapters s where UPPER(deluxesearch) like UPPER(( '%' || $1 || '%' )) ) sr",
+    updateFree: "update srdchapters set freesearch = $1 where book = $2 and chapter = $3",
+    updateDeluxe: "update srdchapters set deluxesearch = $1 where book = $2 and chapter = $3"
 }
