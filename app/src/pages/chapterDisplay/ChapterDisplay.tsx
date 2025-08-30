@@ -31,7 +31,7 @@ export default function ChapterDisplay({ setLoading, pathname, hash }: Props) {
     }, [hash])
 
     function updateTab() {
-        const guide = chapter?.book === 'rules'  ? 'R' : 'P'
+        const guide = chapter?.book === 'rules' ? 'R' : 'P'
 
         document.title = `${guide}.${chapter?.chapter} ${chapter?.chapterName} - Bonfire`
     }
@@ -39,13 +39,15 @@ export default function ChapterDisplay({ setLoading, pathname, hash }: Props) {
     function scrollToCorrectPosition() {
         if (hash) {
             const element: any = document.querySelector(hash);
-            const elementPosition = element.getBoundingClientRect().top;
-            const offsetPosition = elementPosition + window.pageYOffset - 83;
+            if (element) {
+                const elementPosition = element.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - 83;
 
-            window.scrollTo({
-                top: offsetPosition,
-                behavior: "smooth"
-            });
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: "smooth"
+                });
+            }
         } else {
             window.scrollTo(0, 0)
         }
