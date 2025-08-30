@@ -6,7 +6,7 @@ const validComponentArray: ValidComponents[] = [
     'expertImage', 'fighterImage', 'servantImage', 'socialiteImage', 'weirdAdeptImage',
     'priceByDistance', 'animalLivestock', 'animalMounts', 'animalBarding', 'animalFeed', 'armorPrices', 'armorStats', 'beverages', 'clothing', 'clothingAccessories', 'containersHeavy', 
     'containersPersonal', 'musicalInstruments', 'poisonsNToxins', 'rope', 'shields', 'shieldStats', 'toolsAdventuring', 'toolsGeneral', 'toolsTrade', 'weaponsAxes', 'weaponsPolearms',
-    'weaponsSidearms', 'weaponsSwords', 'weaponsTrauma', 'weaponsRanged', 'ammunition'
+    'weaponsSidearms', 'weaponsSwords', 'weaponsTrauma', 'weaponsRanged', 'ammunition', 'meleeWeaponStats', 'rangedWeaponStats'
 ]
 
 export default function parseChapterContents(rawChapterContents: string): (MarkdownContent | ComponentContent)[] {

@@ -26,6 +26,8 @@ import weaponsSwords from './weapons/weaponsSwords'
 import weaponsTrauma from './weapons/weaponsTrauma'
 import weaponsRanged from './weapons/weaponsRanged'
 import ammunition from './weapons/ammunition'
+import meleeWeaponStats from './weapons/stats/meleeStat'
+import rangedWeaponStats from './weapons/stats/rangedStat'
 
 const equipmentInfo: EquipmentInfo = {
     type: 'equipment',
@@ -57,7 +59,9 @@ const equipmentInfo: EquipmentInfo = {
             weaponsSwords,
             weaponsTrauma,
             weaponsRanged,
-            ammunition
+            ammunition,
+            meleeWeaponStats,
+            rangedWeaponStats
         }
     ]
 }

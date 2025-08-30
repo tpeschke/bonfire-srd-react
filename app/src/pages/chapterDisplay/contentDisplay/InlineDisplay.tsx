@@ -7,9 +7,10 @@ import OriginsShapesTraditions from './inlineComponents/rudimentTables/OriginsSh
 import RudimentsByTradition from './inlineComponents/rudimentTables/RudimentsByTradition';
 import BurdensNInjuriesDisplay from './inlineComponents/burdensNInjuries/BurdensNInjuries';
 import EquipmentTable from './inlineComponents/equipmentTables/EquipmentTable';
-import PopulatedItemTable from './inlineComponents/equipmentTables/PopulatedItemTable';
 import ArmorStatsTable from './inlineComponents/equipmentTables/ArmorStatsTable';
 import ShieldStatsTable from './inlineComponents/equipmentTables/ShieldStatsTable';
+import MeleeWeaponStats from './inlineComponents/equipmentTables/MeleeWeaponStats';
+import RangedWeaponStats from './inlineComponents/equipmentTables/RangedWeaponStats';
 
 interface Props {
     componentInfo: ComponentContent,
@@ -108,6 +109,10 @@ export default function InlineDisplay({ componentInfo, chapterInfo }: Props) {
             return <EquipmentTable table='weaponsRanged' info={chapterInfo ? chapterInfo.info : []} />
         case 'ammunition':
             return <EquipmentTable table='ammunition' info={chapterInfo ? chapterInfo.info : []} />
+        case 'meleeWeaponStats':
+            return <MeleeWeaponStats meleeWeaponStats={chapterInfo ? chapterInfo.info[0].meleeWeaponStats : []} />
+        case 'rangedWeaponStats':
+            return <RangedWeaponStats rangedWeaponStats={chapterInfo ? chapterInfo.info[0].rangedWeaponStats : []} />
         default:
             return <div className="component-shell"><p>Something Went Wrong</p></div>
     }

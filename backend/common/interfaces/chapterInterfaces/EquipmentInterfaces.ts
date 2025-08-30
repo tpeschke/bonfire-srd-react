@@ -32,7 +32,9 @@ export interface EquipmentObject {
     weaponsSwords: EquipmentItem[],
     weaponsTrauma: EquipmentItem[],
     weaponsRanged: EquipmentItem[],
-    ammunition: EquipmentItem[]
+    ammunition: EquipmentItem[],
+    meleeWeaponStats: MeleeWeaponObject,
+    rangedWeaponStats: RangedWeaponObject
 }
 
 export interface PriceObject {
@@ -60,6 +62,42 @@ export interface ShieldStatObject {
     cover: string,
     flanks: number,
     fatigue: number,
+    bonus?: boolean
+}
+
+export interface MeleeWeaponObject {
+    axes: MeleeWeaponStatObject[],
+    polearms: MeleeWeaponStatObject[],
+    sidearms: MeleeWeaponStatObject[],
+    swords: MeleeWeaponStatObject[],
+    trauma: MeleeWeaponStatObject[]
+}
+
+export interface MeleeWeaponStatObject {
+    name: string,
+    size: string,
+    damage: string,
+    recovery: number,
+    damageType: string,
+    parry: number,
+    measure: number,
+    bonus?: boolean
+}
+
+export interface RangedWeaponObject {
+    thrown: RangedWeaponStatObject[],
+    mechanical: RangedWeaponStatObject[],
+    firearms: RangedWeaponStatObject[]
+}
+
+export interface RangedWeaponStatObject {
+    name: string,
+    size: string,
+    ri: number,
+    damage: string,
+    recovery: number,
+    damageType: string,
+    minRecovery: number,
     bonus?: boolean
 }
 
