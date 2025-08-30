@@ -3,9 +3,9 @@ import '../chapterDisplay/contentDisplay/ContentDisplay.css'
 import { SetLoadingFunction } from "../../components/loading/Loading";
 import { useEffect, useState } from 'react';
 import ChapterHook from '../../hooks/ChapterHooks';
-import { MarkdownContent, ComponentContent } from '@srd/common/interfaces/ChapterInterfaces';
+import { MarkdownContent, ComponentContent, ChapterContentsReturn, Books } from '@srd/common/interfaces/chapterInterfaces/ChapterInterfaces';
 import axios from 'axios';
-import { editChapterURL } from '../../frontend-config';
+import { chapterURL, editChapterURL } from '../../frontend-config';
 import { useNavigate } from 'react-router-dom';
 
 interface Props {
@@ -13,37 +13,38 @@ interface Props {
     pathname: string,
 }
 
+interface ChapterContentsEdit {
+    book: Books,
+    chapter: number,
+    chapterName: string,
+    chapterContents: string
+}
+
 export default function ChapterEdit({ setLoading, pathname }: Props) {
-    const { chapter, saveChapterToCache } = ChapterHook(pathname)
-    
+    const { saveChapterToCache } = ChapterHook(pathname)
+
+    const [chapter, setChapter] = useState<ChapterContentsEdit | null>(null)
     const [chapterContents, setChapterContents] = useState<string>('')
 
     const navigate = useNavigate()
 
+    useEffect(() => {
+        const [_, book, chapterNumber] = pathname.split('/')
+
+        axios.get(chapterURL + 'edit/' + `${book}.${chapterNumber}`).then(({data}) => {
+            setChapter(data)
+        })
+    }, [pathname])
 
     useEffect(() => {
         if (setLoading) {
             setLoading(!!chapter)
         }
         if (!!chapter) {
-            formatMarkdownString(chapter.chapterContents)
+            setChapterContents(chapter.chapterContents)
             window.scrollTo(0, 0)
         }
     }, [chapter])
-
-    function formatMarkdownString(chapterArray: (MarkdownContent | ComponentContent)[]) {
-        let chapterContents = ''
-
-        chapterArray.forEach(contentItem => {
-            if (contentItem.type === 'markdown') {
-                chapterContents += contentItem.body
-            } else if (contentItem.type === 'component') {
-                chapterContents += `<<${contentItem.component}<<`
-            }
-        })
-
-        setChapterContents(chapterContents)
-    }
 
     function captureText(event: any) {
         const { value } = event.target

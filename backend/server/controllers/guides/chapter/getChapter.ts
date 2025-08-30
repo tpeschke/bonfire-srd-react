@@ -6,6 +6,7 @@ import { chapterCache } from "../cache/getCache"
 import { Books, ChapterContents, LockedChapterContents } from '@srd/common/interfaces/chapterInterfaces/ChapterInterfaces'
 import { rulesChapters, playerChapters } from '@srd/common/utilities/chapters'
 import populateChapterContents from '../utilities/parseChapterContents'
+import { isOwner } from '../../user/ownerFunctions'
 
 interface ChapterRequest extends Request {
     params: {
@@ -42,7 +43,7 @@ export async function getChapterWorkhorse(request: ChapterRequest, response: Res
     }
 }
 
-function getChapterContents(user: User | null | undefined, chapterContents: ChapterContents | LockedChapterContents) {
+export function getChapterContents(user: User | null | undefined, chapterContents: ChapterContents | LockedChapterContents) {
     const isDeluxeUser = user?.patreon && user?.patreon > 0
 
     if (isDeluxeUser && !Array.isArray(chapterContents)) {
@@ -56,4 +57,26 @@ function getChapterContents(user: User | null | undefined, chapterContents: Chap
 
 export async function getChapterFromDB(book: Books, chapter: string | number) {
     return await query(chapterSQL.getByBookAndChapter, [book, chapter])
+}
+
+export async function getChapterForEdit(request: ChapterRequest, response: Response) {
+    const { user } = request
+
+    if (isOwner(user?.id)) {
+        const [book, chapter] = request.params.code.split('.')
+
+        if (book === 'rules' || book === 'players') {
+            const [{ chaptercontents }] = await getChapterFromDB(book, chapter)
+            const guideChapterNameArray = book === 'rules' ? rulesChapters : playerChapters
+
+            checkForContentTypeBeforeSending(response, {
+                book,
+                chapterContents: chaptercontents,
+                chapterName: guideChapterNameArray[+chapter - 1],
+                chapter: chapter
+            })
+        }
+    } else {
+        checkForContentTypeBeforeSending(response, { message: "You Don't Have Edit Permissions" })
+    }
 }
