@@ -11,6 +11,21 @@ import clothing from './clothing'
 import clothingAccessories from './clothingAccessories'
 import containersHeavy from './containersHeavy'
 import containersPersonal from './containersPersonal'
+import musicalInstruments from './musicalInstruments'
+import poisonsNToxins from './poisonsNToxins'
+import rope from './rope'
+import shields from './shields'
+import shieldStats from './shieldStats'
+import toolsAdventuring from './toolsAdventuring'
+import toolsGeneral from './toolsGeneral'
+import toolsTrade from './toolsTrade'
+import weaponsAxes from './weaponsAxes'
+import weaponsPolearms from './weaponsPolearms'
+import weaponsSidearms from './weaponsSidearms'
+import weaponsSwords from './weaponsSwords'
+import weaponsTrauma from './weaponsTrauma'
+import weaponsRanged from './weaponsRanged'
+import ammunition from './ammunition'
 
 const equipmentInfo: EquipmentInfo = {
     type: 'equipment',
@@ -27,7 +42,22 @@ const equipmentInfo: EquipmentInfo = {
             clothing,
             clothingAccessories,
             containersHeavy,
-            containersPersonal
+            containersPersonal,
+            musicalInstruments,
+            poisonsNToxins,
+            rope,
+            shields,
+            shieldStats,
+            toolsAdventuring,
+            toolsGeneral,
+            toolsTrade,
+            weaponsAxes,
+            weaponsPolearms,
+            weaponsSidearms,
+            weaponsSwords,
+            weaponsTrauma,
+            weaponsRanged,
+            ammunition
         }
     ]
 }

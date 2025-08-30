@@ -17,11 +17,26 @@ export interface EquipmentObject {
     clothing: EquipmentItem[],
     clothingAccessories: EquipmentItem[],
     containersHeavy: EquipmentItem[],
-    containersPersonal: EquipmentItem[]
+    containersPersonal: EquipmentItem[],
+    musicalInstruments: EquipmentItem[],
+    poisonsNToxins: EquipmentItem[],
+    rope: EquipmentItem[],
+    shields: EquipmentItem[],
+    shieldStats: ShieldStatObject[],
+    toolsAdventuring: EquipmentItem[],
+    toolsGeneral: EquipmentItem[],
+    toolsTrade: EquipmentItem[],
+    weaponsAxes: EquipmentItem[],
+    weaponsPolearms: EquipmentItem[],
+    weaponsSidearms: EquipmentItem[],
+    weaponsSwords: EquipmentItem[],
+    weaponsTrauma: EquipmentItem[],
+    weaponsRanged: EquipmentItem[],
+    ammunition: EquipmentItem[]
 }
 
 export interface PriceObject {
-    [key: string] : {
+    [key: string]: {
         fullName: string,
         modifiers: number[]
     }
@@ -35,6 +50,17 @@ export interface ArmorStatObject {
     recMod: number,
     fatigue: number,
     skillAdj: number,
+}
+
+export interface ShieldStatObject {
+    name: string,
+    dr: string,
+    def: number,
+    parry: number,
+    cover: string,
+    flanks: number,
+    fatigue: number,
+    bonus?: boolean
 }
 
 export interface EquipmentItem {

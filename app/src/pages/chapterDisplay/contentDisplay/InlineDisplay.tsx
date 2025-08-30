@@ -9,6 +9,7 @@ import BurdensNInjuriesDisplay from './inlineComponents/burdensNInjuries/Burdens
 import EquipmentTable from './inlineComponents/equipmentTables/EquipmentTable';
 import PopulatedItemTable from './inlineComponents/equipmentTables/PopulatedItemTable';
 import ArmorStatsTable from './inlineComponents/equipmentTables/ArmorStatsTable';
+import ShieldStatsTable from './inlineComponents/equipmentTables/ShieldStatsTable';
 
 interface Props {
     componentInfo: ComponentContent,
@@ -77,6 +78,36 @@ export default function InlineDisplay({ componentInfo, chapterInfo }: Props) {
             return <EquipmentTable table='containersHeavy' info={chapterInfo ? chapterInfo.info : []} />
         case 'containersPersonal':
             return <EquipmentTable table='containersPersonal' info={chapterInfo ? chapterInfo.info : []} />
+        case 'musicalInstruments':
+            return <EquipmentTable table='musicalInstruments' info={chapterInfo ? chapterInfo.info : []} />
+        case 'poisonsNToxins':
+            return <EquipmentTable table='poisonsNToxins' info={chapterInfo ? chapterInfo.info : []} />
+        case 'rope':
+            return <EquipmentTable table='rope' info={chapterInfo ? chapterInfo.info : []} />
+        case 'shields':
+            return <EquipmentTable table='shields' info={chapterInfo ? chapterInfo.info : []} />
+        case 'shieldStats':
+            return <ShieldStatsTable shieldStats={chapterInfo ? chapterInfo.info[0].shieldStats : []} />
+        case 'toolsAdventuring':
+            return <EquipmentTable table='toolsAdventuring' info={chapterInfo ? chapterInfo.info : []} />
+        case 'toolsGeneral':
+            return <EquipmentTable table='toolsGeneral' info={chapterInfo ? chapterInfo.info : []} />
+        case 'toolsTrade':
+            return <EquipmentTable table='toolsTrade' info={chapterInfo ? chapterInfo.info : []} />
+        case 'weaponsAxes':
+            return <EquipmentTable table='weaponsAxes' info={chapterInfo ? chapterInfo.info : []} />
+        case 'weaponsPolearms':
+            return <EquipmentTable table='weaponsPolearms' info={chapterInfo ? chapterInfo.info : []} />
+        case 'weaponsSidearms':
+            return <EquipmentTable table='weaponsSidearms' info={chapterInfo ? chapterInfo.info : []} />
+        case 'weaponsSwords':
+            return <EquipmentTable table='weaponsSwords' info={chapterInfo ? chapterInfo.info : []} />
+        case 'weaponsTrauma':
+            return <EquipmentTable table='weaponsTrauma' info={chapterInfo ? chapterInfo.info : []} />
+        case 'weaponsRanged':
+            return <EquipmentTable table='weaponsRanged' info={chapterInfo ? chapterInfo.info : []} />
+        case 'ammunition':
+            return <EquipmentTable table='ammunition' info={chapterInfo ? chapterInfo.info : []} />
         default:
             return <div className="component-shell"><p>Something Went Wrong</p></div>
     }
