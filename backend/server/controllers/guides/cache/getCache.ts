@@ -22,11 +22,9 @@ export function populateChapterCacheWorkhorse() {
 }
 
 function getChapterForCache(book: Books) {
-    const guideChapterNameArray = book === 'rules' ? rulesChapters : playerChapters
-    
     return async (_: string, index: number) => {
         const [{ chaptercontents }] = await getChapterFromDB(book, index + 1)
 
-        chapterCache[book][index] = populateChapterContents(book, guideChapterNameArray, index +1, chaptercontents)
+        chapterCache[book][index] = populateChapterContents(book, index + 1, chaptercontents)
     }
 }

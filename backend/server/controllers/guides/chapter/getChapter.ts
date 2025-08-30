@@ -28,9 +28,8 @@ export async function getChapterWorkhorse(request: ChapterRequest, response: Res
             })
         } else {
             const [{ chaptercontents }] = await getChapterFromDB(book, chapter)
-            const guideChapterNameArray = book === 'rules' ? rulesChapters : playerChapters
-
-            const populatedChapter = populateChapterContents(book, guideChapterNameArray, +chapter, chaptercontents)
+            
+            const populatedChapter = populateChapterContents(book, +chapter, chaptercontents)
 
             checkForContentTypeBeforeSending(response, {
                 ...populatedChapter,

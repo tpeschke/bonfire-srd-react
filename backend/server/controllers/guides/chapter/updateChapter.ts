@@ -5,7 +5,6 @@ import { Request, Response, User } from '../../../interfaces/apiInterfaces'
 import { checkForContentTypeBeforeSending } from '../../common/utilities/sendingFunctions'
 import { isJustMainOwner } from '../../user/ownerFunctions'
 import updateCache from '../cache/updateCache'
-import { rulesChapters, playerChapters } from '@srd/common/utilities/chapters'
 import populateChapterContents from '../utilities/parseChapterContents'
 import { getUserAppropriateChapter } from './getChapter'
 import { updateSearch } from '../../search/searchController'
@@ -26,12 +25,11 @@ export default async function updateChapter(request: ChapterRequest, response: R
         const [book, chapter] = request.params.code.split('.')
         const chapterNumber = +chapter
         const { chapterContents } = request.body
-        const guideChapterNameArray = book === 'rules' ? rulesChapters : playerChapters
 
         if (book === 'rules' || book === 'players') {
             await query(chapterSQL.updateChapter, [chapterContents, book, chapterNumber])
     
-            const newChapter: ChapterContentsCache = populateChapterContents(book, guideChapterNameArray, +chapter, chapterContents)
+            const newChapter: ChapterContentsCache = populateChapterContents(book, +chapter, chapterContents)
 
             updateSearch(newChapter)
             updateCache(newChapter)

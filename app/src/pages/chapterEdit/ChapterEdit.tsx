@@ -3,7 +3,7 @@ import '../chapterDisplay/contentDisplay/ContentDisplay.css'
 import { SetLoadingFunction } from "../../components/loading/Loading";
 import { useEffect, useState } from 'react';
 import ChapterHook from '../../hooks/ChapterHooks';
-import { MarkdownContent, ComponentContent, ChapterContentsReturn, Books } from '@srd/common/interfaces/chapterInterfaces/ChapterInterfaces';
+import { Books } from '@srd/common/interfaces/chapterInterfaces/ChapterInterfaces';
 import axios from 'axios';
 import { chapterURL, editChapterURL } from '../../frontend-config';
 import { useNavigate } from 'react-router-dom';
@@ -62,6 +62,10 @@ export default function ChapterEdit({ setLoading, pathname }: Props) {
 
     const commentReminder = "[//]: <> (This is a comment.)"
 
+    const deluxeReminder = "<<deluxe<<"
+
+    const freeReminder = "<<free<<"
+
     return (
         <div className='chapter-display-shell' id='chapter-display-shell'>
             {chapter &&
@@ -73,8 +77,9 @@ export default function ChapterEdit({ setLoading, pathname }: Props) {
                 </h2>
 
                 <p>{componentReminder}</p>
-
                 <p>{commentReminder}</p>
+                <p>{deluxeReminder}</p>
+                <p>{freeReminder}</p>
             </div>
         </div>
     )
