@@ -1,11 +1,11 @@
 import { MeleeWeaponObject } from "@srd/common/interfaces/chapterInterfaces/EquipmentInterfaces"
-import axeStats from "./meleeStats.ts/axeStats"
-import polearmStats from "./meleeStats.ts/polearmStats"
-import sidearmStats from "./meleeStats.ts/sidearmStats"
-import swordStats from "./meleeStats.ts/swordStats"
-import traumaStats from "./meleeStats.ts/traumaStats"
+import { axeStats, axeStatsFree } from "./meleeStats.ts/axeStats"
+import { polearmStats, polearmStatsFree } from "./meleeStats.ts/polearmStats"
+import { sidearmStats, sidearmStatsFree } from "./meleeStats.ts/sidearmStats"
+import { swordStats, swordStatsFree } from "./meleeStats.ts/swordStats"
+import { traumaStats, traumaStatsFree } from "./meleeStats.ts/traumaStats"
 
-const meleeWeaponStats: MeleeWeaponObject = {
+export const meleeWeaponStats: MeleeWeaponObject = {
     axes: axeStats,
     polearms: polearmStats,
     sidearms: sidearmStats,
@@ -13,4 +13,10 @@ const meleeWeaponStats: MeleeWeaponObject = {
     trauma: traumaStats
 }
 
-export default meleeWeaponStats
+export const meleeWeaponStatsFree: MeleeWeaponObject = {
+    axes: axeStatsFree,
+    polearms: polearmStatsFree,
+    sidearms: sidearmStatsFree,
+    swords: swordStatsFree,
+    trauma: traumaStatsFree
+}

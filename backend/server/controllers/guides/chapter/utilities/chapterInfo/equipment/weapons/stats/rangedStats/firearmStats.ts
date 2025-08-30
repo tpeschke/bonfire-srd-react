@@ -1,6 +1,6 @@
 import { RangedWeaponStatObject } from "@srd/common/interfaces/chapterInterfaces/EquipmentInterfaces"
 
-const firearmStats: RangedWeaponStatObject[] = [
+export const firearmStats: RangedWeaponStatObject[] = [
     {
         name: 'Fire Lance',
         size: 'L',
@@ -43,5 +43,4 @@ const firearmStats: RangedWeaponStatObject[] = [
     }
 ]
 
-
-export default firearmStats
+export const firearmStatsFree: RangedWeaponStatObject[] = []

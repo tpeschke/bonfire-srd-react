@@ -1,6 +1,6 @@
 import { EquipmentItem } from "@srd/common/interfaces/chapterInterfaces/EquipmentInterfaces"
 
-const armorPrices: EquipmentItem[] = [
+export const armorPrices: EquipmentItem[] = [
     {
         item: 'Banded Mail',
         size: 'M',
@@ -87,4 +87,29 @@ const armorPrices: EquipmentItem[] = [
     }
 ]
 
-export default armorPrices
+export const armorPricesFree: EquipmentItem[] = [
+    {
+        item: 'Buff Coat',
+        size: 'S',
+        complexity: 3,
+        basePrice: 130
+    },
+    {
+        item: 'Breastplate',
+        size: 'M',
+        complexity: 4,
+        basePrice: 200
+    },
+    {
+        item: 'Coat of Plates',
+        size: 'M',
+        complexity: 4,
+        basePrice: 190
+    },
+    {
+        item: 'Gambeson',
+        size: 'S',
+        complexity: 3,
+        basePrice: 90
+    }
+]

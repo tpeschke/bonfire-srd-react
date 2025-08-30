@@ -1,6 +1,6 @@
 import { ArmorStatObject } from "@srd/common/interfaces/chapterInterfaces/EquipmentInterfaces";
 
-const armorStats: ArmorStatObject[] = [
+export const armorStats: ArmorStatObject[] = [
     {
         name: 'Banded Mail',
         dr: '2/d',
@@ -129,4 +129,41 @@ const armorStats: ArmorStatObject[] = [
     }
 ]
 
-export default armorStats
+export const armorStatsFree: ArmorStatObject[] = [
+    {
+        name: 'Buff Coat',
+        dr: '2',
+        defenseMod: 0,
+        initMod: 0,
+        recMod: 2,
+        fatigue: 1,
+        skillAdj: 0
+    },
+    {
+        name: 'Breastplate',
+        dr: '2/d',
+        defenseMod: -4,
+        initMod: 1,
+        recMod: 5,
+        fatigue: 3,
+        skillAdj: -2
+    },
+    {
+        name: 'Coat of Plates',
+        dr: '1/d+3',
+        defenseMod: -3,
+        initMod: 2,
+        recMod: 3,
+        fatigue: 2,
+        skillAdj: -4
+    },
+    {
+        name: 'Gambeson',
+        dr: '3',
+        defenseMod: 0,
+        initMod: 0,
+        recMod: 0,
+        fatigue: 1,
+        skillAdj: -2
+    }
+]

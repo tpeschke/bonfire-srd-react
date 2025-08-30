@@ -1,6 +1,6 @@
 import { EquipmentItem } from "@srd/common/interfaces/chapterInterfaces/EquipmentInterfaces"
 
-const weaponsAxes: EquipmentItem[] = [
+export const weaponsAxes: EquipmentItem[] = [
     { item: 'Bardiche', size: 'L', complexity: 3, basePrice: 120 },
     { item: 'Battle Axe', size: 'M', complexity: 2, basePrice: 90 },
     { item: 'Dane Axe', size: 'H', complexity: 3, basePrice: 180 },
@@ -9,4 +9,7 @@ const weaponsAxes: EquipmentItem[] = [
     { item: 'Lochaber Axe', size: 'L', complexity: 3, basePrice: 117 }
 ]
 
-export default weaponsAxes
+export const weaponsAxesFree: EquipmentItem[] = [
+    { item: 'Battle Axe', size: 'M', complexity: 2, basePrice: 90 },
+    { item: 'Dane Axe', size: 'H', complexity: 3, basePrice: 180 }
+]

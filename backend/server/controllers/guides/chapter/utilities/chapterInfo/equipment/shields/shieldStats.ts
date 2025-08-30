@@ -1,6 +1,6 @@
 import { ShieldStatObject } from "@srd/common/interfaces/chapterInterfaces/EquipmentInterfaces";
 
-const shieldStats: ShieldStatObject[] = [
+export const shieldStats: ShieldStatObject[] = [
     {
         name: 'Buckler',
         dr: '5/d +4',
@@ -88,4 +88,42 @@ const shieldStats: ShieldStatObject[] = [
     }
 ]
 
-export default shieldStats
+export const shieldStatsFree: ShieldStatObject[] = [
+    {
+        name: 'Buckler',
+        dr: '5/d +4',
+        def: -1,
+        parry: 5,
+        cover: '+1 (+2)',
+        flanks: 2,
+        fatigue: 4,
+        bonus: true
+    },
+    {
+        name: 'Heater',
+        dr: '3/d +2',
+        def: -7,
+        parry: 15,
+        cover: '+12 (+15)',
+        flanks: 4,
+        fatigue: 1
+    },
+    {
+        name: 'Hoplon',
+        dr: '2/d +2',
+        def: -5,
+        parry: 9,
+        cover: '+10 (+15)',
+        flanks: 3,
+        fatigue: 1
+    },
+    {
+        name: 'Tower',
+        dr: '1/d +1',
+        def: -10,
+        parry: 18,
+        cover: '+25 (*)',
+        flanks: 3,
+        fatigue: 2
+    }
+]

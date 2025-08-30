@@ -36,7 +36,7 @@ export default async function updateChapter(request: ChapterRequest, response: R
     
             checkForContentTypeBeforeSending(response, {
                 ...newChapter,
-                ...getUserAppropriateChapter(user, newChapter.chapterContents, newChapter.navigation)
+                ...getUserAppropriateChapter(user, newChapter.chapterContents, newChapter.navigation, newChapter.info)
             })
         }
 

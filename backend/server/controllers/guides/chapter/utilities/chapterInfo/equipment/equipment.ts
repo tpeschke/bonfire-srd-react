@@ -4,8 +4,8 @@ import animalLivestock from './animals/animalLivestock'
 import animalMounts from './animals/animalMounts'
 import animalBarding from './animals/animalBarding'
 import animalFeed from './animals/animalFeed'
-import armorPrices from './armor/armorPrices'
-import armorStats from './armor/armorStats'
+import { armorPrices, armorPricesFree } from './armor/armorPrices'
+import { armorStats, armorStatsFree } from './armor/armorStats'
 import beverages from './beverages'
 import clothing from './clothing/clothing'
 import clothingAccessories from './clothing/clothingAccessories'
@@ -14,56 +14,85 @@ import containersPersonal from './containers/containersPersonal'
 import musicalInstruments from './musicalInstruments'
 import poisonsNToxins from './poisonsNToxins'
 import rope from './rope'
-import shields from './shields/shields'
-import shieldStats from './shields/shieldStats'
+import { shields, shieldsFree } from './shields/shields'
+import { shieldStats, shieldStatsFree } from './shields/shieldStats'
 import toolsAdventuring from './tools/toolsAdventuring'
 import toolsGeneral from './tools/toolsGeneral'
 import toolsTrade from './tools/toolsTrade'
-import weaponsAxes from './weapons/weaponsAxes'
-import weaponsPolearms from './weapons/weaponsPolearms'
-import weaponsSidearms from './weapons/weaponsSidearms'
-import weaponsSwords from './weapons/weaponsSwords'
-import weaponsTrauma from './weapons/weaponsTrauma'
-import weaponsRanged from './weapons/weaponsRanged'
-import ammunition from './weapons/ammunition'
-import meleeWeaponStats from './weapons/stats/meleeStat'
-import rangedWeaponStats from './weapons/stats/rangedStat'
+import { weaponsAxes, weaponsAxesFree } from './weapons/weaponsAxes'
+import { weaponsPolearms, weaponsPolearmsFree } from './weapons/weaponsPolearms'
+import { weaponsSidearms, weaponsSidearmsFree } from './weapons/weaponsSidearms'
+import { weaponsSwords, weaponsSwordsFree } from './weapons/weaponsSwords'
+import { weaponsTrauma, weaponsTraumaFree } from './weapons/weaponsTrauma'
+import { weaponsRanged, weaponsRangedFree } from './weapons/weaponsRanged'
+import { ammunition, ammunitionFree } from './weapons/ammunition'
+import { meleeWeaponStats, meleeWeaponStatsFree } from './weapons/stats/meleeStat'
+import { rangedWeaponStats, rangedWeaponStatsFree } from './weapons/stats/rangedStat'
+import { User } from '../../../../../../interfaces/apiInterfaces'
 
-const equipmentInfo: EquipmentInfo = {
-    type: 'equipment',
-    info: [
-        {
-            priceByDistance,
-            animalLivestock,
-            animalMounts,
-            animalBarding,
-            animalFeed,
-            armorPrices,
-            armorStats,
-            beverages,
-            clothing,
-            clothingAccessories,
-            containersHeavy,
-            containersPersonal,
-            musicalInstruments,
-            poisonsNToxins,
-            rope,
-            shields,
-            shieldStats,
-            toolsAdventuring,
-            toolsGeneral,
-            toolsTrade,
-            weaponsAxes,
-            weaponsPolearms,
-            weaponsSidearms,
-            weaponsSwords,
-            weaponsTrauma,
-            weaponsRanged,
-            ammunition,
-            meleeWeaponStats,
-            rangedWeaponStats
-        }
-    ]
+const deluxeEquipment = {
+    priceByDistance,
+    animalLivestock,
+    animalMounts,
+    animalBarding,
+    animalFeed,
+    armorPrices,
+    armorStats,
+    beverages,
+    clothing,
+    clothingAccessories,
+    containersHeavy,
+    containersPersonal,
+    musicalInstruments,
+    poisonsNToxins,
+    rope,
+    shields,
+    shieldStats,
+    toolsAdventuring,
+    toolsGeneral,
+    toolsTrade,
+    weaponsAxes,
+    weaponsPolearms,
+    weaponsSidearms,
+    weaponsSwords,
+    weaponsTrauma,
+    weaponsRanged,
+    ammunition,
+    meleeWeaponStats,
+    rangedWeaponStats
 }
 
-export default equipmentInfo
+const freeEquipment = {
+    weaponsAxes: weaponsAxesFree,
+    weaponsPolearms: weaponsPolearmsFree,
+    weaponsRanged: weaponsRangedFree,
+    weaponsSidearms: weaponsSidearmsFree,
+    weaponsSwords: weaponsSwordsFree,
+    weaponsTrauma: weaponsTraumaFree,
+    ammunition: ammunitionFree,
+    meleeWeaponStats: meleeWeaponStatsFree,
+    rangedWeaponStats: rangedWeaponStatsFree,
+    armorPrices: armorPricesFree,
+    armorStats: armorStatsFree,
+    shields: shieldsFree,
+    shieldStats: shieldStatsFree
+}
+
+export default function equipmentInfo(user: User | null | undefined): EquipmentInfo {
+    if (user?.patreon && user?.patreon > 0) {
+        return {
+            type: 'equipment',
+            info: [deluxeEquipment]
+        }
+    }
+
+    return {
+        type: 'equipment',
+        info: [
+            {
+                ...deluxeEquipment,
+                ...freeEquipment
+            }
+        ]
+    }
+}

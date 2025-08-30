@@ -1,6 +1,6 @@
 import { MeleeWeaponStatObject } from "@srd/common/interfaces/chapterInterfaces/EquipmentInterfaces"
 
-const polearmStats: MeleeWeaponStatObject[] = [
+export const polearmStats: MeleeWeaponStatObject[] = [
     {
         name: 'Ahlspiess',
         size: 'L',
@@ -169,4 +169,24 @@ const polearmStats: MeleeWeaponStatObject[] = [
     }
 ]
 
-export default polearmStats
+export const polearmStatsFree: MeleeWeaponStatObject[] = [
+    {
+        name: 'Ranseur',
+        size: 'L',
+        damage: '2d10!',
+        recovery: 13,
+        damageType: 'P',
+        parry: 0,
+        measure: 7.25,
+        bonus: true
+    },
+    {
+        name: 'Short Spear',
+        size: 'M',
+        damage: '2d8!',
+        recovery: 11,
+        damageType: 'P',
+        parry: 0,
+        measure: 5,
+    }
+]

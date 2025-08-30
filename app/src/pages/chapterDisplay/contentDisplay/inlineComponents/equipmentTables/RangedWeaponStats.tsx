@@ -54,15 +54,19 @@ export default function RangedWeaponStats({ rangedWeaponStats }: Props) {
             <tbody>
                 {mechanical.map(populateBodyRows)}
             </tbody>
-            <thead>
-                <tr>
-                    <th>Firearms</th>
-                    {headers}
-                </tr>
-            </thead>
-            <tbody>
-                {firearms.map(populateBodyRows)}
-            </tbody>
+            {firearms.length > 0 && (
+                <>
+                    <thead>
+                        <tr>
+                            <th>Firearms</th>
+                            {headers}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {firearms.map(populateBodyRows)}
+                    </tbody>
+                </>
+            )}
         </table>
     )
 }

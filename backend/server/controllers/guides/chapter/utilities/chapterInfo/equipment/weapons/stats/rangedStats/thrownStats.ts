@@ -1,6 +1,6 @@
 import { RangedWeaponStatObject } from "@srd/common/interfaces/chapterInterfaces/EquipmentInterfaces"
 
-const thrownStats: RangedWeaponStatObject[] = [
+export const thrownStats: RangedWeaponStatObject[] = [
     {
         name: 'Javelin',
         size: 'M',
@@ -33,4 +33,15 @@ const thrownStats: RangedWeaponStatObject[] = [
     }
 ]
 
-export default thrownStats
+export const thrownStatsFree: RangedWeaponStatObject[] = [
+    {
+        name: 'Javelin',
+        size: 'M',
+        ri: 25,
+        damage: '2d6!',
+        recovery: 14,
+        damageType: 'P',
+        minRecovery: 4,
+        bonus: true
+    }
+]

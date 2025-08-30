@@ -1,6 +1,6 @@
 import { EquipmentItem } from "@srd/common/interfaces/chapterInterfaces/EquipmentInterfaces"
 
-const ammunition: EquipmentItem[] = [
+export const ammunition: EquipmentItem[] = [
     {
         item: 'Arrow, Composite Bow (doz)',
         size: 'S',
@@ -40,4 +40,18 @@ const ammunition: EquipmentItem[] = [
     { item: 'Bowstring', size: 'S', complexity: 3, basePrice: 0.5 }
 ]
 
-export default ammunition
+export const ammunitionFree: EquipmentItem[] = [
+    {
+        item: 'Arrow, Composite Bow (doz)',
+        size: 'S',
+        complexity: 1,
+        basePrice: 12
+    },
+    {
+        item: 'Bolt, Crossbow (doz)',
+        size: 'S',
+        complexity: 1,
+        basePrice: 12
+    },
+    { item: 'Bowstring', size: 'S', complexity: 3, basePrice: 0.5 }
+]

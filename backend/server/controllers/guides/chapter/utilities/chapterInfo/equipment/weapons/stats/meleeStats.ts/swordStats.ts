@@ -1,6 +1,6 @@
 import { MeleeWeaponStatObject } from "@srd/common/interfaces/chapterInterfaces/EquipmentInterfaces"
 
-const swordStats: MeleeWeaponStatObject[] = [
+export const swordStats: MeleeWeaponStatObject[] = [
     {
         name: 'Arming Sword',
         size: 'M',
@@ -117,4 +117,24 @@ const swordStats: MeleeWeaponStatObject[] = [
 ]
 
 
-export default swordStats
+export const swordStatsFree: MeleeWeaponStatObject[] = [
+    {
+        name: 'Longsword',
+        size: 'M',
+        damage: '3d3!+d4!',
+        recovery: 14,
+        damageType: 'S',
+        parry: 8,
+        measure: 3.75,
+    },
+    {
+        name: 'Zweihander',
+        size: 'L',
+        damage: '7d3!',
+        recovery: 20,
+        damageType: 'S',
+        parry: 2,
+        measure: 7,
+        bonus: true
+    }
+]

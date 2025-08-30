@@ -1,6 +1,6 @@
 import { MeleeWeaponStatObject } from "@srd/common/interfaces/chapterInterfaces/EquipmentInterfaces"
 
-const axeStats: MeleeWeaponStatObject[] = [
+export const axeStats: MeleeWeaponStatObject[] = [
     {
         name: 'Bardiche',
         size: 'L',
@@ -59,4 +59,23 @@ const axeStats: MeleeWeaponStatObject[] = [
     }
 ]
 
-export default axeStats
+export const axeStatsFree: MeleeWeaponStatObject[] = [
+        {
+        name: 'Battle Axe',
+        size: 'M',
+        damage: '4d6!',
+        recovery: 16,
+        damageType: 'S',
+        parry: 0,
+        measure: 2.5,
+    },
+    {
+        name: 'Dane Axe',
+        size: 'H',
+        damage: '6d6!',
+        recovery: 26,
+        damageType: 'S',
+        parry: 0,
+        measure: 6.5,
+    }
+]

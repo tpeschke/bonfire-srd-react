@@ -1,6 +1,6 @@
 import { EquipmentItem } from "@srd/common/interfaces/chapterInterfaces/EquipmentInterfaces"
 
-const weaponsPolearms: EquipmentItem[] = [
+export const weaponsPolearms: EquipmentItem[] = [
     { item: 'Ahlspiess', size: 'L', complexity: 2, basePrice: 17 },
     { item: 'Bill', size: 'L', complexity: 2, basePrice: 17 },
     { item: 'Glaive', size: 'L', complexity: 3, basePrice: 35 },
@@ -18,4 +18,7 @@ const weaponsPolearms: EquipmentItem[] = [
     { item: 'War-scythe', size: 'L', complexity: 2, basePrice: 16 }
 ]
 
-export default weaponsPolearms
+export const weaponsPolearmsFree: EquipmentItem[] = [
+    { item: 'Ranseur', size: 'L', complexity: 2, basePrice: 33 },
+    { item: 'Short Spear', size: 'M', complexity: 1, basePrice: 16 }
+]

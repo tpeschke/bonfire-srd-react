@@ -1,6 +1,6 @@
 import { MeleeWeaponStatObject } from "@srd/common/interfaces/chapterInterfaces/EquipmentInterfaces"
 
-const traumaStats: MeleeWeaponStatObject[] = [
+export const traumaStats: MeleeWeaponStatObject[] = [
     {
         name: 'Bec De Corbin',
         size: 'L',
@@ -125,4 +125,23 @@ const traumaStats: MeleeWeaponStatObject[] = [
 ]
 
 
-export default traumaStats
+export const traumaStatsFree: MeleeWeaponStatObject[] = [
+    {
+        name: 'Mace',
+        size: 'M',
+        damage: '1d12!',
+        recovery: 10,
+        damageType: 'C',
+        parry: 0,
+        measure: 2,
+    },
+    {
+        name: 'Maul',
+        size: 'L',
+        damage: '2d12!',
+        recovery: 17,
+        damageType: 'C',
+        parry: 0,
+        measure: 4,
+    }
+]

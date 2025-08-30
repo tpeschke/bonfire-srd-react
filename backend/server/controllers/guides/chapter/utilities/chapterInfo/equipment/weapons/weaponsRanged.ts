@@ -1,6 +1,6 @@
 import { EquipmentItem } from "@srd/common/interfaces/chapterInterfaces/EquipmentInterfaces"
 
-const weaponsRanged: EquipmentItem[] = [
+export const weaponsRanged: EquipmentItem[] = [
     { item: 'Bellybow', size: 'L', complexity: 4, basePrice: 175 },
     { item: 'Composite Bow', size: 'M', complexity: 4, basePrice: 45 },
     { item: 'Crossbow', size: 'L', complexity: 5, basePrice: 75 },
@@ -17,4 +17,9 @@ const weaponsRanged: EquipmentItem[] = [
     { item: 'Warbow', size: 'L', complexity: 4, basePrice: 255 }
 ]
 
-export default weaponsRanged
+export const weaponsRangedFree: EquipmentItem[] = [
+    { item: 'Composite Bow', size: 'M', complexity: 4, basePrice: 45 },
+    { item: 'Crossbow', size: 'L', complexity: 5, basePrice: 75 },
+    { item: 'Javelin', size: 'M', complexity: 1, basePrice: 8 },
+    { item: 'Sling', size: 'S', complexity: 1, basePrice: 5 },
+]

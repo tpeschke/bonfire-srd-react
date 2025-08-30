@@ -1,6 +1,6 @@
 import { EquipmentItem } from "@srd/common/interfaces/chapterInterfaces/EquipmentInterfaces"
 
-const weaponsSidearms: EquipmentItem[] = [
+export const weaponsSidearms: EquipmentItem[] = [
     { item: 'Bludgeon', size: 'S', complexity: 1, basePrice: 8 },
     { item: 'Cinquedea', size: 'S', complexity: 4, basePrice: 15 },
     { item: 'Dagger', size: 'S', complexity: 3, basePrice: 12 },
@@ -11,4 +11,6 @@ const weaponsSidearms: EquipmentItem[] = [
     { item: 'Scourge', size: 'M', complexity: 1, basePrice: 10 }
 ]
 
-export default weaponsSidearms
+export const weaponsSidearmsFree: EquipmentItem[] = [
+    { item: 'Stiletto', size: 'S', complexity: 4, basePrice: 17 },
+]

@@ -1,6 +1,6 @@
 import { RangedWeaponStatObject } from "@srd/common/interfaces/chapterInterfaces/EquipmentInterfaces"
 
-const mechanicalStats: RangedWeaponStatObject[] = [
+export const mechanicalStats: RangedWeaponStatObject[] = [
     {
         name: 'Bellybow',
         size: 'L',
@@ -70,7 +70,36 @@ const mechanicalStats: RangedWeaponStatObject[] = [
         minRecovery: 5,
         bonus: true
     }
-
 ]
 
-export default mechanicalStats
+export const mechanicalStatsFree: RangedWeaponStatObject[] = [
+    {
+        name: 'Composite Bow',
+        size: 'M',
+        ri: 50,
+        damage: '3d6!',
+        recovery: 14,
+        damageType: 'P',
+        minRecovery: 5,
+        bonus: true
+    },
+    {
+        name: 'Crossbow',
+        size: 'L',
+        ri: 80,
+        damage: '1d20!+1d10!',
+        recovery: 26,
+        damageType: 'P',
+        minRecovery: 5,
+        bonus: true
+    },
+    {
+        name: 'Sling',
+        size: 'S',
+        ri: 30,
+        damage: '1d10!',
+        recovery: 11,
+        damageType: 'C',
+        minRecovery: 3,
+    }
+]

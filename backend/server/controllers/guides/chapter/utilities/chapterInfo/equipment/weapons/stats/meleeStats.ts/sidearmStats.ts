@@ -1,6 +1,6 @@
 import { MeleeWeaponStatObject } from "@srd/common/interfaces/chapterInterfaces/EquipmentInterfaces"
 
-const sidearmStats: MeleeWeaponStatObject[] = [
+export const sidearmStats: MeleeWeaponStatObject[] = [
     {
         name: 'Bludgeon',
         size: 'S',
@@ -90,4 +90,14 @@ const sidearmStats: MeleeWeaponStatObject[] = [
     }
 ]
 
-export default sidearmStats
+export const sidearmStatsFree: MeleeWeaponStatObject[] = [
+    {
+        name: 'Stiletto',
+        size: 'S',
+        damage: 'd6!+d4!',
+        recovery: 6,
+        damageType: 'P',
+        parry: 4,
+        measure: 1.5,
+    }
+]
