@@ -16,7 +16,7 @@ export default function ToolsNResources() {
                 </div>
                 <div>
                     <a target="_blank" href="https://bestiary.stone-fish.com/">Bonfire Bestiary <p className="homeItemSub">A
-                        database of foul foes to fight</p></a>
+                        database of foul foes to fight.</p></a>
                     <a target="_blank" href="https://reliquary.stone-fish.com/">Reliquary <p className="homeItemSub">A web app
                         that generates unique items and a database for Wondrous Items of all types.</p></a>
                     <a target="_blank" href="https://www.drivethrurpg.com/browse/pub/18762/DragonSlayer-RPGs">DriveThruRPG Storefront
