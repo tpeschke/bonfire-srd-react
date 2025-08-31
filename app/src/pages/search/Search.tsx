@@ -9,6 +9,8 @@ import Markdown from 'react-markdown'
 import rehypeRaw from 'rehype-raw'
 import remarkGfm from 'remark-gfm'
 import ChapterHook from '../../hooks/ChapterHooks'
+// @ts-ignore
+import rehypeWrap from 'rehype-wrap-all'
 
 interface Props {
     setLoading?: SetLoadingFunction,
@@ -63,7 +65,7 @@ export default function Search({ setLoading, pathname }: Props) {
                             <h2>{guideDictionary[book]} - Chapter {chapter}</h2>
                             <div className='search-quote'>
                                 <p>...</p>
-                                <Markdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]} >{excerpt.split(searchTerm).join(`<strong class='highlight'>${searchTerm}</strong>`)}</Markdown>
+                                <Markdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw, [rehypeWrap, {selector: 'table', wrapper: 'div.responsive-table'}]]} >{excerpt.replaceAll(/(\[([^;]*)\]\(([^;]*)\))/gm, "$2").split(searchTerm).join(`<strong class='highlight'>${searchTerm}</strong>`)}</Markdown>
                                 <p>...</p>
                             </div>
                         </Link>

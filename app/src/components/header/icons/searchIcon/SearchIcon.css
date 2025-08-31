@@ -48,7 +48,7 @@
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 769px) {
     .search-icon-shell input.open-search {
         width: calc(100vw - 120px);
     }

@@ -58,3 +58,9 @@
         opacity: 0;
     }
 }
+
+@media (max-width: 426px) {
+    .fire-background-shell {
+        display: none;
+    }
+}

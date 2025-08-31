@@ -80,6 +80,7 @@
 .home-shell .card.discord-card h2 {
     font-size: 30px;
     margin-bottom: 15px;
+    line-height: 100%;
 }
 
 .home-shell .card.discord-card p {
@@ -171,9 +172,9 @@
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 769px) {
     .home-shell .right {
-        margin: 0;
+        margin-top: 15px;
     }
 
     .login-logout-shell {

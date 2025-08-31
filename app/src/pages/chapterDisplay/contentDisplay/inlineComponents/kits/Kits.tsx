@@ -8,9 +8,9 @@ interface Props {
 export default function Kits({ info }: Props) {
     return (
         <div className='kits-display-shell'>
-            {info.map(({ title, items, weight, extraCash }) => {
+            {info.map(({ title, items, weight, extraCash }, index) => {
                 return (
-                    <div>
+                    <div key={index}>
                         <h3>{title}</h3>
                         <table>
                             <thead>
@@ -21,9 +21,9 @@ export default function Kits({ info }: Props) {
                                 </tr>
                             </thead>
                             <tbody>
-                                {items.map(({ item, size, sellBack }) => {
+                                {items.map(({ item, size, sellBack }, index) => {
                                     return (
-                                        <tr>
+                                        <tr key={index}>
                                             <td>{item}</td>
                                             <td>{size}</td>
                                             <td>{sellBack}</td>

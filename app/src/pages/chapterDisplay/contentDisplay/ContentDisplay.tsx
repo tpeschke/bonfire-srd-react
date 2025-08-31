@@ -5,10 +5,12 @@ import InlineDisplay from "./InlineDisplay";
 import remarkGfm from 'remark-gfm';
 import rehypeSlug from 'rehype-slug';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
-import rehypeRaw from 'rehype-raw'
+// @ts-ignore
+import rehypeWrap from 'rehype-wrap-all'
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ChapterName from '../chapterName/ChapterName';
+import rehypeRaw from 'rehype-raw';
 
 interface Props {
     contents: (MarkdownContent | ComponentContent)[],
@@ -45,7 +47,7 @@ export default function ContentDisplay({ contents, pathname, chapterName, chapte
                 {contents.reduce((displayedContent: any[], content: MarkdownContent | ComponentContent) => {
 
                     if (content.type === 'markdown') {
-                        displayedContent.push(<Markdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeSlug, rehypeAutolinkHeadings, rehypeRaw]} key={displayedContent.length}>{content.body}</Markdown>)
+                        displayedContent.push(<Markdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeSlug, rehypeAutolinkHeadings, rehypeRaw, [rehypeWrap, {selector: 'table', wrapper: 'div.responsive-table'}]]} key={displayedContent.length}>{content.body}</Markdown>)
                     } else if (content.type === 'component') {
                         displayedContent.push(<InlineDisplay key={displayedContent.length} componentInfo={content} chapterInfo={chapterInfo} />)
                     }

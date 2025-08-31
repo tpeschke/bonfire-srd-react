@@ -35,38 +35,40 @@ export default function RangedWeaponStats({ rangedWeaponStats }: Props) {
     }
 
     return (
-        <table className='no-float justify-left center-not-first-column'>
-            <thead>
-                <tr>
-                    <th>Thrown</th>
-                    {headers}
-                </tr>
-            </thead>
-            <tbody>
-                {thrown.map(populateBodyRows)}
-            </tbody>
-            <thead>
-                <tr>
-                    <th>Mechanical</th>
-                    {headers}
-                </tr>
-            </thead>
-            <tbody>
-                {mechanical.map(populateBodyRows)}
-            </tbody>
-            {firearms.length > 0 && (
-                <>
-                    <thead>
-                        <tr>
-                            <th>Firearms</th>
-                            {headers}
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {firearms.map(populateBodyRows)}
-                    </tbody>
-                </>
-            )}
-        </table>
+        <div className="responsive-table">
+            <table className='no-float justify-left center-not-first-column'>
+                <thead>
+                    <tr>
+                        <th>Thrown</th>
+                        {headers}
+                    </tr>
+                </thead>
+                <tbody>
+                    {thrown.map(populateBodyRows)}
+                </tbody>
+                <thead>
+                    <tr>
+                        <th>Mechanical</th>
+                        {headers}
+                    </tr>
+                </thead>
+                <tbody>
+                    {mechanical.map(populateBodyRows)}
+                </tbody>
+                {firearms.length > 0 && (
+                    <>
+                        <thead>
+                            <tr>
+                                <th>Firearms</th>
+                                {headers}
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {firearms.map(populateBodyRows)}
+                        </tbody>
+                    </>
+                )}
+            </table>
+        </div>
     )
 }

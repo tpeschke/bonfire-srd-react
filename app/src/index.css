@@ -294,3 +294,10 @@ em {
 	background: grey;
 	border-radius: 4px;
 }
+
+.responsive-table {
+	overflow: auto;
+	float: right;
+    margin: 0 0 15px 15px;
+    max-width: 50%;
+}

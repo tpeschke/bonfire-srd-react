@@ -63,7 +63,7 @@ i.active {
     margin-right: 25px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 769px) {
     .header-shell i {
         margin-left: 25px;
         font-size: 35px;

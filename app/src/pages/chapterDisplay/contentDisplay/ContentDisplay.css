@@ -107,15 +107,12 @@ textarea.content-display-shell {
 
 table {
     border-collapse: collapse;
-    margin: 15px auto;
+    margin: 0 auto;
     font-family: "Source Sans 3", sans-serif;
     font-size: 15px;
-    float: right;
-    margin: 0 0 15px 15px;
-    max-width: 50%;
 }
 
-.no-float {
+.responsive-table:has(table.no-float) {
     float: unset !important;
     margin: 0 auto 15px;
     max-width: unset;
@@ -167,4 +164,44 @@ tbody tr:nth-child(odd) {
 
 tbody tr:nth-child(even) {
     background: lightgray;
+}
+
+@media (max-width: 769px) {
+    table {
+        float: unset;
+        margin: 15px auto;
+        max-width: unset;
+    }
+
+    .responsive-table {
+        margin: 0;
+        max-width: 100%;
+        float: unset
+    }
+
+    .content-display-body-shell img {
+        float: unset;
+        width: 100%;
+        margin: 0;
+    }
+
+    p:has(img) {
+        text-indent: 0 !important;
+    }
+}
+
+@media (max-width: 426px) {
+    .content-display-body-shell {
+        padding: 15px 5px
+    }
+
+    .chapter-name-header-shell h1 {
+        text-shadow: -5px 0 #212, 0 5px #212, 5px 0 #212, 0 -5px #212;
+        text-align: center;
+    }
+
+    .content-display-body-shell img {
+        margin: 0;
+        float: unset;
+    }
 }

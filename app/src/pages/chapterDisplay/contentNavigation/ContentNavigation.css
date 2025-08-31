@@ -50,3 +50,9 @@
     font-size: 100px;
     cursor: pointer;
 }
+
+@media (max-width: 1025px) {
+    .inner-nav-shell {
+        display: none;
+    }
+}

@@ -14,6 +14,7 @@ export default function ChapterNavigate() {
 
     useEffect(() => {
         if (location.pathname !== currentRoute) {
+            setShowNav(false)
             setCurrentRoute(location.pathname)
         }
     }, [location])
