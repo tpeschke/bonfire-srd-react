@@ -11,6 +11,25 @@
     z-index: 1;
 }
 
+.header-shell .title-shell {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.header-shell .title-shell h1 {
+    font-size: 28px;
+}
+
+.header-shell .title-shell p {
+    position: absolute;
+    font-family: "Whisper";
+    color: #b45f06;
+    top: -2px;
+    right: -38px;
+    font-size: 45px;
+}
+
 .header-shell>div>img {
     position: absolute;
     height: 50px;

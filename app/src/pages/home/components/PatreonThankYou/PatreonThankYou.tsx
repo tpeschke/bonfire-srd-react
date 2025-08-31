@@ -49,7 +49,7 @@ export default function PatreonThankYou() {
             <div className="card">
                 <span>
                     <i className="fa-brands fa-patreon"></i>
-                    <h1>A Big Thank You to our Donors</h1>
+                    <h1>A Big Thank You to Our Donors</h1>
                 </span>
                 <p className="subtitle">If you'd like to support Bonfire, you can do so on Patreon</p>
                 <div className="patreon-shell">

@@ -102,12 +102,14 @@
 .login-logout-shell button {
     font-size: 25px;
     padding: 10px 15px;
-    min-width: 250px;
+    min-width: 300px;
 }
 
 .login-logout-shell button {
     background: #b45f06;
     color: #ffffff;
+    font-family: 'HamletOrNot';
+    letter-spacing: 2px;
 }
 
 .login-logout-shell button:hover {
