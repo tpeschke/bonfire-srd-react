@@ -17,7 +17,7 @@ export default function LoginLogoutIcons({ }: Props) {
                 </a>
                 :
                 <a className='header-spacer' href={signInURL} data-tooltip-id="my-tooltip" data-tooltip-content="Log In">
-                    <i className="fa-solid fa-right-from-bracket"></i>
+                    <i className="fa-solid fa-right-to-bracket"></i>
                 </a>
             }
         </>
