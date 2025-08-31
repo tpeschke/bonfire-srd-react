@@ -18,7 +18,7 @@ interface Props {
     chapterName: string,
     chapterNumber?: number,
     book?: Books,
-    chapterInfo: ChapterInfo
+    chapterInfo?: ChapterInfo
 }
 
 export default function ContentDisplay({ contents, pathname, chapterName, chapterNumber, book, chapterInfo }: Props) {
@@ -48,7 +48,7 @@ export default function ContentDisplay({ contents, pathname, chapterName, chapte
 
                     if (content.type === 'markdown') {
                         displayedContent.push(<Markdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeSlug, rehypeAutolinkHeadings, rehypeRaw, [rehypeWrap, {selector: 'table', wrapper: 'div.responsive-table'}]]} key={displayedContent.length}>{content.body}</Markdown>)
-                    } else if (content.type === 'component') {
+                    } else if (content.type === 'component' && chapterInfo) {
                         displayedContent.push(<InlineDisplay key={displayedContent.length} componentInfo={content} chapterInfo={chapterInfo} />)
                     }
 

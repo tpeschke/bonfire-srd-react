@@ -2,7 +2,7 @@ import { useEffect } from "react"
 import { SetLoadingFunction } from "../../components/loading/Loading"
 import ContentDisplay from "../chapterDisplay/contentDisplay/ContentDisplay"
 import ContentNavigation from "../chapterDisplay/contentNavigation/ContentNavigation"
-import { ChapterNavigation, ComponentContent, MarkdownContent } from '@srd/common/interfaces/ChapterInterfaces'
+import { ChapterNavigation, ComponentContent, MarkdownContent } from '@srd/common/interfaces/chapterInterfaces/chapterInterfaces'
 
 interface Props {
     setLoading?: SetLoadingFunction,
