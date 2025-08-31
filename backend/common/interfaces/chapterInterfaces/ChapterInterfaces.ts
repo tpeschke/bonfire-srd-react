@@ -25,20 +25,21 @@ export type Books = 'rules' | 'players'
 interface ChapterContentsBase {
     book: Books,
     chapter: number,
-    chapterName: string,
-    info: ChapterInfo
+    chapterName: string
 }
 
 export interface ChapterContentsReturn extends ChapterContentsBase {
     chapterContents: ChapterContents
-    navigation: ChapterNavigation[]
+    navigation: ChapterNavigation[],
+    info: ChapterInfo
 }
 
 export type ChapterContents = (MarkdownContent | ComponentContent)[]
 
 export interface ChapterContentsCache extends ChapterContentsBase {
     chapterContents: ChapterContents | LockedChapterContents,
-    navigation: ChapterNavigation[] | LockedNavigation
+    navigation: ChapterNavigation[] | LockedNavigation,
+    info: ChapterInfo | Function
 }
 
 export interface LockedChapterContents {

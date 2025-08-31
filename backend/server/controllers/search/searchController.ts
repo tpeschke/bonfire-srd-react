@@ -3,6 +3,8 @@ import { Response, Request, User } from '../../interfaces/apiInterfaces'
 import searchSQL from '../../db/queries/search'
 import { checkForContentTypeBeforeSending } from '../common/utilities/sendingFunctions'
 import { ChapterContents, ChapterContentsCache } from '@srd/common/interfaces/chapterInterfaces/ChapterInterfaces'
+import chapterInfo from '../guides/chapter/utilities/chapterInfo'
+import { ArmorStatObject, EquipmentItem, MeleeWeaponObject, RangedWeaponObject, ShieldStatObject } from '@srd/common/interfaces/chapterInterfaces/EquipmentInterfaces'
 
 interface SearchRequest extends Request {
     params: {
@@ -31,21 +33,63 @@ export async function updateSearch(chapterInfo: ChapterContentsCache) {
     const { chapterContents, book, chapter } = chapterInfo
 
     if (Array.isArray(chapterContents)) {
-        const stringifiedContents = stringifyContents(chapterContents)
+        const stringifiedContents = stringifyContents(chapterContents, chapter, true)
         await query(searchSQL.updateFree, [stringifiedContents, book, chapter])
         await query(searchSQL.updateDeluxe, [stringifiedContents, book, chapter])
     } else {
-        await query(searchSQL.updateFree, [stringifyContents(chapterContents.free), book, chapter])
-        await query(searchSQL.updateDeluxe, [stringifyContents(chapterContents.deluxe), book, chapter])
+        await query(searchSQL.updateFree, [stringifyContents(chapterContents.free, chapter, true), book, chapter])
+        await query(searchSQL.updateDeluxe, [stringifyContents(chapterContents.deluxe, chapter, false), book, chapter])
     }
 }
 
-function stringifyContents(contents: ChapterContents): string {
+function stringifyContents(contents: ChapterContents, chapter: number, isFree: boolean): string {
     return contents.reduce((currentString, component) => {
         if (component.type === 'markdown') {
             currentString += component.body
+        } else if (chapter === 8 && component.type === 'component') {
+            currentString += stringifyIfEquipment(component.component, isFree)
         }
 
         return currentString
     }, '')
+}
+
+type PossibleComponent = ArmorStatObject[] | ShieldStatObject[] | MeleeWeaponObject[] | RangedWeaponObject[] | EquipmentItem[]
+
+function stringifyIfEquipment(component: any, isFree: boolean): string {
+    const equipmentComponents: string[] = ['animalLivestock', 'animalMounts', 'animalBarding', 'animalFeed', 'armorPrices', 'armorStats', 'beverages',
+        'clothing', 'clothingAccessories', 'containersHeavy', 'containersPersonal', 'musicalInstruments', 'poisonsNToxins', 'rope', 'shields', 'shieldStats', 'toolsAdventuring',
+        'toolsGeneral', 'toolsTrade', 'weaponsAxes', 'weaponsPolearms', 'weaponsSidearms', 'weaponsSwords', 'weaponsTrauma', 'weaponsRanged', 'ammunition', 'meleeWeaponStats',
+        'rangedWeaponStats']
+
+    const equipmentInfoFunction = chapterInfo.players[7]
+
+    if (equipmentComponents.includes(component) && typeof equipmentInfoFunction === 'function') {
+        // Brody
+        // @ts-ignore
+        const table: PossibleComponent = equipmentInfoFunction({ id: 0, patreon: isFree ? 0 : 1 }).info[0][component]
+
+        if (Array.isArray(table)) {
+            return table.reduce((currentString: string, row: any) => {
+                Object.keys(row).forEach(cellKey => {
+                    currentString += `${cellKey}: ${row[cellKey]}\n\n`
+                })
+
+                return currentString
+            }, '')
+        } else {
+            return Object.keys(table).reduce((currentString: string, tableKey: any) => {
+                // @ts-ignore
+                table[tableKey].forEach((subTable) => {
+                    Object.keys(subTable).forEach(rowKey => {
+                        currentString += `${rowKey}: ${subTable[rowKey]}\n\n`
+                    })
+                })
+
+                return currentString
+            }, '')
+        }
+    }
+
+    return ''
 }

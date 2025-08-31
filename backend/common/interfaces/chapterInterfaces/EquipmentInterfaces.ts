@@ -37,6 +37,8 @@ export interface EquipmentObject {
     rangedWeaponStats: RangedWeaponObject
 }
 
+export type EquipmentObjectKey = keyof EquipmentObject
+
 export interface PriceObject {
     [key: string]: {
         fullName: string,
