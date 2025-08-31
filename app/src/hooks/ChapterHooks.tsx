@@ -8,7 +8,8 @@ import { saveChapter } from "../redux/slices/chapterSlice.tsx"
 interface ChapterHookReturn {
     chapter: ChapterContentsReturn | null,
     preloadChapter: (pathname: string) => void,
-    saveChapterToCache: (chapterInfo: ChapterContentsReturn) => void
+    saveChapterToCache: (chapterInfo: ChapterContentsReturn) => void,
+    backgroundPreloadChapter: () => void
 }
 
 export default function ChapterHook(pathname?: string): ChapterHookReturn {
@@ -70,6 +71,46 @@ export default function ChapterHook(pathname?: string): ChapterHookReturn {
         setTimeoutID(newTimeoutID)
     }
 
+    async function backgroundPreloadChapter() {
+        const preloadOrder = [
+            'rules/6',
+            'players/6',
+            'rules/3',
+            'players/4',
+            'players/8',
+            'players/10',
+            'rules/2',
+            'players/3',
+            'players/5',
+            'rules/5',
+            'players/2',
+            'rules/1',
+            'rules/4',
+            'players/7',
+            'rules/7',
+            'players/9',
+            'players/1',
+            'players/11',
+        ]
+
+        let index = 0
+
+        while (index < preloadOrder.length) {
+            const [book, chapterNumber] = preloadOrder[index].split('/')
+
+            const chapterInfo: ChapterContentsReturn | undefined = getChapterFromCache(book, chapterNumber)
+
+            if (!chapterInfo) {
+                const { data } = await getChapterFromServer(book, chapterNumber)
+                dispatch(saveChapter(data))
+            }
+
+            index++
+        }
+
+        console.log('all chapters preloaded')
+    }
+
     function saveChapterToCache(chapterInfo: ChapterContentsReturn) {
         dispatch(saveChapter(chapterInfo))
     }
@@ -77,6 +118,7 @@ export default function ChapterHook(pathname?: string): ChapterHookReturn {
     return {
         chapter,
         preloadChapter,
-        saveChapterToCache
+        saveChapterToCache,
+        backgroundPreloadChapter
     }
 }

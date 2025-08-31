@@ -8,18 +8,21 @@ import { isUserLoggedOn, setUser } from './redux/slices/userSlice'
 
 import AllRoutes from './routes/AllRoutes'
 import axios from 'axios'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { accessURL } from './frontend-config'
 import { Tooltip } from 'react-tooltip'
 import Footer from './components/footer/Footer'
+import ChapterHook from './hooks/ChapterHooks'
 
 function App() {
+  const [hasVisitedChapter, setHasVisitedChapter] = useState(false)
+
+  const { backgroundPreloadChapter } = ChapterHook()
   const { pathname, hash } = LocationHook()
 
   const userIsLoggedIn = useSelector(isUserLoggedOn)
   const dispatch = useDispatch()
 
-  
   useEffect(() => {
     if (!userIsLoggedIn) {
       axios.get(accessURL + '/isLoggedIn').then(({ data }) => {
@@ -27,6 +30,14 @@ function App() {
       })
     }
   }, []);
+
+  useEffect(() => {
+    if (userIsLoggedIn || (pathname.includes('rules') || pathname.includes('players') && !hasVisitedChapter)) {
+      console.log('starting preload')
+      setHasVisitedChapter(true)
+      backgroundPreloadChapter()
+    }
+  }, [userIsLoggedIn, pathname])
   
   return (
     <div className='body'>
