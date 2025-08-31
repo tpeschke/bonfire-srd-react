@@ -3,7 +3,7 @@ import query from "../../../db/database"
 import chapterSQL from '../../../db/queries/chapter'
 import { checkForContentTypeBeforeSending } from "../../common/utilities/sendingFunctions"
 import { chapterCache } from "../cache/getCache"
-import { Books, ChapterContents, ChapterInfo, ChapterNavigation, LockedChapterContents, LockedNavigation } from '@srd/common/interfaces/chapterInterfaces/ChapterInterfaces'
+import { Books, ChapterContents, ChapterNavigation, LockedChapterContents, LockedNavigation } from '@srd/common/interfaces/chapterInterfaces/ChapterInterfaces'
 import { rulesChapters, playerChapters } from '@srd/common/utilities/chapters'
 import populateChapterContents from '../utilities/parseChapterContents'
 import { isOwner } from '../../user/ownerFunctions'
@@ -46,7 +46,7 @@ export function getUserAppropriateChapter(
     user: User | null | undefined,
     chapterContents: ChapterContents | LockedChapterContents,
     navigation: ChapterNavigation[] | LockedNavigation,
-    info: ChapterInfo
+    info: any
 ) {
     return {
         navigation: getChapterNavigation(user, navigation),
