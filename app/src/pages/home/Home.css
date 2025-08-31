@@ -141,3 +141,42 @@
     display: flex;
     justify-content: space-between;
 }
+
+@media (max-width: 1025px) {
+    .home-shell .columns {
+        flex-direction: column-reverse;
+    }
+
+    .home-shell .columns>div {
+        width: unset;
+    }
+
+    .tools-and-resources-shell>div {
+        flex-direction: column;
+    }
+
+    .login-logout-shell {
+        height: unset;
+        margin: 35px 15px;
+        flex-direction: unset;
+        flex-wrap: wrap;
+    }
+
+    .login-logout-shell button {
+        margin-top: 15px;
+    }
+
+    .home-shell .card.discord-card h2 {
+        line-height: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .home-shell .right {
+        margin: 0;
+    }
+
+    .login-logout-shell {
+        margin: 35px 0
+    }
+}

@@ -18,7 +18,7 @@
     border-bottom: 2px solid gray;
 }
 
-.player-heading  {
+.player-heading {
     margin-top: 15px;
 }
 
@@ -33,4 +33,40 @@
 .active-route h2 {
     border-left: 2px solid #b45f06;
     background: #b45f0650
+}
+
+.chapter-hamburger-menu {
+    display: none;
+}
+
+.chapter-hamburger-menu i {
+    color: white;
+    font-size: 40px;
+}
+
+@media (max-width: 768px) {
+    .chapter-hamburger-menu {
+        display: unset;
+        padding: 25px;
+        height: 10px;
+        border-bottom: 1px solid gray;
+        margin: -15px 0 15px 0;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+
+    .chapter-navigate-shell {
+        position: absolute;
+        top: 0;
+        height: 100vh;
+    }
+
+    .chapter-navigate-shell {
+        position: unset;
+    }
+
+    .chapter-navigate-shell.closed {
+        display: none;
+    }
 }

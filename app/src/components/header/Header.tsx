@@ -7,18 +7,29 @@ import EditIcon from './icons/EditIcon'
 import SearchIcon from './icons/searchIcon/SearchIcon'
 import { getUserPatreon, infoHasBeenFetched } from '../../redux/slices/userSlice'
 import { useSelector } from 'react-redux'
+import { useEffect, useState } from 'react'
 
 interface Props {
     pathname: string
 }
 
+export type HideIconOnHeaderFunction = (isHidden: boolean) => void
+
 export default function Header({ pathname }: Props) {
+    const [hideIcons, setHideIcons] = useState(false)
+
     const readyToGo = useSelector(infoHasBeenFetched)
     const userPatreon = useSelector(getUserPatreon)
 
+    function hideIconsOnHeader(isHidden: boolean) {
+        if (window.innerWidth < 769) {
+            setHideIcons(isHidden)
+        }
+    }
+
     return (
         <div className="header-shell">
-            <div>
+            {!hideIcons && <div>
                 <img src={logo} />
                 <Link to={'/'}>
                     <div className='title-shell'>
@@ -26,11 +37,13 @@ export default function Header({ pathname }: Props) {
                         {readyToGo && <p>{userPatreon > 0 ? 'Deluxe' : 'Free'}</p>}
                     </div>
                 </Link>
+            </div>}
+            <div className='icon-shell'>
+                {!hideIcons && <EditIcon pathname={pathname} />}
+                {!hideIcons && <LoginLogoutIcons />}
+                <SearchIcon pathname={pathname} hideIconsOnHeader={hideIconsOnHeader} />
+                {!hideIcons && <HomeIcon pathname={pathname} />}
             </div>
-            <EditIcon pathname={pathname} />
-            <LoginLogoutIcons />
-            <SearchIcon pathname={pathname} />
-            <HomeIcon pathname={pathname} />
         </div>
     )
 }

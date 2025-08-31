@@ -4,3 +4,15 @@
     display: flex;
     justify-content: space-between;
 }
+
+@media (max-width: 1441px) {
+    .content-body-shell {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .content-body-shell {
+        flex-direction: column;
+    }
+}

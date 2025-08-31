@@ -26,8 +26,8 @@
     border-bottom: 1px solid gray;
     caret-color: gray;
     color: white;
-	letter-spacing: 1px;
-	font-family: "Source Sans 3", sans-serif;
+    letter-spacing: 1px;
+    font-family: "Source Sans 3", sans-serif;
 }
 
 .search-icon-shell:hover input {
@@ -39,4 +39,27 @@
     width: 750px;
     max-width: 100%;
     padding: 0 5px
+}
+
+
+@media (max-width: 1441px) {
+    .search-icon-shell input.open-search {
+        width: 500px;
+    }
+}
+
+@media (max-width: 768px) {
+    .search-icon-shell input.open-search {
+        width: calc(100vw - 120px);
+    }
+
+    .search-icon-shell {
+        width: 85px;
+    }
+}
+
+@media (max-width: 426px) {
+    .search-icon-shell {
+        width: 0;
+    }
 }

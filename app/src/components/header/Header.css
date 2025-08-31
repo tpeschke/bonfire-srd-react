@@ -17,6 +17,10 @@
     position: relative;
 }
 
+.header-shell .icon-shell {
+    display: flex;
+}
+
 .header-shell .title-shell h1 {
     font-size: 28px;
 }
@@ -57,4 +61,30 @@ i.active {
 
 .header-spacer {
     margin-right: 25px;
+}
+
+@media (max-width: 768px) {
+    .header-shell i {
+        margin-left: 25px;
+        font-size: 35px;
+    }
+}
+
+@media (max-width: 426px) {
+    .header-shell {
+        flex-direction: column;
+    }
+
+    .header-shell>div:first-child {
+        margin: 0 0 25px;
+    }
+
+    .header-shell .icon-shell {
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .icon-shell .header-spacer, .header-shell i {
+        margin: 0;
+    }
 }

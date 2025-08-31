@@ -2,12 +2,14 @@ import { useEffect, useState } from 'react'
 import '../../Header.css'
 import './SearchIcon.css'
 import { useNavigate } from 'react-router-dom'
+import { HideIconOnHeaderFunction } from '../../Header'
 
 interface Props {
-    pathname: string
+    pathname: string,
+    hideIconsOnHeader: HideIconOnHeaderFunction
 }
 
-export default function SearchIcon({ pathname }: Props) {
+export default function SearchIcon({ pathname, hideIconsOnHeader}: Props) {
     const [focus, setFocus] = useState(false)
     const [search, setSearch] = useState("")
     const [timeoutID, setTimeoutID] = useState<any | null>(null)
@@ -20,6 +22,7 @@ export default function SearchIcon({ pathname }: Props) {
     useEffect(() => {
         if (pathname.substring(0, 7) !== '/search') {
             setSearch('')
+            hideIconsOnHeader(false)
             setFocus(false)
             if (searchInput) {
                 searchInput.value = ''
@@ -31,6 +34,7 @@ export default function SearchIcon({ pathname }: Props) {
         if (timeoutID) { clearTimeout(timeoutID) }
 
         const newTimeoutID = setTimeout(() => {
+            hideIconsOnHeader(true)
             setFocus(true)
             searchInput?.focus()
         }, 250)
@@ -40,6 +44,9 @@ export default function SearchIcon({ pathname }: Props) {
 
     function closeInput() {
         if (timeoutID) { clearTimeout(timeoutID) }
+        if (search === '') {
+            hideIconsOnHeader(false)
+        }
         setFocus(false)
     }
 
