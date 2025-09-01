@@ -10,6 +10,6 @@ export const weaponsAxes: EquipmentItem[] = [
 ]
 
 export const weaponsAxesFree: EquipmentItem[] = [
+    { item: 'Bardiche', size: 'L', complexity: 3, basePrice: 120 },
     { item: 'Battle Axe', size: 'M', complexity: 2, basePrice: 90 },
-    { item: 'Dane Axe', size: 'H', complexity: 3, basePrice: 180 }
 ]

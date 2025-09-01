@@ -60,7 +60,16 @@ export const axeStats: MeleeWeaponStatObject[] = [
 ]
 
 export const axeStatsFree: MeleeWeaponStatObject[] = [
-        {
+    {
+        name: 'Bardiche',
+        size: 'L',
+        damage: '6d4!',
+        recovery: 20,
+        damageType: 'S',
+        parry: 0,
+        measure: 4,
+    },
+    {
         name: 'Battle Axe',
         size: 'M',
         damage: '4d6!',
@@ -68,14 +77,5 @@ export const axeStatsFree: MeleeWeaponStatObject[] = [
         damageType: 'S',
         parry: 0,
         measure: 2.5,
-    },
-    {
-        name: 'Dane Axe',
-        size: 'H',
-        damage: '6d6!',
-        recovery: 26,
-        damageType: 'S',
-        parry: 0,
-        measure: 6.5,
     }
 ]
