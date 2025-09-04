@@ -77,12 +77,20 @@ ul ul, ol ol, ul ol, ol ul {
 
 blockquote, q {
 	quotes: none;
+	background: lightgray;
+    padding: 10px 0 5px;
+    margin: 15px 0;
 }
 
 blockquote:before, blockquote:after,
 q:before, q:after {
 	content: '';
 	content: none;
+}
+
+blockquote p {
+	text-align: center;
+	text-indent: 0;
 }
 
 h1 {
