@@ -13,6 +13,7 @@ import { accessURL } from './frontend-config'
 import { Tooltip } from 'react-tooltip'
 import Footer from './components/footer/Footer'
 import ChapterHook from './hooks/ChapterHooks'
+import { ToastContainer, Slide } from 'react-toastify'
 
 function App() {
   const [hasVisitedChapter, setHasVisitedChapter] = useState(false)
@@ -49,6 +50,7 @@ function App() {
       <Footer />
       <FireBackground />
       <Tooltip id="my-tooltip" place="bottom" />
+      <ToastContainer transition={Slide} stacked theme="colored" closeOnClick />
     </div>
   )
 }

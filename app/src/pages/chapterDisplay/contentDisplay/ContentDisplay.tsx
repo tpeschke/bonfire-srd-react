@@ -11,6 +11,7 @@ import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ChapterName from '../chapterName/ChapterName';
 import rehypeRaw from 'rehype-raw';
+import { toast } from 'react-toastify';
 
 interface Props {
     contents: (MarkdownContent | ComponentContent)[],
@@ -34,10 +35,38 @@ export default function ContentDisplay({ contents, pathname, chapterName, chapte
     }, [contents])
 
     const getList = (id: string | null) => {
-        // TODO Copy link
         return () => {
             navigate(`${pathname}#${id}`)
+            copyQuickLinkURL(id)
         }
+    }
+
+    const copyQuickLinkURL = (id: string | null = ''): void => {
+        let textArea = getTextArea()
+        const { origin, pathname } = window.location
+        const url = `${origin}${pathname}#${id}`
+
+        textArea.value = url;
+        document.body.appendChild(textArea);
+        textArea.focus();
+        textArea.select();
+
+        try {
+            document.execCommand('copy');
+            toast.success(`${url} successfully copied`)
+        } catch (err) {
+            toast.error(`Unable to copy ${url}`)
+        }
+        document.body.removeChild(textArea);
+    }
+
+    const getTextArea = () => {
+        let textArea = document.createElement("textarea");
+        textArea.style.position = 'fixed';
+        textArea.style.top = '0';
+        textArea.style.left = '0';
+
+        return textArea
     }
 
     return (

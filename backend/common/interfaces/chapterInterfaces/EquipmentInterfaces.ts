@@ -39,11 +39,22 @@ export interface EquipmentObject {
 
 export type EquipmentObjectKey = keyof EquipmentObject
 
+export interface PriceBySize {
+    fullName: string,
+    modifiers: number[]
+}
+
 export interface PriceObject {
-    [key: string]: {
-        fullName: string,
-        modifiers: number[]
-    }
+    F: PriceBySize,
+    D: PriceBySize,
+    T: PriceBySize,
+    S: PriceBySize
+    M: PriceBySize,
+    L: PriceBySize,
+    H: PriceBySize,
+    G: PriceBySize,
+    E: PriceBySize,
+    C: PriceBySize
 }
 
 export interface ArmorStatObject {
