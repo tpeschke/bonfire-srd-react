@@ -24,7 +24,6 @@ interface Props {
 export default function ContentDisplay({ contents, pathname, chapterName, chapterNumber, book, chapterInfo }: Props) {
     const navigate = useNavigate()
 
-    // BRODY
     useEffect(() => {
         if (contents) {
             const headers = document.querySelectorAll('.content-display-body-shell h1, .content-display-body-shell h2')
@@ -35,6 +34,7 @@ export default function ContentDisplay({ contents, pathname, chapterName, chapte
     }, [contents])
 
     const getList = (id: string | null) => {
+        // TODO Copy link
         return () => {
             navigate(`${pathname}#${id}`)
         }

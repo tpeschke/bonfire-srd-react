@@ -2,9 +2,8 @@ import query from '../../db/database'
 import { Response, Request, User } from '../../interfaces/apiInterfaces'
 import searchSQL from '../../db/queries/search'
 import { checkForContentTypeBeforeSending } from '../common/utilities/sendingFunctions'
-import { ChapterContents, ChapterContentsCache } from '@srd/common/interfaces/chapterInterfaces/ChapterInterfaces'
+import { ChapterContents, ChapterContentsCache, EquipmentTables } from '@srd/common/interfaces/chapterInterfaces/ChapterInterfaces'
 import chapterInfo from '../guides/chapter/utilities/chapterInfo'
-import { ArmorStatObject, EquipmentItem, MeleeWeaponObject, RangedWeaponObject, ShieldStatObject } from '@srd/common/interfaces/chapterInterfaces/EquipmentInterfaces'
 
 interface SearchRequest extends Request {
     params: {
@@ -54,9 +53,7 @@ function stringifyContents(contents: ChapterContents, chapter: number, isFree: b
     }, '')
 }
 
-type PossibleComponent = ArmorStatObject[] | ShieldStatObject[] | MeleeWeaponObject[] | RangedWeaponObject[] | EquipmentItem[]
-
-function stringifyIfEquipment(component: any, isFree: boolean): string {
+function stringifyIfEquipment(component: string, isFree: boolean): string {
     const equipmentComponents: string[] = ['animalLivestock', 'animalMounts', 'animalBarding', 'animalFeed', 'armorPrices', 'armorStats', 'beverages',
         'clothing', 'clothingAccessories', 'containersHeavy', 'containersPersonal', 'musicalInstruments', 'poisonsNToxins', 'rope', 'shields', 'shieldStats', 'toolsAdventuring',
         'toolsGeneral', 'toolsTrade', 'weaponsAxes', 'weaponsPolearms', 'weaponsSidearms', 'weaponsSwords', 'weaponsTrauma', 'weaponsRanged', 'ammunition', 'meleeWeaponStats',
@@ -65,9 +62,7 @@ function stringifyIfEquipment(component: any, isFree: boolean): string {
     const equipmentInfoFunction = chapterInfo.players[7]
 
     if (equipmentComponents.includes(component) && typeof equipmentInfoFunction === 'function') {
-        // Brody
-        // @ts-ignore
-        const table: PossibleComponent = equipmentInfoFunction({ id: 0, patreon: isFree ? 0 : 1 }).info[0][component]
+        const table = equipmentInfoFunction({ id: 0, patreon: isFree ? 0 : 1 }).info[0][component as EquipmentTables]
 
         if (Array.isArray(table)) {
             return table.reduce((currentString: string, row: any) => {
@@ -79,6 +74,7 @@ function stringifyIfEquipment(component: any, isFree: boolean): string {
             }, '')
         } else {
             return Object.keys(table).reduce((currentString: string, tableKey: any) => {
+                // TODO
                 // @ts-ignore
                 table[tableKey].forEach((subTable) => {
                     Object.keys(subTable).forEach(rowKey => {
