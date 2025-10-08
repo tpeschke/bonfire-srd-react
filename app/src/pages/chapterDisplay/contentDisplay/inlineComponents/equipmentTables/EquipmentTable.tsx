@@ -1,6 +1,6 @@
 import { EquipmentTables } from "@srd/common/interfaces/chapterInterfaces/ChapterInterfaces";
 import { EquipmentObject } from "@srd/common/interfaces/chapterInterfaces/EquipmentInterfaces";
-import PriceByDistanceTable from "./PriceByDIstanceTable";
+import PriceByDistanceTable from "./PriceByDistanceTable";
 import PopulatedItemTable from "./PopulatedItemTable";
 
 interface Props {

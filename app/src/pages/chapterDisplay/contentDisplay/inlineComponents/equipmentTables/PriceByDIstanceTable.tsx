@@ -5,6 +5,8 @@ interface Props {
 }
 
 export default function PriceByDistanceTable({ priceByDistance }: Props) {
+    const priceKeys= Object.keys(priceByDistance) as (keyof PriceObject)[]
+
     return (
         <div className="responsive-table">
             <table className='no-float justify-left'>
@@ -19,7 +21,7 @@ export default function PriceByDistanceTable({ priceByDistance }: Props) {
                     </tr>
                 </thead>
                 <tbody>
-                    {Object.keys(priceByDistance).map((key, index) => {
+                    {priceKeys.map((key, index) => {
                         return (
                             <tr key={index}>
                                 <td>{priceByDistance[key].fullName}</td>

@@ -1,9 +1,9 @@
-import { EquipmentItem, PriceObject } from "@srd/common/interfaces/chapterInterfaces/EquipmentInterfaces";
+import { EquipmentItem, PriceObject, Size } from "@srd/common/interfaces/chapterInterfaces/EquipmentInterfaces";
 
 interface Props {
     table: EquipmentItem[],
     priceByDistance: PriceObject,
-    sizeScaling?: string
+    sizeScaling?: Size
 }
 
 export default function PopulatedItemTable({ table, priceByDistance, sizeScaling = 'M' }: Props) {

@@ -57,6 +57,8 @@ export interface PriceObject {
     C: PriceBySize
 }
 
+export type Size = keyof PriceObject
+
 export interface ArmorStatObject {
     name: string,
     dr: string,
@@ -118,7 +120,7 @@ export interface EquipmentItem {
     item: string,
     strength?: number,
     carryBonus?: string,
-    size?: string,
+    size?: Size,
     complexity: number,
     basePrice: number
 }
