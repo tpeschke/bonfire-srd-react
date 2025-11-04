@@ -21,7 +21,5 @@ export default async function query(text: string, params?: Params[] | Params): P
 }
 
 function logError(text: string, params?: Params[] | Params) {
-    return (error: Error) => {
-        console.log(text, '\n', params, '\n', error)
-    }
+    return (error: Error) => console.log(text, '\n', params, '\n', error)
 }
