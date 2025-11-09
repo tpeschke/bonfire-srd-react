@@ -6,7 +6,7 @@ import ChapterEdit from "../pages/chapterEdit/ChapterEdit";
 import OwnerAuth from "./auth/OwnerAuth";
 import Search from "../pages/search/Search";
 import PrivacyPolicy from "../pages/privacyPolicy/PrivacyPolicy";
-import PlayerAuth from "./auth/playerAuth";
+import PlayerAuth from "./auth/PlayersAuth";
 
 interface Props {
     pathname: string,
