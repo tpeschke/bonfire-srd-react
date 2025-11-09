@@ -56,7 +56,7 @@ export function getUserAppropriateChapter(
 }
 
 function getChapterContents(user: User | null | undefined, chapterContents: ChapterContents | LockedChapterContents) {
-    const isDeluxeUser = user?.patreon && user?.patreon > 0
+    const isDeluxeUser = user?.patreon && user?.patreon >= 3
 
     if (isDeluxeUser && !Array.isArray(chapterContents)) {
         return chapterContents.deluxe

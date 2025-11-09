@@ -27,6 +27,15 @@ export default function Header({ pathname }: Props) {
         }
     }
 
+    function getSubtitle() {
+        if (!userPatreon || userPatreon === 0) {
+            return 'Free'
+        } else if (userPatreon >= 3) {
+            return 'Deluxe'
+        }
+        return ''
+    }
+
     return (
         <div className="header-shell">
             {!hideIcons && <div>
@@ -34,7 +43,7 @@ export default function Header({ pathname }: Props) {
                 <Link to={'/'}>
                     <div className='title-shell'>
                         <h1>Bonfire SRD</h1>
-                        {readyToGo && <p>{userPatreon > 0 ? 'Deluxe' : 'Free'}</p>}
+                        {readyToGo && <p>{getSubtitle()}</p>}
                     </div>
                 </Link>
             </div>}
