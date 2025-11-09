@@ -75,14 +75,15 @@ app.use('/characteristic', characteristicRoutes)
 
 // @ts-ignore
 app.use(express.static(__dirname + `/../../app/dist`));
-// app.get('/*', (request: Request, response: Response) => {
-//     response.sendFile(path.join(__dirname + '/../../app/dist/index.html'))
-// })
+app.get('/{*splat}', (request: Request, response: Response) => {
+    // @ts-ignore
+    response.sendFile(path.join(__dirname + '/../../app/dist/index.html'))
+})
 
 // ================================== \\
 
 app.listen(server, () => {
     populateChapterCache()
-    
+
     console.log(`The night lays like a lullaby on the earth ${server}`)
 })
