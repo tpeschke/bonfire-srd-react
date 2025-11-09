@@ -4,7 +4,6 @@ import { useState, useEffect } from "react"
 import { chapterURL } from '../frontend-config.ts'
 import { useDispatch, useSelector } from "react-redux"
 import { saveChapter } from "../redux/slices/chapterSlice.tsx"
-import { resolve } from "path"
 
 interface ChapterHookReturn {
     chapter: ChapterContentsReturn | null,
@@ -102,7 +101,7 @@ export default function ChapterHook(pathname?: string): ChapterHookReturn {
             const [book, chapterNumber] = preloadOrder[index].split('/')
 
             const chapterInfo: ChapterContentsReturn | undefined = getChapterFromCache(book, chapterNumber)
-
+console.log(chapterInfo)
             if (!chapterInfo) {
                 const { data } = await getChapterFromServer(book, chapterNumber)
                 dispatch(saveChapter(data))
@@ -126,6 +125,6 @@ export default function ChapterHook(pathname?: string): ChapterHookReturn {
     }
 }
 
-function delay(arg0: number) {
-    throw new Error("Function not implemented.")
+const delay = async (milliseconds: number): Promise<void> => {
+    return new Promise(resolve => setTimeout(resolve, milliseconds))
 }

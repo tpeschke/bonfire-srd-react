@@ -18,6 +18,15 @@
     border-bottom: 2px solid gray;
 }
 
+.chapter-navigate-shell .fa-lock {
+    margin-right: 5px;
+}
+
+.chapter-navigate-shell h2.disabled-route {
+    pointer-events: none;
+    color: rgb(163, 163, 163)
+}
+
 .player-heading {
     margin-top: 15px;
 }
@@ -26,7 +35,7 @@
     padding: 5px 5px 5px 15px;
 }
 
-.chapter-navigate-shell h2:hover {
+.chapter-navigate-shell h2:hover, .chapter-navigate-shell a:hover h1 {
     color: #b45f06
 }
 

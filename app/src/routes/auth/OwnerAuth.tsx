@@ -1,8 +1,8 @@
 import { JSX, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import Loading from "../components/loading/Loading";
-import { isOwner, infoHasBeenFetched } from "../redux/slices/userSlice";
+import Loading from "../../components/loading/Loading";
+import { isOwner, infoHasBeenFetched } from "../../redux/slices/userSlice";
 
 interface Props {
     children: JSX.Element,
@@ -14,7 +14,7 @@ export default function OwnerAuth({ children }: Props) {
     const navigate = useNavigate()
 
     useEffect(() => {
-        if (userInfoHasBeenFetched && !userIsOwner) {
+        if (!userInfoHasBeenFetched || (userInfoHasBeenFetched && !userIsOwner)) {
             navigate('/')
         }
     }, [children, userInfoHasBeenFetched])

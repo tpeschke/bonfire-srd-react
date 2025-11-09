@@ -3,9 +3,10 @@ import Home from "../pages/home/Home";
 import ChapterDisplay from "../pages/chapterDisplay/ChapterDisplay";
 import Loading from "../components/loading/Loading";
 import ChapterEdit from "../pages/chapterEdit/ChapterEdit";
-import OwnerAuth from "./OwnerAuth";
+import OwnerAuth from "./auth/OwnerAuth";
 import Search from "../pages/search/Search";
 import PrivacyPolicy from "../pages/privacyPolicy/PrivacyPolicy";
+import PlayerAuth from "./auth/playerAuth";
 
 interface Props {
     pathname: string,
@@ -32,9 +33,9 @@ export default function AllRoutes({ pathname, hash }: Props) {
             } />
             <Route path="players">
                 <Route path=':chapterNumber' element={
-                    <Loading>
+                    <PlayerAuth>
                         <ChapterDisplay pathname={pathname} hash={hash} />
-                    </Loading>
+                    </PlayerAuth>
                 } />
                 <Route path=':chapterNumber/edit' element={
                     <OwnerAuth>
