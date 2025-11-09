@@ -33,13 +33,18 @@
     border-bottom: 1px solid #222;
 }
 
+.home-shell p.sub-subtitle {
+    border-top: 1px solid #222;
+    margin: 0;
+}
+
 .home-shell a:hover .card {
     color: #b45f06
 }
 
 .card .patreon-shell {
     overflow: hidden;
-    height: 240px;
+    height: 242px;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;

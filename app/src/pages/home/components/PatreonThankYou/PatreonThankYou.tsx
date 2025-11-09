@@ -55,6 +55,7 @@ export default function PatreonThankYou() {
                 <div className="patreon-shell">
                     {displayedPatreons.map((patreon, index) => <p key={index}>{patreon}</p>)}
                 </div>
+                <p className="sub-subtitle">Their names appear once for each dollar they donate.</p>
             </div>
         </a>
     )
